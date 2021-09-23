@@ -1,5 +1,6 @@
 <template>
   <div id="nav">
+      <span class="text-5xl font-extrabold text-pink-500">Tailwind CSS</span>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
