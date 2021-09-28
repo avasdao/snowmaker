@@ -15,6 +15,7 @@
         <!-- Overlapping cards -->
         <section class="-mt-32 max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8" aria-labelledby="contact-heading">
             <h2 class="sr-only" id="contact-heading">Contact us</h2>
+
             <div class="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8">
                 <div class="flex flex-col bg-white rounded-2xl shadow-xl">
                     <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
@@ -29,9 +30,12 @@
                                 />
                             </svg>
                         </div>
+
                         <h3 class="text-xl font-medium text-gray-900">Sales</h3>
+
                         <p class="mt-4 text-base text-gray-500">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
                     </div>
+
                     <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
                         <a href="javascript://" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Contact us<span aria-hidden="true"> &rarr;</span></a>
                     </div>
@@ -50,9 +54,12 @@
                                 />
                             </svg>
                         </div>
+
                         <h3 class="text-xl font-medium text-gray-900">Technical Support</h3>
+
                         <p class="mt-4 text-base text-gray-500">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
                     </div>
+
                     <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
                         <a href="javascript://" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Contact us<span aria-hidden="true"> &rarr;</span></a>
                     </div>
@@ -66,11 +73,17 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-medium text-gray-900">Media Inquiries</h3>
-                        <p class="mt-4 text-base text-gray-500">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
+
+                        <h3 class="text-xl font-medium text-gray-900">Slack</h3>
+
+                        <p class="mt-4 text-base text-gray-500">
+                            <a href="https://join.slack.com/t/bchplease/shared_invite/zt-e7jj03j5-vJbe47kNrPBjTgTXwLNRkA" target="_blank">
+                                <img src="https://i.imgur.com/dzi0IWb.jpg"></a>
+                        </p>
                     </div>
+
                     <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
-                        <a href="javascript://" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Contact us<span aria-hidden="true"> &rarr;</span></a>
+                        <a href="https://join.slack.com/t/bchplease/shared_invite/zt-e7jj03j5-vJbe47kNrPBjTgTXwLNRkA" target="_blank" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Join Us On Slack<span aria-hidden="true"> &rarr;</span></a>
                     </div>
                 </div>
             </div>

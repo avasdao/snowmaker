@@ -6,11 +6,15 @@
         <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
             <div class="md:ml-auto md:w-1/2 md:pl-10">
                 <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">
-                    Ready to launch a campaign?
+                    Ready to launch your campaign?
                 </h2>
 
                 <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
-                    Get started in under 5 minutes!
+                    Get running in under 5 minutes!
+                </p>
+
+                <p class="mt-3 text-lg text-gray-300">
+                    It only takes a few details to get started and you are welcome to take as much time as needed to complete your final draft.
                 </p>
 
                 <p class="mt-3 text-lg text-gray-300">

@@ -14,7 +14,7 @@
 
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                            Profile Pages For Contributors
+                            Contributor Profile Pages
                         </h2>
 
                         <p class="mt-4 text-lg text-gray-500">

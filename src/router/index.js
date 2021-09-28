@@ -5,11 +5,10 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Bounties from '../views/Bounties.vue'
 import Campaign from '../views/Campaign.vue'
+import Help from '../views/Help.vue'
 import Launchpad from '../views/Launchpad.vue'
-import Pledging from '../views/Pledging.vue'
 import Profile from '../views/Profile.vue'
 import Reporting from '../views/Reporting.vue'
-import Showcase from '../views/Showcase.vue'
 import Sponsors from '../views/Sponsors.vue'
 import Stats from '../views/Stats.vue'
 import Support from '../views/Support.vue'
@@ -36,19 +35,14 @@ const routes = [
         component: Campaign,
     },
     {
+        path: '/help',
+        name: 'Help',
+        component: Help,
+    },
+    {
         path: '/launchpad',
         name: 'Launchpad',
         component: Launchpad,
-    },
-    {
-        path: '/pledge',        // alias
-        name: 'Pledging',
-        component: Pledging,
-    },
-    {
-        path: '/pledging',
-        name: 'Pledging',
-        component: Pledging,
     },
     {
         path: '/profile',
@@ -59,11 +53,6 @@ const routes = [
         path: '/reporting',
         name: 'Reporting',
         component: Reporting,
-    },
-    {
-        path: '/showcase',
-        name: 'Showcase',
-        component: Showcase,
     },
     {
         path: '/sponsors',

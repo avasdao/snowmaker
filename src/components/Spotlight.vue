@@ -1,5 +1,5 @@
 <template>
-    <main class="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+    <main class="relative bg-gray-50 pb-20 px-4 sm:px-6 lg:pb-28 lg:px-8">
         <div class="absolute inset-0">
             <div class="bg-white h-1/3 sm:h-2/3"></div>
         </div>
@@ -11,7 +11,7 @@
                 </h2>
 
                 <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-                    We are proud to feature the 3 campaigns that have received the most love from our generous community.
+                    We are proud to feature the 3 campaigns that have received the most love from our generous <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">Pay It Forward (PIF) community</a>.
                 </p>
             </div>
 
@@ -190,9 +190,9 @@
             </div>
 
             <div class="mt-10 flex justify-center">
-                <router-link to="/showcase" class="bg-indigo-300 rounded-xl py-5 px-10 border-4 border-indigo-500 text-gray-800 text-2xl font-bold hover:text-pink-800 hover:bg-pink-300 hover:border-pink-500">
-                    Open Full Showcase
-                </router-link>
+                <a href="javascript://" class="bg-indigo-300 rounded-xl py-5 px-10 border-4 border-indigo-500 text-gray-800 text-2xl font-bold hover:text-pink-800 hover:bg-pink-300 hover:border-pink-500">
+                    Show All Campaigns
+                </a>
             </div>
         </div>
     </main>

@@ -2,11 +2,11 @@
     <main class="bg-gradient-to-r from-purple-800 to-indigo-700">
         <div class="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white tracking-tight">
-                Inbox support built for efficiency
+                What are the KEY BENEFITS of Smartstarter?
             </h2>
 
             <p class="mt-4 max-w-3xl text-lg text-purple-200">
-                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis. Blandit aliquam sit nisl euismod mattis in.
+                Smartstarter introduces brand new functionality and elevates the existing Flipstarter platform in ways that ONLY Smart Bitcoin can deliver.
             </p>
 
             <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
@@ -26,9 +26,12 @@
                     </div>
 
                     <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Unlimited Inboxes</h3>
+                        <h3 class="text-lg font-medium text-white">
+                            NO Minimum Pledge Amount
+                        </h3>
+
                         <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                            Smartstarter removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
                         </p>
                     </div>
                 </div>
@@ -44,63 +47,14 @@
                     </div>
 
                     <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Manage Team Members</h3>
+                        <h3 class="text-lg font-medium text-white">
+                            Secure, Managed Hosting
+                        </h3>
+
                         <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
-                            <!-- Heroicon name: outline/trash -->
-                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                        </span>
-                    </div>
-
-                    <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Spam Report</h3>
-                        <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
-                            <!-- Heroicon name: outline/pencil-alt -->
-                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                            </svg>
-                        </span>
-                    </div>
-
-                    <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Compose in Markdown</h3>
-                        <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
-                            <!-- Heroicon name: outline/document-report -->
-                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                        </span>
-                    </div>
-
-                    <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Team Reporting</h3>
-                        <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                            No need to deploy your own server.
+                            Simply point your domain's CNAME to smartstarter.cash.
+                            Done!
                         </p>
                     </div>
                 </div>
@@ -116,9 +70,12 @@
                     </div>
 
                     <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Saved Replies</h3>
+                        <h3 class="text-lg font-medium text-white">
+                            Automatic Refund
+                        </h3>
+
                         <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                            If a campaign fails to get funded, your FULL contribution is automagically sent back to your account.
                         </p>
                     </div>
                 </div>
@@ -126,17 +83,41 @@
                 <div>
                     <div>
                         <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
-                            <!-- Heroicon name: outline/chat-alt -->
+                            <!-- Heroicon name: outline/document-report -->
                             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                         </span>
                     </div>
 
                     <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Email Commenting</h3>
+                        <h3 class="text-lg font-medium text-white">
+                            Self-Reporting
+                        </h3>
                         <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                            Transparent accountability before, during and after a campaign is highly encouraged and well supported.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
+                            <!-- Heroicon name: outline/pencil-alt -->
+                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">
+                            Trustless Coin Mixing
+                        </h3>
+
+                        <p class="mt-2 text-base text-purple-200">
+                            Easily privatize your contribution(s) in our trustless mixing contract.
+                            <small class="block text-sm">see <a class="text-red-400" href="https://tornado.cash" target="_blank">https://tornado.cash</a> for more info</small>
                         </p>
                     </div>
                 </div>
@@ -152,12 +133,58 @@
                     </div>
 
                     <div class="mt-6">
-                        <h3 class="text-lg font-medium text-white">Connect with Customers</h3>
+                        <h3 class="text-lg font-medium text-white">
+                            Connect With Contributors
+                        </h3>
                         <p class="mt-2 text-base text-purple-200">
-                            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                            Directly message back-and-forth with your contributors to make sure ALL questions get answered.
                         </p>
                     </div>
                 </div>
+
+                <div>
+                    <div>
+                        <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
+                            <!-- Heroicon name: outline/chat-alt -->
+                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">
+                            Editable Campaigns
+                        </h3>
+
+                        <p class="mt-2 text-base text-purple-200">
+                            Campaigns can be fully updated in real-time.
+                            All updates are recorded forever in the changelog.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
+                            <!-- Heroicon name: outline/trash -->
+                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium text-white">
+                            Private Notes
+                        </h3>
+
+                        <p class="mt-2 text-base text-purple-200">
+                            Easily add private, encrypted notes that can ONLY be (read/written) by your profile.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>

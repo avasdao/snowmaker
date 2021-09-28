@@ -27,8 +27,8 @@
                 </div>
             </div>
 
-            <router-link to="/sponsors" class="flex justify-end pr-5 mt-5 text-sm cursor-pointer hover:text-red-500">
-                Interested in sponsoring next month?
+            <router-link to="/sponsors" class="flex justify-end pr-5 mt-5 text-xs cursor-pointer hover:text-red-500">
+                Sponsorships are managed by our DAO
             </router-link>
         </div>
     </main>

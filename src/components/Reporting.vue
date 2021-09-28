@@ -19,7 +19,7 @@
 
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                            Keeping Project Managers Accountable
+                            Keep Project Managers Accountable
                         </h2>
 
                         <p class="mt-4 text-lg text-gray-500">
@@ -49,7 +49,7 @@
                                 </div>
 
                                 <div class="text-base font-medium text-gray-700">
-                                    Marcia Hill, Homemade Crypto
+                                    Cynthia Nakamoto, Homemade Crypto
                                 </div>
                             </div>
                         </footer>

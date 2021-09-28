@@ -1,27 +1,22 @@
 <template>
-    <main class="bg-white">
+    <main class="bg-white overflow-x-hidden">
         <Header />
 
-        <Hero />
+        <Hero class="pt-12 lg:pt-18" />
 
         <Sponsors />
 
-        <Spotlight />
+        <Spotlight class="pt-16 lg:pt-24" />
 
-        <!-- Alternating Feature Sections -->
-        <div class="relative pt-16 pb-32 overflow-hidden">
-            <div aria-hidden="true" class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-gray-100"></div>
+        <Reporting class="py-16 lg:py-24" />
 
-            <Reporting />
+        <Benefits class="" />
 
-            <Contributors class="mt-24" />
-        </div>
+        <Contributors class="py-16 lg:py-24" />
 
-        <Features class="hidden" />
+        <Metrics class="" />
 
-        <Metrics />
-
-        <Recent />
+        <Recent class="py-16 lg:py-24" />
 
         <CTA />
 
@@ -30,9 +25,9 @@
 
 <script>
 /* Import components. */
+import Benefits from '@/components/Benefits.vue'
 import Contributors from '@/components/Contributors.vue'
 import CTA from '@/components/CTA.vue'
-import Features from '@/components/Features.vue'
 import Header from '@/components/Header.vue'
 import Hero from '@/components/Hero.vue'
 import Metrics from '@/components/Metrics.vue'
@@ -43,9 +38,9 @@ import Spotlight from '@/components/Spotlight.vue'
 
 export default {
     components: {
+        Benefits,
         Contributors,
         CTA,
-        Features,
         Header,
         Hero,
         Metrics,
