@@ -17,7 +17,7 @@
             <div class="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
                 <h2 class="text-sm font-semibold tracking-wide uppercase">
                     <span class="bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text text-transparent">
-                        Real-time Metrics
+                        Real-time Crowdfunding Metrics
                     </span>
                 </h2>
 

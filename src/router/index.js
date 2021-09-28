@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 
 import About from '../views/About.vue'
 import Bounties from '../views/Bounties.vue'
+import Campaign from '../views/Campaign.vue'
 import Launchpad from '../views/Launchpad.vue'
 import Pledging from '../views/Pledging.vue'
 import Profile from '../views/Profile.vue'
@@ -28,6 +29,11 @@ const routes = [
         path: '/bounties',
         name: 'Bounties',
         component: Bounties,
+    },
+    {
+        path: '/campaign',
+        name: 'Campaign',
+        component: Campaign,
     },
     {
         path: '/launchpad',
