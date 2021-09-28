@@ -28,7 +28,7 @@
                                 Start a Campaign
                             </router-link>
 
-                            <router-link to="/pledge" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8">
+                            <router-link to="/pledging" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8">
                                 How To Pledge
                             </router-link>
                         </div>

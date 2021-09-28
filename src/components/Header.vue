@@ -3,10 +3,10 @@
         <div class="relative bg-white">
             <div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
                 <div class="flex justify-start lg:w-0 lg:flex-1 pl-5">
-                    <a href="javascript://">
+                    <router-link to="/">
                         <span class="sr-only">Workflow</span>
                         <img class="h-8 w-auto sm:h-12" :src="require('@/assets/logo.png')" alt="" />
-                    </a>
+                    </router-link>
                 </div>
 
                 <div class="-mr-2 -my-2 md:hidden">

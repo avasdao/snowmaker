@@ -9,8 +9,8 @@
                 </div>
 
                 <div class="px-5 py-2">
-                    <router-link to="/reports" class="text-base text-gray-500 hover:text-gray-900">
-                        Report Cards
+                    <router-link to="/reporting" class="text-base text-gray-500 hover:text-gray-900">
+                        Reporting
                     </router-link>
                 </div>
 

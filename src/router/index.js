@@ -5,10 +5,12 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Bounties from '../views/Bounties.vue'
 import Launchpad from '../views/Launchpad.vue'
-import Pledge from '../views/Pledge.vue'
+import Pledging from '../views/Pledging.vue'
 import Profile from '../views/Profile.vue'
+import Reporting from '../views/Reporting.vue'
 import Showcase from '../views/Showcase.vue'
 import Sponsors from '../views/Sponsors.vue'
+import Stats from '../views/Stats.vue'
 import Support from '../views/Support.vue'
 
 const routes = [
@@ -33,14 +35,24 @@ const routes = [
         component: Launchpad,
     },
     {
-        path: '/pledge',
-        name: 'Pledge',
-        component: Pledge,
+        path: '/pledge',        // alias
+        name: 'Pledging',
+        component: Pledging,
+    },
+    {
+        path: '/pledging',
+        name: 'Pledging',
+        component: Pledging,
     },
     {
         path: '/profile',
         name: 'Profile',
         component: Profile,
+    },
+    {
+        path: '/reporting',
+        name: 'Reporting',
+        component: Reporting,
     },
     {
         path: '/showcase',
@@ -51,6 +63,11 @@ const routes = [
         path: '/sponsors',
         name: 'Sponsors',
         component: Sponsors,
+    },
+    {
+        path: '/stats',
+        name: 'Stats',
+        component: Stats,
     },
     {
         path: '/support',
