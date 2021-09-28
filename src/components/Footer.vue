@@ -90,7 +90,7 @@
             </div>
 
             <p class="mt-8 text-center text-base text-gray-400">
-                Copyright &copy; 2021 Bitcoin Please. All rights reserved.
+                Copyright &copy; 2021 <a class="text-red-400" href="https://bchplease.org" target="_blank">Bitcoin Please</a>. All rights reserved.
             </p>
         </div>
     </main>
