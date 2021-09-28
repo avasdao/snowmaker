@@ -2,12 +2,13 @@
     <main>
         <div class="relative bg-white">
             <div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
-                <div class="flex justify-start lg:w-0 lg:flex-1">
+                <div class="flex justify-start lg:w-0 lg:flex-1 pl-5">
                     <a href="javascript://">
                         <span class="sr-only">Workflow</span>
                         <img class="h-8 w-auto sm:h-12" :src="require('@/assets/logo.png')" alt="" />
                     </a>
                 </div>
+
                 <div class="-mr-2 -my-2 md:hidden">
                     <button
                         type="button"
@@ -21,7 +22,9 @@
                         </svg>
                     </button>
                 </div>
-                <nav class="hidden md:flex space-x-10">
+
+                <!-- <nav class="hidden md:flex space-x-10"> -->
+                <nav class="hidden">
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                         <button
@@ -149,19 +152,26 @@
                         Sponsors
                     </a>
 
-                    <a href="javascript://" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                        Support
-                    </a>
+                    <router-link to="/showcase" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                        Showcase
+                    </router-link>
                 </nav>
-                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                    <a href="javascript://" class="hidden whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                        Sign in
-                    </a>
+
+                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 pr-5">
                     <a
+                        v-if="hasProfile"
                         href="javascript://"
                         class="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700"
                     >
-                        Connect Wallet
+                        View My Profile
+                    </a>
+
+                    <a
+                        v-if="hasWallet"
+                        href="javascript://"
+                        class="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700"
+                    >
+                        Connect My Wallet
                     </a>
                 </div>
             </div>
@@ -304,10 +314,16 @@ export default {
     data: () => {
         return {
             showSBCHMenu: null,
+            hasProfile: null,
+            hasWallet: null,
         }
     },
     created: function () {
         this.showSBCHMenu = false
+
+        this.hasProfile = false
+
+        this.hasWallet = true
     },
     mounted: function () {
         //

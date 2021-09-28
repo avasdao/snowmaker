@@ -5,7 +5,7 @@
         </div>
 
         <div class="relative max-w-7xl mx-auto">
-            <div class="text-center">
+            <div class="text-center hidden">
                 <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
                     Campaign Showcase
                 </h2>
@@ -188,11 +188,7 @@
                 </div>
             </div>
 
-            <div class="mt-10 flex justify-center">
-                <button class="bg-indigo-300 rounded-xl py-5 px-10 border-4 border-indigo-500 text-gray-800 text-2xl font-bold hover:text-pink-800 hover:bg-pink-300 hover:border-pink-500">
-                    Show All Campaigns
-                </button>
-            </div>
+
         </div>
     </main>
 </template>

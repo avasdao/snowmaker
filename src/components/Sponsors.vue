@@ -26,6 +26,10 @@
                     <img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg" alt="Workcation" />
                 </div>
             </div>
+
+            <router-link to="/sponsors" class="flex justify-end pr-5 mt-5 text-sm cursor-pointer hover:text-red-500">
+                Interested in sponsoring next month?
+            </router-link>
         </div>
     </main>
 </template>
