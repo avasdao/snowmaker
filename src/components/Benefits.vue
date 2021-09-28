@@ -6,7 +6,7 @@
             </h2>
 
             <p class="mt-4 max-w-3xl text-lg text-purple-200">
-                Smartstarter introduces brand new functionality and elevates the existing Flipstarter platform in ways that ONLY Smart Bitcoin can deliver.
+                Smartstarter introduces brand new set of smart contract functionality that elevates the existing Flipstarter platform in ways that ONLY SmartBCH could deliver:
             </p>
 
             <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
@@ -53,8 +53,8 @@
 
                         <p class="mt-2 text-base text-purple-200">
                             No need to deploy your own server.
-                            Simply point your domain's CNAME to smartstarter.cash.
-                            Done!
+                            Simply point your domain's CNAME to smartstarter.cash ..
+                            and DONE!
                         </p>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
                         </h3>
 
                         <p class="mt-2 text-base text-purple-200">
-                            Easily add private, encrypted notes that can ONLY be (read/written) by your profile.
+                            Easily add private, encrypted notes that can ONLY be (read/written) by your profile's private key.
                         </p>
                     </div>
                 </div>

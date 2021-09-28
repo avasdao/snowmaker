@@ -6,8 +6,8 @@
 
         <div class="relative max-w-7xl mx-auto">
             <div class="text-center">
-                <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
-                    Spotlight
+                <h2 class="text-5xl tracking-tight font-extrabold text-gray-900 sm:text-6xl">
+                    SPOTLIGHT
                 </h2>
 
                 <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
@@ -189,8 +189,8 @@
                 </div>
             </div>
 
-            <div class="mt-10 flex justify-center">
-                <a href="javascript://" class="bg-indigo-300 rounded-xl py-5 px-10 border-4 border-indigo-500 text-gray-800 text-2xl font-bold hover:text-pink-800 hover:bg-pink-300 hover:border-pink-500">
+            <div class="mt-20 flex justify-center">
+                <a href="javascript://" class="bg-indigo-300 rounded-xl py-5 px-10 border-4 border-indigo-500 text-gray-50 text-2xl font-bold hover:text-pink-800 hover:bg-pink-300 hover:border-pink-500">
                     Show All Campaigns
                 </a>
             </div>

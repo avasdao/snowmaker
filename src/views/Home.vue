@@ -8,17 +8,17 @@
 
         <Spotlight class="pt-16 lg:pt-24" />
 
-        <Reporting class="py-16 lg:py-24" />
-
         <Benefits class="" />
 
-        <Contributors class="py-16 lg:py-24" />
+        <Reporting class="py-16 lg:py-24" />
 
         <Metrics class="" />
 
-        <Recent class="py-16 lg:py-24" />
+        <Contributors class="py-16 lg:py-24" />
 
         <CTA />
+
+        <Recent class="py-16 lg:py-24" />
 
     </main>
 </template>

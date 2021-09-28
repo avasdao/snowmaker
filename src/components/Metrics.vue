@@ -26,39 +26,38 @@
                 </p>
 
                 <p class="mt-5 text-lg text-gray-300">
-                    SmartBCH introduced a new way to manage a crypto fundraiser.
+                    SmartBCH introduces an improved system for managing public, peer-to-peer fundraisers.
                 </p>
 
                 <p class="mt-5 text-lg text-gray-300">
-                    Rhoncus sagittis risus arcu erat lectus bibendum. Ut in adipiscing quis in viverra tristique sem. Ornare feugiat viverra eleifend fusce orci in quis amet. Sit in et vitae tortor, massa. Dapibus laoreet amet lacus
-                    nibh integer quis. Eu vulputate diam sit tellus quis at.
+                    All data is stored on-chain. This guarantees 100% transparency with every smartBit earned and spent.
                 </p>
 
                 <div class="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
                     <p>
-                        <span class="block text-2xl font-bold text-white">8K+</span>
-                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Companies</span> use laoreet amet lacus nibh integer quis.</span>
+                        <span class="block text-2xl font-bold text-white">100+</span>
+                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Flipstarter Campaigns</span> have been successfully funded.</span>
                     </p>
 
                     <p>
-                        <span class="block text-2xl font-bold text-white">25K+</span>
-                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Countries around the globe</span> lacus nibh integer quis.</span>
+                        <span class="block text-2xl font-bold text-white">125+</span>
+                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Countries around the globe</span> have supported Bitcoin crowdfunding.</span>
                     </p>
 
                     <p>
-                        <span class="block text-2xl font-bold text-white">98%</span>
-                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Customer satisfaction</span> laoreet amet lacus nibh integer quis.</span>
+                        <span class="block text-2xl font-bold text-white">$0</span>
+                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Supporter's Money</span> have been lost due to hacks or software bugs.</span>
                     </p>
 
                     <p>
-                        <span class="block text-2xl font-bold text-white">12M+</span>
-                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Issues resolved</span> lacus nibh integer quis.</span>
+                        <span class="block text-2xl font-bold text-white">12B+</span>
+                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Total Crypto Donations</span> to charities over the past decade.</span>
                     </p>
                 </div>
 
-                <router-link to="/stats" class="flex justify-center mt-5">
+                <router-link to="/stats" class="hidden flex justify-center mt-20">
                     <span class="py-3 px-10 text-3xl text-white rounded-xl border-4 border-indigo-500 bg-indigo-300">
-                        Open Stats
+                        Show All Stats
                     </span>
                 </router-link>
             </div>

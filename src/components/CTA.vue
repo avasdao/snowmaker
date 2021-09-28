@@ -6,19 +6,25 @@
         <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
             <div class="md:ml-auto md:w-1/2 md:pl-10">
                 <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">
-                    Ready to launch your campaign?
+                    Ready to launch your next campaign?
                 </h2>
 
                 <p class="mt-2 text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
-                    Get running in under 5 minutes!
+                    Start accepting contributions in under 5 minutes!
                 </p>
 
                 <p class="mt-3 text-lg text-gray-300">
-                    It only takes a few details to get started and you are welcome to take as much time as needed to complete your final draft.
+                    We know that your community is eager to support your next big idea.
+                    So we've made it super easy to get started.
                 </p>
 
                 <p class="mt-3 text-lg text-gray-300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis.
+                    It only takes a few details to draft and launch your campaign.
+                    Then, you are welcome to take as much time as needed to complete your final draft.
+                </p>
+
+                <p class="mt-1 text-sm text-gray-300 italic">
+                    NOTE: All campaign updates are "permanently" saved to the on-chain changelog.
                 </p>
 
                 <div class="hidden mt-8">
@@ -36,11 +42,11 @@
 
                 <div class="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
                     <router-link to="/support" class="flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700">
-                        Learn more
+                        Watch a Video Demo
                     </router-link>
 
                     <router-link to="/launchpad" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-800 bg-indigo-50 hover:bg-indigo-100">
-                        Get started
+                        Start a New Campaign
                     </router-link>
                 </div>
             </div>

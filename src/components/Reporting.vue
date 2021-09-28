@@ -19,11 +19,11 @@
 
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                            Keep Project Managers Accountable
+                            Hold Project Managers Accountable
                         </h2>
 
                         <p class="mt-4 text-lg text-gray-500">
-                            Every campaign features a Reporting section which allows project manager to detail their progress, milestones and completions.
+                            Every campaign features a Reporting section where project manager are expected to detail their progress, milestones and deliverables.
                         </p>
 
                         <div class="mt-6">
