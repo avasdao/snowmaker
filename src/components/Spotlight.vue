@@ -190,7 +190,7 @@
             </div>
 
             <div class="mt-20 flex justify-center">
-                <a href="javascript://" class="bg-indigo-300 rounded-xl py-5 px-10 border-4 border-indigo-500 text-gray-50 text-2xl font-bold hover:text-pink-800 hover:bg-pink-300 hover:border-pink-500">
+                <a href="javascript://" class="rounded-xl py-5 px-10 border-4 text-2xl font-bold text-pink-700 bg-pink-200 border-pink-400 hover:text-pink-50 hover:bg-pink-300 hover:border-pink-200">
                     Show All Campaigns
                 </a>
             </div>

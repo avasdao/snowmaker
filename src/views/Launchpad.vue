@@ -4,26 +4,39 @@
             <div class="space-y-6">
                 <div>
                     <h1 class="text-lg leading-6 font-medium text-gray-900">
-                        Project Settings
+                        Campaign Launchpad
                     </h1>
+
                     <p class="mt-1 text-sm text-gray-500">
-                        Let’s get started by filling in the information below to create your new project.
+                        Let’s get started by filling in the information below to create your new campaign.
                     </p>
                 </div>
 
                 <div>
                     <label for="project-name" class="block text-sm font-medium text-gray-700">
-                        Project Name
+                        Campaign Name
                     </label>
+
                     <div class="mt-1">
-                        <input type="text" name="project-name" id="project-name" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" value="Project Nero" />
+                        <input type="text" name="project-name" id="project-name" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="Enter your campaign name" />
                     </div>
                 </div>
 
                 <div>
-                    <label for="description" class="block text-sm font-medium text-gray-700">
-                        Description
+                    <label for="project-name" class="block text-sm font-medium text-gray-700">
+                        Funding Amount
                     </label>
+
+                    <div class="mt-1">
+                        <input type="text" name="project-name" id="project-name" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="Enter your funding amount" />
+                    </div>
+                </div>
+
+                <div class="hidden">
+                    <label for="description" class="block text-sm font-medium text-gray-700">
+                        Campaign Description
+                    </label>
+
                     <div class="mt-1">
                         <textarea id="description" name="description" rows="3" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
                     </div>
@@ -34,7 +47,9 @@
                         <label for="add-team-members" class="block text-sm font-medium text-gray-700">
                             Add Team Members
                         </label>
+
                         <p id="add-team-members-helper" class="sr-only">Search by email address</p>
+
                         <div class="flex">
                             <div class="flex-grow">
                                 <input
@@ -46,6 +61,7 @@
                                     aria-describedby="add-team-members-helper"
                                 />
                             </div>
+
                             <span class="ml-3">
                                 <button
                                     type="button"
@@ -92,8 +108,18 @@
 
                 <fieldset>
                     <legend class="text-sm font-medium text-gray-900">
-                        Privacy
+                        Spotlight Upgrade (optional)
                     </legend>
+
+                    <p class="text-sm p-3">
+                        Spotlight campaigns are featured on sites like Smartstarter and Causes Cash.
+
+                        If the campaign is successfully funded, 1% of proceeds will be sent to the
+                        <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">Pay It Forward Treasury</a>.
+
+                        Your campaign's supporters will receive
+                        <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">PIF &amp; PIF-Energy</a> for staking and voting rights respectively.
+                    </p>
 
                     <div class="mt-1 bg-white rounded-md shadow-sm -space-y-px">
                         <!-- Checked: "bg-sky-50 border-sky-200 z-10", Not Checked: "border-gray-200" -->
@@ -109,11 +135,16 @@
                             <div class="ml-3 flex flex-col">
                                 <!-- Checked: "text-sky-900", Not Checked: "text-gray-900" -->
                                 <span id="privacy-setting-0-label" class="block text-sm font-medium">
-                                    Public access
+                                    FREE CAMPAIGN
                                 </span>
+
                                 <!-- Checked: "text-sky-700", Not Checked: "text-gray-500" -->
                                 <span id="privacy-setting-0-description" class="block text-sm">
-                                    This project would be available to anyone who has the link
+                                    This campaign will be available to anyone who has the direct link.
+                                </span>
+
+                                <span class="block text-sm">
+                                    Rich-media (ie. photo, videos, etc) must be hosted on public servers.
                                 </span>
                             </div>
                         </label>
@@ -131,36 +162,21 @@
                             <div class="ml-3 flex flex-col">
                                 <!-- Checked: "text-sky-900", Not Checked: "text-gray-900" -->
                                 <span id="privacy-setting-1-label" class="block text-sm font-medium">
-                                    Private to Project Members
+                                    SPOTLIGHT CAMPAIGN
                                 </span>
                                 <!-- Checked: "text-sky-700", Not Checked: "text-gray-500" -->
                                 <span id="privacy-setting-1-description" class="block text-sm">
-                                    Only members of this project would be able to access
+                                    This project will be discoverable on ALL supporting crowdfunding platforms.
+                                </span>
+
+                                <small class="text-xs text-red-500">1% will be sent to the PIF Treasury</small>
+
+                                <span class="block text-sm">
+                                    Rich-media (ie. photo, videos, etc) must be hosted on OUR servers.
                                 </span>
                             </div>
                         </label>
 
-                        <!-- Checked: "bg-sky-50 border-sky-200 z-10", Not Checked: "border-gray-200" -->
-                        <label class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer focus:outline-none">
-                            <input
-                                type="radio"
-                                name="privacy-setting"
-                                value="Private to you"
-                                class="h-4 w-4 mt-0.5 cursor-pointer text-sky-600 border-gray-300 focus:ring-sky-500"
-                                aria-labelledby="privacy-setting-2-label"
-                                aria-describedby="privacy-setting-2-description"
-                            />
-                            <div class="ml-3 flex flex-col">
-                                <!-- Checked: "text-sky-900", Not Checked: "text-gray-900" -->
-                                <span id="privacy-setting-2-label" class="block text-sm font-medium">
-                                    Private to you
-                                </span>
-                                <!-- Checked: "text-sky-700", Not Checked: "text-gray-500" -->
-                                <span id="privacy-setting-2-description" class="block text-sm">
-                                    You are the only one able to access this project
-                                </span>
-                            </div>
-                        </label>
                     </div>
                 </fieldset>
 

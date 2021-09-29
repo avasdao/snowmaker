@@ -8,7 +8,11 @@
             </div>
             <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
                 <h1 class="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">Support</h1>
-                <p class="mt-6 max-w-3xl text-xl text-gray-300">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames. Dui, amet, nec sit pulvinar.</p>
+
+                <p class="mt-6 max-w-3xl text-xl text-gray-300">
+                    Smartstarter is a FULLY decentralized platform.
+                    There are NO central servers, so ALL (meta)data has to be stored on-chain and is 100% controlled by YOU.
+                </p>
             </div>
         </div>
 
@@ -31,13 +35,17 @@
                             </svg>
                         </div>
 
-                        <h3 class="text-xl font-medium text-gray-900">Sales</h3>
+                        <h3 class="text-xl font-medium text-gray-900">
+                            Community
+                        </h3>
 
-                        <p class="mt-4 text-base text-gray-500">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
+                        <p class="mt-4 text-base text-gray-500">
+                            Our Reddit sub (<a class="text-red-400 font-medium" href="https://www.reddit.com/r/Smartstarter/" target="_blank">/Smartstarter</a>) is the best place to go to get the most up-to-date information on this project.
+                        </p>
                     </div>
 
                     <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
-                        <a href="javascript://" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Contact us<span aria-hidden="true"> &rarr;</span></a>
+                        <a href="https://www.reddit.com/r/Smartstarter/" target="_blank" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Contact us<span aria-hidden="true"> &rarr;</span></a>
                     </div>
                 </div>
 
@@ -55,13 +63,17 @@
                             </svg>
                         </div>
 
-                        <h3 class="text-xl font-medium text-gray-900">Technical Support</h3>
+                        <h3 class="text-xl font-medium text-gray-900">
+                            Email
+                        </h3>
 
-                        <p class="mt-4 text-base text-gray-500">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
+                        <p class="mt-4 text-base text-gray-500">
+                            Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.
+                        </p>
                     </div>
 
                     <div class="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
-                        <a href="javascript://" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Contact us<span aria-hidden="true"> &rarr;</span></a>
+                        <a href="mailto:support@bchplease.org" class="text-base font-medium text-indigo-700 hover:text-indigo-600">Contact us<span aria-hidden="true"> &rarr;</span></a>
                     </div>
                 </div>
 
@@ -128,7 +140,7 @@
 
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                        Contact Our Team
+                        Leave Us Feedback
                     </h2>
 
                     <p class="mt-4 text-lg leading-6 text-gray-500">
