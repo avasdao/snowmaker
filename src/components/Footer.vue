@@ -21,8 +21,8 @@
                 </div>
 
                 <div class="px-5 py-2">
-                    <router-link to="/bounties" class="text-base text-gray-500 hover:text-gray-900">
-                        Bounties
+                    <router-link to="/spotlight" class="text-base text-gray-500 hover:text-gray-900">
+                        Spotlight
                     </router-link>
                 </div>
 

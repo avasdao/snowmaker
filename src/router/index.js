@@ -5,11 +5,14 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Bounties from '../views/Bounties.vue'
 import Campaign from '../views/Campaign.vue'
+import Compare from '../views/Compare.vue'
+import Edit from '../views/Edit.vue'
 import Help from '../views/Help.vue'
 import Launchpad from '../views/Launchpad.vue'
 import Profile from '../views/Profile.vue'
 import Reporting from '../views/Reporting.vue'
 import Sponsors from '../views/Sponsors.vue'
+import Spotlight from '../views/Spotlight.vue'
 import Stats from '../views/Stats.vue'
 import Support from '../views/Support.vue'
 
@@ -35,6 +38,16 @@ const routes = [
         component: Campaign,
     },
     {
+        path: '/compare',
+        name: 'Compare',
+        component: Compare,
+    },
+    {
+        path: '/edit',
+        name: 'Edit',
+        component: Edit,
+    },
+    {
         path: '/help',
         name: 'Help',
         component: Help,
@@ -58,6 +71,11 @@ const routes = [
         path: '/sponsors',
         name: 'Sponsors',
         component: Sponsors,
+    },
+    {
+        path: '/spotlight',
+        name: 'Spotlight',
+        component: Spotlight,
     },
     {
         path: '/stats',

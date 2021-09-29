@@ -32,6 +32,16 @@
                     </div>
                 </div>
 
+                <div>
+                    <label for="project-name" class="block text-sm font-medium text-gray-700">
+                        Public Domain
+                    </label>
+
+                    <div class="mt-1">
+                        <input type="text" v-model="publicDomain" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="Enter your public URL" />
+                    </div>
+                </div>
+
                 <div class="hidden">
                     <label for="description" class="block text-sm font-medium text-gray-700">
                         Campaign Description
@@ -39,70 +49,6 @@
 
                     <div class="mt-1">
                         <textarea id="description" name="description" rows="3" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
-                    </div>
-                </div>
-
-                <div class="space-y-2">
-                    <div class="space-y-1">
-                        <label for="add-team-members" class="block text-sm font-medium text-gray-700">
-                            Add Team Members
-                        </label>
-
-                        <p id="add-team-members-helper" class="sr-only">Search by email address</p>
-
-                        <div class="flex">
-                            <div class="flex-grow">
-                                <input
-                                    type="text"
-                                    name="add-team-members"
-                                    id="add-team-members"
-                                    class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="Email address"
-                                    aria-describedby="add-team-members-helper"
-                                />
-                            </div>
-
-                            <span class="ml-3">
-                                <button
-                                    type="button"
-                                    class="bg-white inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                                >
-                                    <!-- Heroicon name: solid/plus -->
-                                    <svg class="-ml-2 mr-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Add</span>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="border-b border-gray-200">
-                        <ul role="list" class="divide-y divide-gray-200">
-                            <li class="py-4 flex">
-                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1513910367299-bce8d8a0ebf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                                <div class="ml-3 flex flex-col">
-                                    <span class="text-sm font-medium text-gray-900">Calvin Hawkins</span>
-                                    <span class="text-sm text-gray-500">calvin.hawkins@example.com</span>
-                                </div>
-                            </li>
-
-                            <li class="py-4 flex">
-                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                                <div class="ml-3 flex flex-col">
-                                    <span class="text-sm font-medium text-gray-900">Bessie Richards</span>
-                                    <span class="text-sm text-gray-500">bessie.richards@example.com</span>
-                                </div>
-                            </li>
-
-                            <li class="py-4 flex">
-                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                                <div class="ml-3 flex flex-col">
-                                    <span class="text-sm font-medium text-gray-900">Floyd Black</span>
-                                    <span class="text-sm text-gray-500">floyd.black@example.com</span>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
 
@@ -118,7 +64,7 @@
                         <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">Pay It Forward Treasury</a>.
 
                         Your campaign's supporters will receive
-                        <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">PIF &amp; PIF-Energy</a> for staking and voting rights respectively.
+                        <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">PIF</a> for staking and voting rights.
                     </p>
 
                     <div class="mt-1 bg-white rounded-md shadow-sm -space-y-px">
@@ -141,6 +87,7 @@
                                 <!-- Checked: "text-sky-700", Not Checked: "text-gray-500" -->
                                 <span id="privacy-setting-0-description" class="block text-sm">
                                     This campaign will be available to anyone who has the direct link.
+                                    {{publicDomain}}
                                 </span>
 
                                 <span class="block text-sm">
@@ -180,7 +127,71 @@
                     </div>
                 </fieldset>
 
-                <div>
+                <div class="space-y-2">
+                    <div class="space-y-1">
+                        <label for="add-team-members" class="block text-sm font-medium text-gray-700">
+                            Add Funding Receipients
+                        </label>
+
+                        <p id="add-team-members-helper" class="sr-only">Search by contact name</p>
+
+                        <div class="flex">
+                            <div class="flex-grow">
+                                <input
+                                    type="text"
+                                    name="add-team-members"
+                                    id="add-team-members"
+                                    class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md"
+                                    placeholder="Search by contact name"
+                                    aria-describedby="add-team-members-helper"
+                                />
+                            </div>
+
+                            <span class="ml-3">
+                                <button
+                                    type="button"
+                                    class="bg-white inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                                >
+                                    <!-- Heroicon name: solid/plus -->
+                                    <svg class="-ml-2 mr-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span>Add</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200">
+                        <ul role="list" class="divide-y divide-gray-200">
+                            <li class="py-4 flex">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1513910367299-bce8d8a0ebf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                <div class="ml-3 flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900">PIF Treasury</span>
+                                    <span class="text-sm text-gray-500">pif.cash</span>
+                                </div>
+                            </li>
+
+                            <li class="py-4 flex">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                <div class="ml-3 flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900">Bessie Richards</span>
+                                    <span class="text-sm text-gray-500">bessie.richards@example.com</span>
+                                </div>
+                            </li>
+
+                            <li class="py-4 flex">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                <div class="ml-3 flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900">Floyd Black</span>
+                                    <span class="text-sm text-gray-500">floyd.black@example.com</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hidden">
                     <label for="tags" class="block text-sm font-medium text-gray-700">
                         Tags
                     </label>
@@ -191,11 +202,12 @@
                     <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
                         Cancel
                     </button>
+
                     <button
                         type="submit"
                         class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
                     >
-                        Create this project
+                        Create New Campaign
                     </button>
                 </div>
             </div>
@@ -213,7 +225,7 @@ export default {
     },
     data: () => {
         return {
-            //
+            publicDomain: null,
         }
     },
     created: function () {
