@@ -1,11 +1,11 @@
 <template>
-    <main class="bg-gradient-to-r from-purple-800 to-indigo-700">
+    <main class="bg-gradient-to-r from-indigo-900 to-purple-900">
         <div class="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white tracking-tight">
-                What are the KEY BENEFITS of Smartstarter?
+                What are the KEY BENEFITS of a Smartstarter?
             </h2>
 
-            <p class="mt-4 max-w-3xl text-lg text-purple-200">
+            <p class="mt-4 max-w-3xl text-xl text-purple-200">
                 Smartstarter introduces a brand new set of smart contract functionality; elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver:
             </p>
 
@@ -100,7 +100,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="hidden">
                     <div>
                         <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
                             <!-- Heroicon name: outline/pencil-alt -->
@@ -122,7 +122,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="hidden">
                     <div>
                         <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
                             <!-- Heroicon name: outline/heart -->
@@ -142,7 +142,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="hidden">
                     <div>
                         <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
                             <!-- Heroicon name: outline/chat-alt -->
@@ -164,7 +164,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="hidden">
                     <div>
                         <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
                             <!-- Heroicon name: outline/trash -->

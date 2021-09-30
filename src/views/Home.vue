@@ -14,9 +14,9 @@
 
         <Metrics class="" />
 
-        <Contributors class="py-16 lg:py-24" />
+        <Contributors class="py-24 lg:py-32" />
 
-        <CTA />
+        <CTA class="my-20" />
 
         <Recent class="py-16 lg:py-24" />
 
