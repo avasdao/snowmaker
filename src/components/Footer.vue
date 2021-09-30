@@ -90,7 +90,8 @@
             </div>
 
             <p class="mt-8 text-center text-base text-gray-400">
-                Copyright &copy; {{curYear}} <a class="text-red-400" href="https://bchplease.org" target="_blank">Bitcoin Please</a>. All rights reserved.
+                <span>Copyright &copy; {{curYear}} <a class="text-red-400" href="https://bchplease.org" target="_blank">Bitcoin Please</a>. </span>
+                <span class="block sm:inline">All rights reserved.</span>
             </p>
         </div>
     </main>

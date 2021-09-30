@@ -38,6 +38,11 @@ const routes = [
         component: Campaign,
     },
     {
+        path: '/flipstarter',     // alias for campaign
+        name: 'Campaign',
+        component: Campaign,
+    },
+    {
         path: '/compare',
         name: 'Compare',
         component: Compare,

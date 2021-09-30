@@ -4,12 +4,12 @@
 
         <Header />
 
-        <section class="mx-auto pt-14 pb-24 px-4 sm:pt-16 sm:pb-32 sm:px-6 lg:max-w-7xl lg:px-8">
+        <section class="mx-auto pt-14 pb-10 px-4 sm:pt-16 sm:pb-20 sm:px-6 lg:max-w-7xl lg:px-8">
             <!-- Product -->
             <div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
                 <!-- Product image -->
                 <div class="lg:row-end-1 lg:col-span-4">
-                    <div class="aspect-w-4 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden">
+                    <div class="aspect-w-4 aspect-h-3 lg:aspect-h-2 bg-gray-100 overflow-hidden rounded-lg lg:rounded-3xl">
                         <img
                             src="https://tailwindui.com/img/ecommerce-images/product-page-05-product-01.jpg"
                             alt="Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles."
@@ -20,91 +20,61 @@
 
                 <!-- Product details -->
                 <div class="max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
+
                     <div class="flex flex-col-reverse">
-                        <div class="mt-4">
-                            <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Application UI Icon Pack</h1>
+                        <Title />
 
-                            <h2 id="information-heading" class="sr-only">Product information</h2>
-                            <p class="text-sm text-gray-500 mt-2">Version 1.0 (Updated <time datetime="2021-06-05">June 5, 2021</time>)</p>
-                        </div>
-
-                        <div>
-                            <h3 class="sr-only">Reviews</h3>
-                            <div class="flex items-center">
-                                <!--
-                    Heroicon name: solid/star
-
-                    Active: "text-yellow-400", Default: "text-gray-300"
-                  -->
-                                <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                    />
-                                </svg>
-
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                    />
-                                </svg>
-
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                    />
-                                </svg>
-
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                    />
-                                </svg>
-
-                                <!-- Heroicon name: solid/star -->
-                                <svg class="text-gray-300 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                    />
-                                </svg>
-                            </div>
-                            <p class="sr-only">4 out of 5 stars</p>
-                        </div>
+                        <Reviews />
                     </div>
 
-                    <p class="text-gray-500 mt-6">
-                        The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.
+                    <p class="text-gray-500 mt-6 text-lg">
+                        {{description}}
                     </p>
+
+                    <div class="mt-5">
+                        <h4 class="sr-only">Status</h4>
+
+                        <p class="text-3xl text-center font-medium text-gray-700">
+                            {{$store.state.amountFunded}} sBCH of {{$store.state.amountRequested}} sBCH
+                        </p>
+
+                        <p class="text-center text-sm text-gray-500 font-medium">
+                            {{fundedDisplay}} of {{requestedDisplay}}
+                        </p>
+
+                        <div class="mt-6" aria-hidden="true">
+                            <div class="bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-2 bg-green-600 rounded-full" style="width: 80%"></div>
+                            </div>
+
+                            <div class="text-sm font-medium text-gray-600 mt-1 pl-5">
+                                <div class="text-green-600">Campaign is <span class="text-xl">78%</span> complete...</div>
+                            </div>
+
+                        </div>
+                    </div>
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                         <button
+                            @click="makePledge"
                             type="button"
                             class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                         >
-                            Pay $220
+                            Make a Pledge
                         </button>
+
                         <button
+                            @click="follow"
                             type="button"
                             class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                         >
-                            Preview
+                            Subscribe for Updates
                         </button>
                     </div>
 
-                    <div class="border-t border-gray-200 mt-10 pt-10">
-                        <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
-                        <div class="mt-4 prose prose-sm text-gray-500">
-                            <ul role="list">
-                                <li>200+ SVG icons in 3 unique styles</li>
+                    <Monitor class="hidden" />
 
-                                <li>Compatible with Figma, Sketch, and Adobe XD</li>
-
-                                <li>Drawn on 24 x 24 pixel grid</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <Highlights />
 
                     <div class="border-t border-gray-200 mt-10 pt-10">
                         <h3 class="text-sm font-medium text-gray-900">License</h3>
@@ -156,38 +126,7 @@
 
                 <div class="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
                     <div>
-                        <div class="border-b border-gray-200">
-                            <div class="-mb-px flex space-x-8" aria-orientation="horizontal" role="tablist">
-                                <!-- Selected: "border-indigo-600 text-indigo-600", Not Selected: "border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300" -->
-                                <button
-                                    id="tab-reviews"
-                                    class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm"
-                                    aria-controls="tab-panel-reviews"
-                                    role="tab"
-                                    type="button"
-                                >
-                                    Customer Reviews
-                                </button>
-                                <button
-                                    id="tab-faq"
-                                    class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm"
-                                    aria-controls="tab-panel-faq"
-                                    role="tab"
-                                    type="button"
-                                >
-                                    FAQ
-                                </button>
-                                <button
-                                    id="tab-license"
-                                    class="border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300 whitespace-nowrap py-6 border-b-2 font-medium text-sm"
-                                    aria-controls="tab-panel-license"
-                                    role="tab"
-                                    type="button"
-                                >
-                                    License
-                                </button>
-                            </div>
-                        </div>
+                        <Menu />
 
                         <!-- 'Customer Reviews' panel, show/hide based on tab state -->
                         <div id="tab-panel-reviews" class="-mb-10" aria-labelledby="tab-reviews" role="tabpanel" tabindex="0">
@@ -366,26 +305,79 @@
 
             <Related />
 
+            <CTA class="mt-20 rounded-3xl overflow-hidden" />
+
         </section>
 
     </main>
 </template>
 
 <script>
+/* Import modules. */
+import numeral from 'numeral'
+import superagent from 'superagent'
+
 /* Import components. */
+import CTA from '@/components/CTA.vue'
+
+import Highlights from './Campaign/Highlights.vue'
+import Menu from './Campaign/Menu.vue'
+import Monitor from './Campaign/Monitor.vue'
 import Related from './Campaign/Related.vue'
+import Reviews from './Campaign/Reviews.vue'
+import Title from './Campaign/Title.vue'
 
 export default {
     components: {
+        CTA,
+
+        Highlights,
+        Menu,
+        Monitor,
         Related,
+        Reviews,
+        Title,
     },
     data: () => {
         return {
-            //
+            usd: null,
         }
     },
+    computed: {
+        fundedDisplay() {
+            if (!this.$store.state.amountFunded) return 'n/a'
+
+            return numeral(this.$store.state.amountFunded * this.usd).format('$0,0.00')
+        },
+
+        requestedDisplay() {
+            if (!this.$store.state.amountRequested) return 'n/a'
+
+            return numeral(this.$store.state.amountRequested * this.usd).format('$0,0.00')
+        },
+
+    },
+    methods: {
+        async init() {
+            const response = await superagent.get('https://api.telr.io/v1/ticker/quote/BCH')
+            const body = response.body
+            // console.log('BODY', body)
+
+            this.usd = body.price
+
+            this.description = this.$store.state.description
+
+            this.amountFunded = 1.337
+            this.amountRequested = 30
+
+            console.log('STORE', this.$store);
+            console.log('request', this.$store.state.amountRequested);
+
+        },
+
+    },
     created: function () {
-        //
+        this.init()
     },
     mounted: function () {
         //
