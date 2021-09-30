@@ -6,7 +6,7 @@
             </h2>
 
             <p class="mt-4 max-w-3xl text-lg text-purple-200">
-                Smartstarter introduces brand new set of smart contract functionality that elevates the existing Flipstarter platform in ways that ONLY SmartBCH could deliver:
+                Smartstarter introduces a brand new set of smart contract functionality; elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver:
             </p>
 
             <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
@@ -95,7 +95,7 @@
                             Self-Reporting
                         </h3>
                         <p class="mt-2 text-base text-purple-200">
-                            Transparent accountability before, during and after a campaign is highly encouraged and well supported.
+                            Transparent accountability after a campaign has been funded is highly encouraged and now fully supported.
                         </p>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                         </h3>
 
                         <p class="mt-2 text-base text-purple-200">
-                            Easily privatize your contribution(s) in our trustless mixing contract.
+                            Easily privatize your contribution(s) in a public, trustless mixing contract.
                             <small class="block text-sm">see <a class="text-red-400" href="https://tornado.cash" target="_blank">https://tornado.cash</a> for more info</small>
                         </p>
                     </div>

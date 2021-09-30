@@ -18,28 +18,32 @@
                     </label>
 
                     <div class="mt-1">
-                        <input type="text" name="project-name" id="project-name" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="Enter your campaign name" />
+                        <input type="text" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="Awesome Bitcoin Project" />
                     </div>
                 </div>
 
                 <div>
                     <label for="project-name" class="block text-sm font-medium text-gray-700">
-                        Funding Amount
+                        Campaign Funding Amount <span class="text-xs">(in BCH)</span>
                     </label>
 
                     <div class="mt-1">
-                        <input type="text" name="project-name" id="project-name" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="Enter your funding amount" />
+                        <input type="text" name="project-name" id="project-name" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="10" />
                     </div>
                 </div>
 
                 <div>
                     <label for="project-name" class="block text-sm font-medium text-gray-700">
-                        Public Domain
+                        Campaign (Public) URL
                     </label>
 
                     <div class="mt-1">
-                        <input type="text" v-model="publicDomain" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="Enter your public URL" />
+                        <input type="text" v-model="publicDomain" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md" placeholder="https://awesome-project.org/funding" />
                     </div>
+
+                    <small class="block italic ml-3 -mt-2">
+                        <span class="font-bold">NOTE:</span> Masked to <span class="text-2xl">→</span> <span class="text-red-500">https://smartstarter.cash/&lt;your-campaign-id&gt;</span>
+                    </small>
                 </div>
 
                 <div class="hidden">

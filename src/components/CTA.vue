@@ -14,8 +14,8 @@
                 </p>
 
                 <p class="mt-3 text-lg text-gray-300">
-                    We know that your community is eager to support your next big idea.
-                    So we've made it super easy to get started.
+                    We heard that your community is eager to support your next big idea.
+                    So we've made it super easy for you to get started.
                 </p>
 
                 <p class="mt-3 text-lg text-gray-300">
