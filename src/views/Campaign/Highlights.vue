@@ -6,26 +6,10 @@
 
         <div class="mt-4 prose prose-sm text-gray-500">
             <ul role="list">
-                <li>
-                    <strong class="mr-2">{{$store.state.highlights[0].cat}}</strong>
-                    {{$store.state.highlights[0].heading}}
+                <li v-for="highlight of $store.state.highlights" :key="highlight.id">
+                    <strong class="mr-2">{{highlight.cat}}</strong>
+                    {{highlight.heading}}
                 </li>
-
-                <li>
-                    <strong class="mr-2">{{$store.state.highlights[1].cat}}</strong>
-                    {{$store.state.highlights[1].heading}}
-                </li>
-
-                <li>
-                    <strong class="mr-2">{{$store.state.highlights[2].cat}}</strong>
-                    {{$store.state.highlights[2].heading}}
-                </li>
-
-                <li>
-                    <strong class="mr-2">{{$store.state.highlights[3].cat}}</strong>
-                    {{$store.state.highlights[3].heading}}
-                </li>
-
             </ul>
         </div>
     </div>

@@ -52,7 +52,7 @@
                                     <div class="mt-3 flex items-center">
                                         <p class="text-white text-4xl font-extrabold tracking-tight">FREE</p>
                                         <div class="ml-4">
-                                            <p class="text-white text-sm">USD</p>
+                                            <p class="text-white text-xs">&nbsp;</p>
                                             <p class="text-indigo-200 text-sm">as in beer</p>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
 
                                 <li class="py-3 flex items-center">
                                     <svg class="text-indigo-200 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    <span class="text-white ml-4 text-sm font-medium">3 - 6 Hours Avg Setup Time</span>
+                                    <span class="text-white ml-4 text-sm font-medium">3 - 6 HOURS Avg Setup Time</span>
                                 </li>
 
                                 <li class="py-3 flex items-center">
@@ -87,6 +87,11 @@
                                 <li class="py-3 flex items-center">
                                     <svg class="text-red-400 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                     <span class="text-white ml-4 text-sm font-medium">Showcased on Premium Sites</span>
+                                </li>
+
+                                <li class="py-3 flex items-center">
+                                    <svg class="text-red-400 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span class="text-white ml-4 text-sm font-medium">Automagically Return Expired Pledges</span>
                                 </li>
 
                                 <li class="py-3 flex items-center">
@@ -114,7 +119,7 @@
                         <div class="bg-white ring-2 ring-indigo-700 shadow-md pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12">
                             <div>
                                 <h3 class="text-indigo-600 text-sm font-semibold uppercase tracking-wide">
-                                    Spotlight Campaign
+                                    Premium Spotlight Campaign
                                 </h3>
 
                                 <div class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start">
@@ -122,7 +127,7 @@
                                         <p class="text-indigo-600 text-4xl font-extrabold tracking-tight">1%</p>
                                         <div class="ml-4">
                                             <p class="text-gray-700 text-sm">Total Funding Goal</p>
-                                            <p class="text-gray-500 text-sm">ONLY paid if successful</p>
+                                            <p class="text-gray-500 text-sm">ONLY paid if successfully funded</p>
                                         </div>
                                     </div>
 
@@ -137,37 +142,34 @@
                             <ul role="list" class="border-gray-200 divide-gray-200 mt-7 border-t divide-y lg:border-t-0">
 
                                 <li class="py-3 flex items-center">
-                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="text-gray-600 ml-4 text-sm font-medium">5 Minute Avg Setup Time</span>
+                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span class="text-gray-600 ml-4 text-sm font-medium">5 MINUTES Avg Setup Time</span>
                                 </li>
 
                                 <li class="py-3 flex items-center">
-                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="text-gray-600 ml-4 text-sm font-medium">Pay It Forward Token Rewards</span>
+                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                                    <span class="text-gray-600 ml-4 text-sm font-medium">
+                                        <a class="text-red-500 text-medium" href="https://pif.cash" target="_blank">Pay It Forward (PIF)</a> Token Rewards
+                                    </span>
                                 </li>
 
                                 <li class="py-3 flex items-center">
-                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
+                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                                     <span class="text-gray-600 ml-4 text-sm font-medium">FREE Media Hosting (photos, videos)</span>
                                 </li>
 
                                 <li class="py-3 flex items-center">
-                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
+                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                                     <span class="text-gray-600 ml-4 text-sm font-medium">Showcased on Premium Sites</span>
                                 </li>
 
                                 <li class="py-3 flex items-center">
-                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
+                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                                    <span class="text-gray-600 ml-4 text-sm font-medium">Automagically Return Expired Pledges</span>
+                                </li>
+
+                                <li class="py-3 flex items-center">
+                                    <svg class="text-indigo-500 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                                     <span class="text-gray-600 ml-4 text-sm font-medium">Cloudflare DDoS Protection</span>
                                 </li>
 
@@ -204,7 +206,7 @@
                                     <div class="mt-3 flex items-center">
                                         <p class="text-white text-4xl font-extrabold tracking-tight">FREE</p>
                                         <div class="ml-4">
-                                            <p class="text-white text-sm">USD</p>
+                                            <p class="text-white text-xs">&nbsp;</p>
                                             <p class="text-indigo-200 text-sm">as in beer</p>
                                         </div>
                                     </div>
@@ -221,7 +223,7 @@
 
                                 <li class="py-3 flex items-center">
                                     <svg class="text-indigo-200 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    <span class="text-white ml-4 text-sm font-medium">2 Hour Avg Setup Time</span>
+                                    <span class="text-white ml-4 text-sm font-medium">1 - 2 HOURS Avg Setup Time</span>
                                 </li>
 
                                 <li class="py-3 flex items-center">
@@ -237,6 +239,11 @@
                                 <li class="py-3 flex items-center">
                                     <svg class="text-red-400 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                     <span class="text-white ml-4 text-sm font-medium">Showcased on Premium Sites</span>
+                                </li>
+
+                                <li class="py-3 flex items-center">
+                                    <svg class="text-red-400 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span class="text-white ml-4 text-sm font-medium">Automagically Return Expired Pledges</span>
                                 </li>
 
                                 <li class="py-3 flex items-center">

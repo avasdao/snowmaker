@@ -261,6 +261,8 @@
                 </div>
             </div>
 
+            <Policy />
+
             <Related />
 
             <CTA class="mt-20 rounded-3xl overflow-hidden" />
@@ -280,6 +282,7 @@ import CTA from '@/components/CTA.vue'
 
 import Disclaimer from './Campaign/Disclaimer.vue'
 import Highlights from './Campaign/Highlights.vue'
+import Policy from './Campaign/Policy.vue'
 import Menu from './Campaign/Menu.vue'
 import Monitor from './Campaign/Monitor.vue'
 import Related from './Campaign/Related.vue'
@@ -293,6 +296,7 @@ export default {
 
         Disclaimer,
         Highlights,
+        Policy,
         Menu,
         Monitor,
         Related,

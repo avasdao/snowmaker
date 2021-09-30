@@ -6,7 +6,7 @@
 
         <ul role="list" class="flex items-center space-x-6 mt-4">
             <li>
-                <a href="#" class="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500">
+                <a href="javascript://" class="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Share on Facebook</span>
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path
@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500">
+                <a href="javascript://" class="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Share on Instagram</span>
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500">
+                <a href="javascript://" class="flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Share on Twitter</span>
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path
