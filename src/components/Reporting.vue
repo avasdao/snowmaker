@@ -27,7 +27,7 @@
                         </p>
 
                         <div class="mt-6">
-                            <router-link to="/reporting" class="inline-flex bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700">
+                            <router-link to="/reports" class="inline-flex bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700">
                                 Open Reporting Feed
                             </router-link>
                         </div>

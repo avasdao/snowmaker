@@ -1,8 +1,8 @@
 <template>
     <main class="bg-white">
-        <MobileMenu />
+        <!-- <MobileMenu /> -->
 
-        <Header />
+        <!-- <Header /> -->
 
         <section class="mx-auto pt-14 pb-10 px-4 sm:pt-16 sm:pb-20 sm:px-6 lg:max-w-7xl lg:px-8">
             <!-- Product -->
@@ -110,6 +110,7 @@
 
 <script>
 /* Import modules. */
+import { ethers } from 'ethers'
 import numeral from 'numeral'
 import superagent from 'superagent'
 
@@ -218,6 +219,29 @@ export default {
 
         },
 
+        async initBlockchain() {
+            /* Initialize provider. */
+            const provider = new ethers
+                .providers
+                // .JsonRpcProvider('https://smartbch.fountainhead.cash/mainnet')
+                .JsonRpcProvider('https://smartbch.devops.cash/testnet')
+            console.log('PROVIDER', provider)
+
+            const blockNum = await provider.getBlockNumber()
+            console.log('BLOCK NUM', blockNum)
+
+            const contractAddress = '0xf8226c5a9429DcAdbEff5AA98Ba1c90A45A6a241'
+            const abi = require('../../contracts/Smartstarter.json')
+
+            const instance = new ethers.Contract(contractAddress, abi, provider)
+            console.log('INSTANCE', instance)
+
+            console.log('ALL CAMPAIGNS', await instance.returnAllCampaigns());
+            // const tx = await instance.transfer(MALICIOUS_ADDRESS, 10000000000000000)
+
+
+        },
+
         /**
          * Toggle Menu
          *
@@ -260,6 +284,9 @@ export default {
 
         /* Initialize campaign. */
         this.init()
+
+        /* Initialize blockchain. */
+        this.initBlockchain()
 
     },
     mounted: function () {

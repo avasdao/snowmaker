@@ -9,7 +9,7 @@
                     </router-link>
 
                     <div class="hidden ml-10 space-x-8 lg:block">
-                        <router-link to="/reporting" class="text-base font-medium text-white hover:text-indigo-50" key="Reporting">
+                        <router-link to="/reports" class="text-base font-medium text-white hover:text-indigo-50" key="Reporting">
                             Reporting
                         </router-link>
 
