@@ -10,7 +10,7 @@ import Edit from '../views/Edit.vue'
 import Help from '../views/Help.vue'
 import Launchpad from '../views/Launchpad.vue'
 import Profile from '../views/Profile.vue'
-import Reporting from '../views/Reporting.vue'
+import Reports from '../views/Reports.vue'
 import Sponsors from '../views/Sponsors.vue'
 import Spotlight from '../views/Spotlight.vue'
 import Stats from '../views/Stats.vue'
@@ -68,9 +68,9 @@ const routes = [
         component: Profile,
     },
     {
-        path: '/reporting',
-        name: 'Reporting',
-        component: Reporting,
+        path: '/reports',
+        name: 'Reports',
+        component: Reports,
     },
     {
         path: '/sponsors',

@@ -1,6 +1,6 @@
 <template>
     <main>
-        <h1>Reporting</h1>
+        <h1>Report Cards</h1>
     </main>
 </template>
 
