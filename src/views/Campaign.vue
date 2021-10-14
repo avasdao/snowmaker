@@ -28,7 +28,7 @@
                     </div>
 
                     <p class="text-gray-500 mt-6 text-lg">
-                        {{description}}
+                        {{summary}}
                     </p>
 
                     <div class="mt-5">
@@ -76,6 +76,8 @@
 
                     <Highlights />
 
+                    <Sponsors />
+
                     <Share />
 
                     <Disclaimer />
@@ -84,129 +86,12 @@
 
                 <div class="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
                     <div>
-                        <Menu />
+                        <Menu @tabbed="toggleMenu" />
 
-                        <!-- 'Customer Reviews' panel, show/hide based on tab state -->
-                        <div id="tab-panel-reviews" class="-mb-10" aria-labelledby="tab-reviews" role="tabpanel" tabindex="0">
-                            <h3 class="sr-only">Customer Reviews</h3>
-
-                            <div class="flex text-sm text-gray-500 space-x-4">
-                                <div class="flex-none py-10">
-                                    <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="" class="w-10 h-10 bg-gray-100 rounded-full" />
-                                </div>
-                                <div class="flex-1 py-10">
-                                    <h3 class="font-medium text-gray-900">Emily Selman</h3>
-                                    <p><time datetime="2021-07-16">July 16, 2021</time></p>
-
-                                    <div class="flex items-center mt-4">
-                                        <!--
-                        Heroicon name: solid/star
-
-                        Active: "text-yellow-400", Default: "text-gray-300"
-                      -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <p class="sr-only">5 out of 5 stars</p>
-
-                                    <div class="mt-4 prose prose-sm max-w-none text-gray-500">
-                                        <p>This icon pack is just what I need for my latest project. There's an icon for just about anything I could ever need. Love the playful look!</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex text-sm text-gray-500 space-x-4">
-                                <div class="flex-none py-10">
-                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="" class="w-10 h-10 bg-gray-100 rounded-full" />
-                                </div>
-                                <div class="flex-1 py-10 border-t border-gray-200">
-                                    <h3 class="font-medium text-gray-900">Hector Gibbons</h3>
-                                    <p><time datetime="2021-07-12">July 12, 2021</time></p>
-
-                                    <div class="flex items-center mt-4">
-                                        <!--
-                        Heroicon name: solid/star
-
-                        Active: "text-yellow-400", Default: "text-gray-300"
-                      -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-
-                                        <!-- Heroicon name: solid/star -->
-                                        <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <p class="sr-only">5 out of 5 stars</p>
-
-                                    <div class="mt-4 prose prose-sm max-w-none text-gray-500">
-                                        <p>
-                                            Blown away by how polished this icon pack is. Everything looks so consistent and each SVG is optimized out of the box so I can use it directly with confidence. It would take me several hours to create
-                                            a single icon this good, so it's a steal at this price.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- More reviews... -->
-                        </div>
+                        <Contributors v-if="showContributors" />
+                        <Description v-if="showDescription" />
+                        <Feedback v-if="showFeedback" />
+                        <ReportCards v-if="showReportCards" />
 
                         <!-- 'FAQ' panel, show/hide based on tab state -->
                         <dl id="tab-panel-faq" class="text-sm text-gray-500" aria-labelledby="tab-faq" role="tabpanel" tabindex="0">
@@ -277,36 +162,57 @@
 import numeral from 'numeral'
 import superagent from 'superagent'
 
-/* Import components. */
+/* Import (global) components. */
 import CTA from '@/components/CTA.vue'
 
+/* Import (local) components. */
+import Contributors from './Campaign/Contributors.vue'
+import Description from './Campaign/Description.vue'
 import Disclaimer from './Campaign/Disclaimer.vue'
+import Feedback from './Campaign/Feedback.vue'
 import Highlights from './Campaign/Highlights.vue'
 import Policy from './Campaign/Policy.vue'
 import Menu from './Campaign/Menu.vue'
 import Monitor from './Campaign/Monitor.vue'
 import Related from './Campaign/Related.vue'
+import ReportCards from './Campaign/ReportCards.vue'
 import Reviews from './Campaign/Reviews.vue'
 import Share from './Campaign/Share.vue'
+import Sponsors from './Campaign/Sponsors.vue'
 import Title from './Campaign/Title.vue'
+
+/* Set ticker endpoint. */
+const TICKER_ENDPOINT = 'https://api.telr.io/v1/ticker/quote/BCH'
 
 export default {
     components: {
         CTA,
 
+        Contributors,
+        Description,
         Disclaimer,
+        Feedback,
         Highlights,
         Policy,
         Menu,
         Monitor,
         Related,
+        ReportCards,
         Reviews,
         Share,
+        Sponsors,
         Title,
     },
     data: () => {
         return {
             usd: null,
+            summary: null,
+            description: null,
+
+            showContributors: null,
+            showDescription: null,
+            showFeedback: null,
+            showReportCards: null,
         }
     },
     computed: {
@@ -325,25 +231,85 @@ export default {
     },
     methods: {
         async init() {
-            const response = await superagent.get('https://api.telr.io/v1/ticker/quote/BCH')
+            /* Request ticker. */
+            const response = await superagent
+                .get(TICKER_ENDPOINT)
+                .catch(err => console.error(err))
+
+            /* Validate response. */
+            if (!response) {
+                throw new Error('Failed to receive ticker from remote API.')
+            }
+
+            /* Set response body. */
             const body = response.body
             // console.log('BODY', body)
 
+            /* Validate body. */
+            if (!body) {
+                throw new Error('Failed to receive ticker from remote API.')
+            }
+
+            /* Set USD price. */
             this.usd = body.price
 
+            // FOR DEVELOPMENT PURPOSES ONLY
+            this.summary = this.$store.state.summary
+
+            // FOR DEVELOPMENT PURPOSES ONLY
             this.description = this.$store.state.description
 
+            // FOR DEVELOPMENT PURPOSES ONLY
             this.amountFunded = 1.337
+
+            // FOR DEVELOPMENT PURPOSES ONLY
             this.amountRequested = 30
 
-            console.log('STORE', this.$store);
-            console.log('request', this.$store.state.amountRequested);
+        },
+
+        /**
+         * Toggle Menu
+         *
+         * Controls the information display menus.
+         */
+        toggleMenu(_selected) {
+            // console.log('TOGGLE MENU (selected):', _selected)
+
+            /* Set all menu displays to false. */
+            this.showContributors = false
+            this.showDescription = false
+            this.showFeedback = false
+            this.showReportCards = false
+
+            /* Handle user selection. */
+            switch(_selected) {
+            case 'contributors':
+                return this.showContributors = true
+            case 'description':
+                return this.showDescription = true
+            case 'feedback':
+                return this.showFeedback = true
+            case 'report-cards':
+                return this.showReportCards = true
+            default:
+                return this.showDescription = true
+            }
 
         },
 
     },
     created: function () {
+        /* Set all menu displays to false. */
+        this.showContributors = false
+        this.showFeedback = false
+        this.showReportCards = false
+
+        /* Set description (default) display to true. */
+        this.showDescription = true
+
+        /* Initialize campaign. */
         this.init()
+
     },
     mounted: function () {
         //
