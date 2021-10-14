@@ -1,0 +1,79 @@
+[
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "returnAllCampaigns",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_title",
+				"type": "string"
+			},
+			{
+				"name": "_description",
+				"type": "string"
+			},
+			{
+				"name": "_durationInDays",
+				"type": "uint256"
+			},
+			{
+				"name": "_amountToRaise",
+				"type": "uint256"
+			}
+		],
+		"name": "startCampaign",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "campaignAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "campaignCreator",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "campaignTitle",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "campaignDesc",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "fundingGoal",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "expiration",
+				"type": "uint256"
+			}
+		],
+		"name": "CampaignStarted",
+		"type": "event"
+	}
+]

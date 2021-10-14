@@ -11,7 +11,7 @@
  * favorite crypto-accepting project(s).
  *
  * This platform is 100% decentralized and can run over ANY IPFS node using
- * exclusively client-side JavaScript (NO central server or APIs).
+ * exclusively client-side JavaScript (NO central server or APIs required).
  *
  * __________________________________________________
  *
@@ -40,8 +40,29 @@
 /* Initialize Solidity version 0.5.4 */
 pragma solidity 0.5.4;
 
-/* Import OpenZeppelin's SafeMath implementation. */
-import 'https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol';
+
+/*******************************************************************************
+ *
+ * SafeMath
+ */
+library SafeMath {
+    function add(uint a, uint b) internal pure returns (uint c) {
+        c = a + b;
+        require(c >= a);
+    }
+    function sub(uint a, uint b) internal pure returns (uint c) {
+        require(b <= a);
+        c = a - b;
+    }
+    function mul(uint a, uint b) internal pure returns (uint c) {
+        c = a * b;
+        require(a == 0 || c / a == b);
+    }
+    function div(uint a, uint b) internal pure returns (uint c) {
+        require(b > 0);
+        c = a / b;
+    }
+}
 
 
 /*******************************************************************************
@@ -58,16 +79,16 @@ contract Smartstarter {
     using SafeMath for uint256;
 
     /* Initialize campaigns holder. */
-    Campiagn[] private campaigns;
+    Campaign[] private _campaigns;
 
     /* Event that will be emitted whenever a new campaign is started. */
     event CampaignStarted(
-        address contractAddress,
-        address projectStarter,
-        string projectTitle,
-        string projectDesc,
-        uint256 expiration,
-        uint256 goalAmount
+        address campaignAddress,
+        address campaignCreator,
+        string campaignTitle,
+        string campaignDesc,
+        uint256 fundingGoal,
+        uint256 expiration
     );
 
     /**
@@ -82,38 +103,47 @@ contract Smartstarter {
      *   - durationInDays: Project deadline in days (optional, 0 = no expiration)
      *   - amountToRaise: Project goal in wei(?)
      */
-    function startProject(
-        string calldata title,
-        string calldata description,
-        uint durationInDays,
-        uint amountToRaise
+    function startCampaign(
+        string calldata _title,
+        string calldata _description,
+        uint _durationInDays,
+        uint _amountToRaise
     ) external {
-        uint raiseUntil = now.add(durationInDays.mul(1 days));
+        /* Set expiration date. */
+        uint expiration = now.add(_durationInDays.mul(1 days));
 
-        Project newProject = new Project(
-            msg.sender, title, description, raiseUntil, amountToRaise);
-
-        projects.push(newProject);
-
-        emit ProjectStarted(
-            address(newProject),
+        /* Initialize a new campaign. */
+        Campaign newCampaign = new Campaign(
             msg.sender,
-            title,
-            description,
-            raiseUntil,
-            amountToRaise
+            _title,
+            _description,
+            expiration,
+            _amountToRaise
+        );
+
+        /* Add new campaign. */
+        _campaigns.push(newCampaign);
+
+        /* Send notification. */
+        emit CampaignStarted(
+            address(newCampaign),
+            msg.sender,
+            _title,
+            _description,
+            _amountToRaise,
+            expiration
         );
     }
 
     /**
-     * Return All Projects
+     * Return All Campaigns
      *
-     * Function to get all projects' contract addresses.
+     * Function to get all campaigns' contract addresses.
      *
-     * Will return a list of all projects' contract addreses.
+     * Will return a list of all campaigns' contract addreses.
      */
-    function returnAllProjects() external view returns(Project[] memory){
-        return projects;
+    function returnAllCampaigns() external view returns(Campaign[] memory){
+        return _campaigns;
     }
 }
 
@@ -129,7 +159,7 @@ contract Smartstarter {
 contract Campaign {
     using SafeMath for uint256;
 
-    // Data structures
+    /* Enumerate the state of the campaign. */
     enum State {
         Fundraising,
         Expired,
@@ -268,6 +298,7 @@ contract Campaign {
 
         /* Set contribution amount to zero. */
         // NOTE: This is required to block re-entry attack.
+        //       (https://docs.soliditylang.org/en/v0.5.3/security-considerations.html#re-entrancy)
         // TODO: Allow partial refund requests.
         contributions[msg.sender] = 0;
 
