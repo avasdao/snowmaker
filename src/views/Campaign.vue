@@ -93,55 +93,6 @@
                         <Feedback v-if="showFeedback" />
                         <ReportCards v-if="showReportCards" />
 
-                        <!-- 'FAQ' panel, show/hide based on tab state -->
-                        <dl id="tab-panel-faq" class="text-sm text-gray-500" aria-labelledby="tab-faq" role="tabpanel" tabindex="0">
-                            <h3 class="sr-only">Frequently Asked Questions</h3>
-
-                            <dt class="mt-10 font-medium text-gray-900">What format are these icons?</dt>
-                            <dd class="mt-2 prose prose-sm max-w-none text-gray-500">
-                                <p>The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in code.</p>
-                            </dd>
-
-                            <dt class="mt-10 font-medium text-gray-900">Can I use the icons at different sizes?</dt>
-                            <dd class="mt-2 prose prose-sm max-w-none text-gray-500">
-                                <p>
-                                    Yes. The icons are drawn on a 24 x 24 pixel grid, but the icons can be scaled to different sizes as needed. We don&#039;t recommend going smaller than 20 x 20 or larger than 64 x 64 to retain legibility and
-                                    visual balance.
-                                </p>
-                            </dd>
-
-                            <!-- More FAQs... -->
-                        </dl>
-
-                        <!-- 'License' panel, show/hide based on tab state -->
-                        <div id="tab-panel-license" class="pt-10" aria-labelledby="tab-license" role="tabpanel" tabindex="0">
-                            <h3 class="sr-only">License</h3>
-
-                            <div class="prose prose-sm max-w-none text-gray-500">
-                                <h4>Overview</h4>
-
-                                <p>For personal and professional use. You cannot resell or redistribute these icons in their original or modified state.</p>
-
-                                <ul role="list">
-                                    <li>You're allowed to use the icons in unlimited projects.</li>
-                                    <li>Attribution is not required to use the icons.</li>
-                                </ul>
-
-                                <h4>What you can do with it</h4>
-
-                                <ul role="list">
-                                    <li>Use them freely in your personal and professional work.</li>
-                                    <li>Make them your own. Change the colors to suit your project or brand.</li>
-                                </ul>
-
-                                <h4>What you can't do with it</h4>
-
-                                <ul role="list">
-                                    <li>Don't be greedy. Selling or distributing these icons in their original or modified state is prohibited.</li>
-                                    <li>Don't be evil. These icons cannot be used on websites or applications that promote illegal or immoral beliefs or activities.</li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

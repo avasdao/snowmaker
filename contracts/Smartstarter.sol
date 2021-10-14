@@ -5,7 +5,7 @@
  *
  * https://smartstarter.cash
  *
- * Current version: v21.9.23
+ * Current version: v21.10.14
  *
  * Individual supporters can now easily send financial support to their
  * favorite crypto-accepting project(s).
@@ -51,35 +51,36 @@ import 'https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/Saf
  *
  * This is the platform's primary contract.
  *
- * This contract will manage the projects created on the platform.
+ * This contract will manage the campaigns created on the platform.
  *
  */
 contract Smartstarter {
     using SafeMath for uint256;
 
-    /* Initialize projects holder. */
-    Project[] private projects;
+    /* Initialize campaigns holder. */
+    Campiagn[] private campaigns;
 
-    /* Event that will be emitted whenever a new project is started. */
-    event ProjectStarted(
+    /* Event that will be emitted whenever a new campaign is started. */
+    event CampaignStarted(
         address contractAddress,
         address projectStarter,
         string projectTitle,
         string projectDesc,
-        uint256 deadline,
+        uint256 expiration,
         uint256 goalAmount
     );
 
     /**
-     * Start Project
+     * Start Campaign
      *
-     * Create a new project in Smartstarter.
+     * Create a new campaign in Smartstarter.
      *
      * Params:
-     *   - title: Title of the project to be created
-     *   - description Brief description about the project
-     *   - durationInDays Project deadline in days
-     *   - amountToRaise Project goal in wei
+     *   - title: Title of the campaign to be created
+     *   - pitch: Brief explanation about the campiagn
+     *   - description: Detailed explaination about the campaign
+     *   - durationInDays: Project deadline in days (optional, 0 = no expiration)
+     *   - amountToRaise: Project goal in wei(?)
      */
     function startProject(
         string calldata title,
@@ -119,13 +120,13 @@ contract Smartstarter {
 
 /*******************************************************************************
  *
- * Project Contract
+ * Campaign Contract
  * __________________________________________________
  *
- * This contract controls the project's individual details.
+ * This contract controls the campaign's individual details.
  *
  */
-contract Project {
+contract Campaign {
     using SafeMath for uint256;
 
     // Data structures
@@ -148,6 +149,7 @@ contract Project {
 
     // Event that will be emitted whenever funding will be received
     event FundingReceived(address contributor, uint amount, uint currentTotal);
+
     // Event that will be emitted whenever the project starter has received the funds
     event CreatorPaid(address recipient);
 
@@ -163,8 +165,8 @@ contract Project {
         _;
     }
 
-    constructor
-    (
+    /* Constructor. */
+    constructor (
         address payable projectStarter,
         string memory projectTitle,
         string memory projectDesc,
@@ -179,68 +181,120 @@ contract Project {
         currentBalance = 0;
     }
 
-    /** @dev Function to fund a certain project.
-      */
+    /**
+     * Contribute
+     *
+     * Function to fund a certain project.
+     *
+     * NOTE: Requires the current state to be "Fundraising".
+     */
     function contribute() external inState(State.Fundraising) payable {
         require(msg.sender != creator);
-        contributions[msg.sender] = contributions[msg.sender].add(msg.value);
+
+        contributions[msg.sender] = contributions[msg.sender]
+            .add(msg.value);
+
         currentBalance = currentBalance.add(msg.value);
+
         emit FundingReceived(msg.sender, msg.value, currentBalance);
+
         checkIfFundingCompleteOrExpired();
     }
 
-    /** @dev Function to change the project state depending on conditions.
-      */
+    /**
+     * Check If Funding Complete or Expired
+     *
+     * Function to change the project state depending on conditions.
+     */
     function checkIfFundingCompleteOrExpired() public {
+        /* Validate current balance. */
         if (currentBalance >= amountGoal) {
+            /* Set state to "Successful". */
             state = State.Successful;
+
+            /* Make payout. */
+            // NOTE: The payout address MUST be an "external" account (NOT a contract).
             payOut();
         } else if (now > raiseBy)  {
             state = State.Expired;
         }
+
+        /* Set completion time. */
         completeAt = now;
     }
 
-    /** @dev Function to give the received funds to project starter.
-      */
+    /**
+     * Payout
+     *
+     * Function to give the received funds to project starter.
+     */
     function payOut() internal inState(State.Successful) returns (bool) {
+        /* Set total raised. */
         uint256 totalRaised = currentBalance;
+
+        /* Reset current balance. */
         currentBalance = 0;
 
+        /* Send total raised to creator. */
         if (creator.send(totalRaised)) {
+            /* Emit event. */
             emit CreatorPaid(creator);
+
+            /* Return true. */
             return true;
         } else {
+            /* Reset current balance. */
             currentBalance = totalRaised;
+
+            /* Reset state. */
             state = State.Successful;
         }
 
+        /* Return false. */
         return false;
     }
 
-    /** @dev Function to retrieve donated amount when a project expires.
-      */
+    /**
+     * Get Refund
+     *
+     * Function to retrieve donated amount when a project expires.
+     */
     function getRefund() public inState(State.Expired) returns (bool) {
+        /* Validate contribution balance. */
         require(contributions[msg.sender] > 0);
 
+        /* Set amount to refund. */
         uint amountToRefund = contributions[msg.sender];
+
+        /* Set contribution amount to zero. */
+        // NOTE: This is required to block re-entry attack.
+        // TODO: Allow partial refund requests.
         contributions[msg.sender] = 0;
 
+        /* Send refund. */
         if (!msg.sender.send(amountToRefund)) {
+            /* Reset contribution total. */
             contributions[msg.sender] = amountToRefund;
+
+            /* Return false. */
             return false;
         } else {
+            /* Reset current balance. */
             currentBalance = currentBalance.sub(amountToRefund);
         }
 
+        /* Return true. */
         return true;
     }
 
-    /** @dev Function to get specific information about the project.
-      * @return Returns all the project's details
-      */
-    function getDetails() public view returns
-    (
+    /**
+     * Get Details
+     *
+     * Function to get specific information about the project.
+     *
+     * @return Returns all the project's details
+     */
+    function getDetails() public view returns (
         address payable projectStarter,
         string memory projectTitle,
         string memory projectDesc,
@@ -262,7 +316,7 @@ contract Project {
 
 /*******************************************************************************
  *
- * ( this contract was last update on 2021.09.23 )
+ * ( this contract was last updated on 2021.10.14 )
  *
  * Please visit our websites:
  *   - https://smartstarter.cash

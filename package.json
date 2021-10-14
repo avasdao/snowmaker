@@ -1,6 +1,6 @@
 {
   "name": "smartstarter",
-  "version": "21.9.29",
+  "version": "21.10.14",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "core-js": "3.6.5",
+    "dompurify": "2.3.3",
     "moment": "2.29.1",
     "numeral": "2.0.6",
+    "showdown": "1.9.1",
     "superagent": "6.1.0",
     "uuid": "8.3.2",
     "vue": "3.0.0",
