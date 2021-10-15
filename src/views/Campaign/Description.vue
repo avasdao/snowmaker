@@ -1,12 +1,12 @@
 <template>
-    <main>
-        <div v-html="description" />
+    <main id="campaign-description">
+        <div class="mt-10 p-10 bg-gray-50 border-2 border-gray-200 rounded-xl" v-html="description" />
     </main>
 </template>
 
 <script>
 /* Import modules. */
-// import DOMPurify from 'dompurify'
+import DOMPurify from 'dompurify'
 import showdown from 'showdown'
 
 /* Import components. */
@@ -24,13 +24,17 @@ export default {
     created: function () {
         this.description = this.$store.state.description
 
-        // const clean = DOMPurify.sanitize( this.description , {
-        //     USE_PROFILES: { html: true }
-        // })
+        /* Sanitize markdown (from description). */
+        const markdown = DOMPurify.sanitize( this.description , {
+            USE_PROFILES: { html: true } // HTML ONLY
+        })
 
-
+        /* Initialize Showdown converter. */
+        // Reference to docs: https://github.com/showdownjs/showdown/wiki
         const converter = new showdown.Converter()
-        const html = converter.makeHtml(this.description)
+
+        /* Convert markdown to HTML. */
+        const html = converter.makeHtml(markdown)
         console.log('HTML', html)
 
         // this.description = clean
@@ -41,3 +45,35 @@ export default {
     },
 }
 </script>
+
+<style>
+#campaign-description h1 {
+    font-size: 2.5em;
+}
+
+#campaign-description h2 {
+    font-size: 1.875em;
+    border-bottom: 1pt solid #999;
+}
+
+#campaign-description h3 {
+    font-size: 1.25em;
+}
+
+#campaign-description p {
+    padding: 10px 0;
+}
+
+#campaign-description ol, #campaign-description ul {
+    padding: 10px 30px;
+    /* background-color: purple; */
+}
+
+#campaign-description ol > li {
+    list-style-type: decimal;
+}
+
+#campaign-description ul > li {
+    list-style-type: disc;
+}
+</style>

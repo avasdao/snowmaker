@@ -18,6 +18,10 @@ Make your pledge now and help our team deliver this 100% Free and Open Source So
         description: `
 # Introducing Smartstarter
 
+### [https://smartstarter.cash](https://smartstarter.cash)
+
+![Badge](https://i.imgur.com/hVN5DVB.png)
+
 Enjoy the peace of mind...
 
 hi there
@@ -29,6 +33,10 @@ okat then
 - what
 - about
 - this
+
+## Stretch Goals
+
+I'd like to mention our future plans..
         `,
 
         /* Set highlights. */

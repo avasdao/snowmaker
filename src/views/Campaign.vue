@@ -328,6 +328,19 @@ export default {
                 console.log('CONTRIBUTOR', contributor, fundsRaised.toString(), reclaimAmount.toString())
             })
 
+            /* Request event data. */
+            query = await campaign
+                .queryFilter('CreatorPaid', fromBlock, toBlock)
+            console.log('QUERY (CreatorPaid):', query)
+
+            /* Handle event entries. */
+            query.forEach(entry => {
+                /* Set recipient. */
+                const recipient = entry.args.recipient
+
+                console.log('RECEIPIENT', recipient)
+            })
+
         },
 
         /**
@@ -340,7 +353,7 @@ export default {
 
             /* Set all menu displays to false. */
             this.showContributors = false
-            this.showDescription = false
+            this.showDescription = true
             this.showFeedback = false
             this.showReportCards = false
 
