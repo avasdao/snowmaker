@@ -189,6 +189,12 @@ contract Campaign {
     /* Initialize completion date. */
     uint private _completeAt;
 
+    /* Initialize starting block. */
+    uint private _startingBlock;
+
+    /* Initialize starting time. */
+    uint private _startingTime;
+
     /* Initialize pledges holder. */
     mapping (address => Pledge) private _pledges;
 
@@ -198,15 +204,23 @@ contract Campaign {
     /* Initialize (campaign) state. */
     State private _state = State.Fundraising;
 
+    /* Emitted after campaign creator has received the funds. */
+    event CreatorPaid(address recipient);
+
     /* Emitted after pledge is received. */
     event PledgeReceived(
-        address contributor,
+        address indexed contributor,
         uint pledgeAmount,
+        uint totalPledgeAmount,
         uint fundsRaised
     );
 
-    /* Emitted after campaign creator has received the funds. */
-    event CreatorPaid(address recipient);
+    /* Emitted after pledge is reclaimed. */
+    event PledgeReclaimed(
+        address indexed contributor,
+        uint reclaimAmount,
+        uint fundsRaised
+    );
 
     /* Validate current state. */
     modifier inState(State _s) {
@@ -245,6 +259,14 @@ contract Campaign {
 
         /* Set total pledged balance. */
         _pledgeBalance = 0;
+
+        /* Set starting block number. */
+        // NOTE: We should make this configurable.
+        _startingBlock = block.number;
+
+        /* Set starting time. */
+        // NOTE: We should make this configurable.
+        _startingTime = block.timestamp;
     }
 
     /**
@@ -265,17 +287,21 @@ contract Campaign {
         /* Initialize a new pledge. */
         Pledge memory pledge;
 
+        /* Initialize total pledge amount. */
+        // NOTE: Contributors may increase their pledge amount at anytime.
+        uint256 totalPledged;
+
         /* Validate outstanding pledge from contributor. */
         if (_pledges[msg.sender].amount > 0) {
-            /* Calculate new (pledge) total. */
-            uint256 newTotal = _pledges[msg.sender].amount.add(msg.value);
-
-            /* Set the new total. */
-            pledge.amount = newTotal;
+            /* Calculate (accumulated) pledge total. */
+            totalPledged = _pledges[msg.sender].amount.add(msg.value);
         } else {
-            /* Initialize a zero amount. */
-            pledge.amount = 0;
+            /* Set initial pledge total. */
+            totalPledged = msg.value;
         }
+
+        /* Set pledge amount. */
+        pledge.amount = totalPledged;
 
         /* Set pledge label. */
         pledge.label = _label;
@@ -296,6 +322,7 @@ contract Campaign {
         emit PledgeReceived(
             msg.sender,
             msg.value,
+            totalPledged,
             _pledgeBalance
         );
 
@@ -357,11 +384,13 @@ contract Campaign {
     }
 
     /**
-     * Get Refund
+     * Reclaim
      *
-     * Return pledged amount after a campaign expires.
+     * Return the total pledge amount to a contributor.
+     *
+     * NOTE: This function can only be called after a campaign has expired.
      */
-    function getRefund() public inState(State.Expired) returns (bool) {
+    function reclaim() public inState(State.Expired) returns (bool) {
         /* Validate contribution balance. */
         require(_pledges[msg.sender].amount > 0);
 
@@ -386,32 +415,85 @@ contract Campaign {
             _pledgeBalance = _pledgeBalance.sub(amountToRefund);
         }
 
+        /* Send reclaim notification. */
+        emit PledgeReclaimed(
+            msg.sender,
+            amountToRefund,
+            _pledgeBalance
+        );
+
         /* Return true. */
         return true;
     }
 
     /**
-     * Get Details
+     * Get Campaign
      *
      * Retrieve details about a campaign.
      */
-    function getDetails() public view returns (
-        address payable campaign,
-        string memory campaignTitle,
-        string memory campaignDesc,
+    function getCampaign() public view returns (
+        address payable creator,
+        string memory title,
+        string memory description,
+        uint256 startingBlock,
+        uint256 startingTime,
         uint256 expiration,
         uint256 fundingGoal,
         State currentState,
         uint256 pledgeBalance
     ) {
-        campaign = _creator;
-        campaignTitle = _title;
-        campaignDesc = _description;
+        /* Set creator. */
+        creator = _creator;
+
+        /* Set title. */
+        title = _title;
+
+        /* Set description. */
+        description = _description;
+
+        /* Set starting block. */
+        startingBlock = _startingBlock;
+
+        /* Set starting time. */
+        startingTime = _startingTime;
+
+        /* Set expiration. */
         expiration = _expiration;
+
+        /* Set funding goal. */
         fundingGoal = _fundingGoal;
+
+        /* Set current state. */
         currentState = _state;
+
+        /* Set pledge balance. */
         pledgeBalance = _pledgeBalance;
     }
+
+    /**
+     * Get Contributor
+     *
+     * Retrieve details about a contributor.
+     */
+    function getContributor(address _contributor) public view returns (
+        uint256 amount,
+        string memory label,
+        string memory comment,
+        string memory url
+    ) {
+        /* Set amount. */
+        amount = _pledges[_contributor].amount;
+
+        /* Set label. */
+        label = _pledges[_contributor].label;
+
+        /* Set comment. */
+        comment = _pledges[_contributor].comment;
+
+        /* Set URL. */
+        url = _pledges[_contributor].url;
+    }
+
 }
 
 

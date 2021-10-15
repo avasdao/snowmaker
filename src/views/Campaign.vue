@@ -63,12 +63,20 @@
                             Make a Pledge
                         </button>
 
-                        <button
+                        <!-- <button
                             @click="follow"
                             type="button"
                             class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                         >
                             Subscribe for Updates
+                        </button> -->
+
+                        <button
+                            @click="reclaim"
+                            type="button"
+                            class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                        >
+                            Reclaim My Pledge
                         </button>
                     </div>
 
@@ -109,6 +117,8 @@
 </template>
 
 <script>
+/* global BigInt */
+
 /* Import modules. */
 import { ethers } from 'ethers'
 import numeral from 'numeral'
@@ -135,6 +145,11 @@ import Title from './Campaign/Title.vue'
 
 /* Set ticker endpoint. */
 const TICKER_ENDPOINT = 'https://api.telr.io/v1/ticker/quote/BCH'
+
+// const ONE_BITCOIN = BigInt(100000000)
+
+const SMARTSTARTER_CONTRACT = '0x999b9a64BF7C3753f148C12a7D87EF8Fd89c401B'
+const CAMPAIGN_CONTRACT = '0x2b6F67CD1edD6BA12F6f1C0F00f945f8d784F7C1'
 
 export default {
     components: {
@@ -231,14 +246,14 @@ export default {
             console.log('BLOCK NUM', blockNum)
 
             /* Set Smartstarter contract address. */
-            const sAddr = '0xe33589C5BeF7e33EabA3E4C8883e86C9066F80fb'
+            const sAddr = SMARTSTARTER_CONTRACT
 
             /* Set Smartstarter ABI. */
             const sAbi = require('../../contracts/Smartstarter.json')
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = '0xf74Fe0ca14b3Bb8a8fedF3ec7ecD7800EC658E28'
+            const cAddr = CAMPAIGN_CONTRACT
 
             /* Set Campaign ABI. */
             const cAbi = require('../../contracts/Campaign.json')
@@ -325,7 +340,73 @@ export default {
         async makePledge() {
             console.log('START PLEDGE');
 
-            console.log('STARTING METAMASK TEST..')
+            /* Validate embedded Web3 objects. */
+            if (!window.ethereum && !window.bitcoin) {
+                /* Validate embedded ethereum object. */
+                if (window.bitcoin) {
+                    console.info('Found Bitcoin provider.')
+                } else if (window.ethereum) {
+                    console.info('Found Ethereum provider.')
+                } else {
+                    return console.error('No Web3 provider found.')
+                }
+            }
+
+            /* Initialize provider. */
+            const provider = new ethers
+                .providers
+                .Web3Provider(window.ethereum, 'any')
+
+            /* Prompt user for account connections. */
+            // await provider.send('eth_requestAccounts', [])
+
+            /* Set signer. */
+            const signer = provider.getSigner()
+
+            /* Request account. */
+            // this.account = await signer.getAddress()
+            // console.log('Account:', this.account)
+
+            // FOR DEVELOPMENT PURPOSES ONLY
+            // The first campaign contract is hardcoded.
+            const cAddr = CAMPAIGN_CONTRACT
+
+            /* Set Campaign ABI. */
+            const cAbi = require('../../contracts/Campaign.json')
+
+            /* Initialize campaign instance. */
+            const campaign = new ethers.Contract(cAddr, cAbi, signer)
+            console.log('CONTRACT (campaign):', campaign)
+
+            // console.log('CAMPAIGN (info):', await campaign.getDetails())
+
+            /* Set gas price. */
+            // NOTE: Current minimum is 1 gWei (1,000,000,000)
+            const gasPrice = BigInt(1000000000)
+
+            // const sats = BigInt(150000) // 0.015 BCH
+
+            /* Set value. */
+            // const value = (BigInt(1000000000000000000) * sats) / ONE_BITCOIN // 1 BCH
+            const value = BigInt(1000000000)
+
+            /* Make pledge. */
+            await campaign
+                .makePledge('Codie', 'bits and bytes', 'http://code.fun', {
+                    gasPrice,
+                    value,
+                })
+        },
+
+        /**
+         * Reclaim Pledge
+         *
+         * Allows a contributor to reclaim their pledged funds.
+         *
+         * NOTE: This is ONLY available after the campaign has expired.
+         */
+        async reclaim() {
+            console.log('RECLAIM PLEDGE');
 
             /* Validate embedded Web3 objects. */
             if (!window.ethereum && !window.bitcoin) {
@@ -356,7 +437,7 @@ export default {
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = '0xf74Fe0ca14b3Bb8a8fedF3ec7ecD7800EC658E28'
+            const cAddr = CAMPAIGN_CONTRACT
 
             /* Set Campaign ABI. */
             const cAbi = require('../../contracts/Campaign.json')
@@ -367,10 +448,15 @@ export default {
 
             // console.log('CAMPAIGN (info):', await campaign.getDetails())
 
-            await campaign.makePledge('Codie', 'bits and bytes', 'http://code.fun', {
-                gasPrice: 1000000000, // 1 gWei
-                value: 1500000000, // 1.5 gWei
-            })
+            /* Set gas price. */
+            // NOTE: Current minimum is 1 gWei (1,000,000,000)
+            const gasPrice = BigInt(1000000000)
+
+            /* Reclaim pledge. */
+            await campaign
+                .reclaim({
+                    gasPrice,
+                })
         },
 
     },
