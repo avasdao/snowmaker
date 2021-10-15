@@ -223,23 +223,67 @@ export default {
             /* Initialize provider. */
             const provider = new ethers
                 .providers
-                // .JsonRpcProvider('https://smartbch.fountainhead.cash/mainnet')
+                // .JsonRpcProvider('https://smartbch.fountainhead.cash/mainnet') // no CORS available
                 .JsonRpcProvider('https://smartbch.devops.cash/testnet')
             console.log('PROVIDER', provider)
 
             const blockNum = await provider.getBlockNumber()
             console.log('BLOCK NUM', blockNum)
 
-            // const contractAddress = '0xf8226c5a9429DcAdbEff5AA98Ba1c90A45A6a241' // first
-            const contractAddress = '0xD3C1Ea01b6A9675F2E7d38aafa06Ea2b43Cd9d37' // mvp
-            const abi = require('../../contracts/Smartstarter.json')
+            /* Set Smartstarter contract address. */
+            const sAddr = '0xe33589C5BeF7e33EabA3E4C8883e86C9066F80fb'
 
-            const instance = new ethers.Contract(contractAddress, abi, provider)
-            console.log('INSTANCE', instance)
+            /* Set Smartstarter ABI. */
+            const sAbi = require('../../contracts/Smartstarter.json')
 
-            console.log('ALL CAMPAIGNS', await instance.returnAllCampaigns());
-            // const tx = await instance.transfer(MALICIOUS_ADDRESS, 10000000000000000)
+            // FOR DEVELOPMENT PURPOSES ONLY
+            // The first campaign contract is hardcoded.
+            const cAddr = '0xf74Fe0ca14b3Bb8a8fedF3ec7ecD7800EC658E28'
 
+            /* Set Campaign ABI. */
+            const cAbi = require('../../contracts/Campaign.json')
+
+            /* Initialize Smartstarter instance. */
+            const smartstarter = new ethers.Contract(sAddr, sAbi, provider)
+            console.log('CONTRACT (smartstarter):', smartstarter)
+
+            console.log('ALL CAMPAIGNS', await smartstarter.getCampaigns());
+
+            /* Initialize campaign instance. */
+            const campaign = new ethers.Contract(cAddr, cAbi, provider)
+            console.log('CONTRACT (campaign):', campaign)
+
+            console.log('CAMPAIGN (info):', await campaign.getCampaign())
+
+            // const eventFilter = campaign.filters.PledgeReceived()
+            // console.log('CAMPAIGN (events):', eventFilter)
+
+            /* Set from block. */
+            // FIXME: How should we determine this number??
+            const fromBlock = 1118916
+
+            /* Set to block. */
+            // FIXME: How should we determine this number??
+            const toBlock = 1118953
+
+            /* Request event data. */
+            const query = await campaign
+                .queryFilter('PledgeReceived', fromBlock, toBlock)
+            console.log('QUERY (PledgeReceived):', query)
+
+            /* Handle event entries. */
+            query.forEach(entry => {
+                /* Set contributor. */
+                const contributor = entry.args.contributor
+
+                /* Set funds raised. */
+                const fundsRaised = entry.args.fundsRaised
+
+                /* Set pledge amount. */
+                const pledgeAmount = entry.args.pledgeAmount
+
+                console.log('CONTRIBUTOR', contributor, fundsRaised.toString(), pledgeAmount.toString())
+            })
 
         },
 
@@ -271,6 +315,62 @@ export default {
                 return this.showDescription = true
             }
 
+        },
+
+        /**
+         * Make Pledge
+         *
+         * Begins the pledge process by launching a UI modal.
+         */
+        async makePledge() {
+            console.log('START PLEDGE');
+
+            console.log('STARTING METAMASK TEST..')
+
+            /* Validate embedded Web3 objects. */
+            if (!window.ethereum && !window.bitcoin) {
+                /* Validate embedded ethereum object. */
+                if (window.bitcoin) {
+                    console.info('Found Bitcoin provider.')
+                } else if (window.ethereum) {
+                    console.info('Found Ethereum provider.')
+                } else {
+                    return console.error('No Web3 provider found.')
+                }
+            }
+
+            /* Initialize provider. */
+            const provider = new ethers
+                .providers
+                .Web3Provider(window.ethereum, 'any')
+
+            /* Prompt user for account connections. */
+            // await provider.send('eth_requestAccounts', [])
+
+            /* Set signer. */
+            const signer = provider.getSigner()
+
+            /* Request account. */
+            // this.account = await signer.getAddress()
+            // console.log('Account:', this.account)
+
+            // FOR DEVELOPMENT PURPOSES ONLY
+            // The first campaign contract is hardcoded.
+            const cAddr = '0xf74Fe0ca14b3Bb8a8fedF3ec7ecD7800EC658E28'
+
+            /* Set Campaign ABI. */
+            const cAbi = require('../../contracts/Campaign.json')
+
+            /* Initialize campaign instance. */
+            const campaign = new ethers.Contract(cAddr, cAbi, signer)
+            console.log('CONTRACT (campaign):', campaign)
+
+            // console.log('CAMPAIGN (info):', await campaign.getDetails())
+
+            await campaign.makePledge('Codie', 'bits and bytes', 'http://code.fun', {
+                gasPrice: 1000000000, // 1 gWei
+                value: 1500000000, // 1.5 gWei
+            })
         },
 
     },

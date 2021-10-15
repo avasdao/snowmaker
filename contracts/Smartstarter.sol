@@ -37,9 +37,7 @@
  *
  */
 
-/* Initialize Solidity version 0.5.4 */
-pragma solidity 0.5.4;
-
+pragma solidity 0.5.17;
 
 /*******************************************************************************
  *
@@ -136,13 +134,11 @@ contract Smartstarter {
     }
 
     /**
-     * Return All Campaigns
+     * Request All Campaigns
      *
-     * Function to get all campaigns' contract addresses.
-     *
-     * Will return a list of all campaigns' contract addreses.
+     * Returns the contract addresses for ALL campaigns.
      */
-    function returnAllCampaigns() external view returns(Campaign[] memory){
+    function getCampaigns() external view returns(Campaign[] memory){
         return _campaigns;
     }
 }
