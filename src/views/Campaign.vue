@@ -230,7 +230,8 @@ export default {
             const blockNum = await provider.getBlockNumber()
             console.log('BLOCK NUM', blockNum)
 
-            const contractAddress = '0xf8226c5a9429DcAdbEff5AA98Ba1c90A45A6a241'
+            // const contractAddress = '0xf8226c5a9429DcAdbEff5AA98Ba1c90A45A6a241' // first
+            const contractAddress = '0xD3C1Ea01b6A9675F2E7d38aafa06Ea2b43Cd9d37' // mvp
             const abi = require('../../contracts/Smartstarter.json')
 
             const instance = new ethers.Contract(contractAddress, abi, provider)

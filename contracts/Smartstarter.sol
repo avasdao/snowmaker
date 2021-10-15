@@ -8,7 +8,7 @@
  * Current version: v21.10.14
  *
  * Individual supporters can now easily send financial support to their
- * favorite crypto-accepting project(s).
+ * favorite crypto-accepting campaign(s).
  *
  * This platform is 100% decentralized and can run over ANY IPFS node using
  * exclusively client-side JavaScript (NO central server or APIs required).
@@ -117,8 +117,8 @@ contract Smartstarter {
             msg.sender,
             _title,
             _description,
-            expiration,
-            _amountToRaise
+            _amountToRaise,
+            expiration
         );
 
         /* Add new campaign. */
@@ -166,118 +166,194 @@ contract Campaign {
         Successful
     }
 
-    // State variables
-    address payable public creator;
-    uint public amountGoal; // required to reach at least this much, else everyone gets refund
-    uint public completeAt;
-    uint256 public currentBalance;
-    uint public raiseBy;
-    string public title;
-    string public description;
-    State public state = State.Fundraising; // initialize on create
-    mapping (address => uint) public contributions;
+    /* Enumerate the state of the campaign. */
+    struct Pledge {
+        uint amount;
+        string label;
+        string comment;
+        string url;
+    }
 
-    // Event that will be emitted whenever funding will be received
-    event FundingReceived(address contributor, uint amount, uint currentTotal);
+    /* Initialize creator. */
+    address payable private _creator;
 
-    // Event that will be emitted whenever the project starter has received the funds
+    /* Initialize title. */
+    string private _title;
+
+    /* Initialize description. */
+    string private _description;
+
+    /* Initialize funding goal. */
+    // NOTE: Required to reach at least this much, else everyone gets refund.
+    uint private _fundingGoal;
+
+    /* Initialize expiration date. */
+    uint private _expiration;
+
+    /* Initialize completion date. */
+    uint private _completeAt;
+
+    /* Initialize pledges holder. */
+    mapping (address => Pledge) private _pledges;
+
+    /* Initialize total (campaign) pledges. */
+    uint256 private _pledgeBalance;
+
+    /* Initialize (campaign) state. */
+    State private _state = State.Fundraising;
+
+    /* Emitted after pledge is received. */
+    event PledgeReceived(
+        address contributor,
+        uint pledgeAmount,
+        uint fundsRaised
+    );
+
+    /* Emitted after campaign creator has received the funds. */
     event CreatorPaid(address recipient);
 
-    // Modifier to check current state
-    modifier inState(State _state) {
-        require(state == _state);
+    /* Validate current state. */
+    modifier inState(State _s) {
+        require(_state == _s);
         _;
     }
 
-    // Modifier to check if the function caller is the project creator
+    /* Validate caller is the campaign creator. */
     modifier isCreator() {
-        require(msg.sender == creator);
+        require(msg.sender == _creator);
         _;
     }
 
     /* Constructor. */
     constructor (
-        address payable projectStarter,
-        string memory projectTitle,
-        string memory projectDesc,
-        uint fundRaisingDeadline,
-        uint goalAmount
+        address payable _campaignCreator,
+        string memory _campaignTitle,
+        string memory _campaignDesc,
+        uint _campaignFundingGoal,
+        uint _campaignExpiration
     ) public {
-        creator = projectStarter;
-        title = projectTitle;
-        description = projectDesc;
-        amountGoal = goalAmount;
-        raiseBy = fundRaisingDeadline;
-        currentBalance = 0;
+        /* Set campaign creator. */
+        _creator = _campaignCreator;
+
+        /* Set title. */
+        _title = _campaignTitle;
+
+        /* Set description. */
+        _description = _campaignDesc;
+
+        /* Set funding goal. */
+        _fundingGoal = _campaignFundingGoal;
+
+        /* Set expiration. */
+        _expiration = _campaignExpiration;
+
+        /* Set total pledged balance. */
+        _pledgeBalance = 0;
     }
 
     /**
-     * Contribute
+     * Make Pledge
      *
-     * Function to fund a certain project.
+     * Fund a certain campaign.
      *
      * NOTE: Requires the current state to be "Fundraising".
      */
-    function contribute() external inState(State.Fundraising) payable {
-        require(msg.sender != creator);
+    function makePledge(
+        string calldata _label,
+        string calldata _comment,
+        string calldata _url
+    ) external inState(State.Fundraising) payable {
+        /* Validate the contributor is NOT the creator. */
+        require(msg.sender != _creator);
 
-        contributions[msg.sender] = contributions[msg.sender]
-            .add(msg.value);
+        /* Initialize a new pledge. */
+        Pledge memory pledge;
 
-        currentBalance = currentBalance.add(msg.value);
+        /* Validate outstanding pledge from contributor. */
+        if (_pledges[msg.sender].amount > 0) {
+            /* Calculate new (pledge) total. */
+            uint256 newTotal = _pledges[msg.sender].amount.add(msg.value);
 
-        emit FundingReceived(msg.sender, msg.value, currentBalance);
+            /* Set the new total. */
+            pledge.amount = newTotal;
+        } else {
+            /* Initialize a zero amount. */
+            pledge.amount = 0;
+        }
 
+        /* Set pledge label. */
+        pledge.label = _label;
+
+        /* Set pledge comment. */
+        pledge.comment = _comment;
+
+        /* Set pledge url. */
+        pledge.url = _url;
+
+        /* Save pledge to contributor. */
+        _pledges[msg.sender] = pledge;
+
+        /* Add contribution to pledge balance. */
+        _pledgeBalance = _pledgeBalance.add(msg.value);
+
+        /* Send pledge notification. */
+        emit PledgeReceived(
+            msg.sender,
+            msg.value,
+            _pledgeBalance
+        );
+
+        /* Validate campaign completion / expiration. */
         checkIfFundingCompleteOrExpired();
     }
 
     /**
      * Check If Funding Complete or Expired
      *
-     * Function to change the project state depending on conditions.
+     * Change the campaign state depending on conditions.
      */
     function checkIfFundingCompleteOrExpired() public {
         /* Validate current balance. */
-        if (currentBalance >= amountGoal) {
+        if (_pledgeBalance >= _fundingGoal) {
             /* Set state to "Successful". */
-            state = State.Successful;
+            _state = State.Successful;
 
             /* Make payout. */
             // NOTE: The payout address MUST be an "external" account (NOT a contract).
-            payOut();
-        } else if (now > raiseBy)  {
-            state = State.Expired;
+            payout();
+        } else if (now > _expiration)  {
+            _state = State.Expired;
         }
 
         /* Set completion time. */
-        completeAt = now;
+        _completeAt = now;
     }
 
     /**
      * Payout
      *
-     * Function to give the received funds to project starter.
+     * Deliver received pledges to campaign creator.
      */
-    function payOut() internal inState(State.Successful) returns (bool) {
+    function payout() internal inState(State.Successful) returns (bool) {
         /* Set total raised. */
-        uint256 totalRaised = currentBalance;
+        uint256 totalRaised = _pledgeBalance;
 
         /* Reset current balance. */
-        currentBalance = 0;
+        _pledgeBalance = 0;
 
         /* Send total raised to creator. */
-        if (creator.send(totalRaised)) {
+        if (_creator.send(totalRaised)) {
             /* Emit event. */
-            emit CreatorPaid(creator);
+            emit CreatorPaid(_creator);
 
             /* Return true. */
             return true;
         } else {
             /* Reset current balance. */
-            currentBalance = totalRaised;
+            _pledgeBalance = totalRaised;
 
             /* Reset state. */
-            state = State.Successful;
+            _state = State.Successful;
         }
 
         /* Return false. */
@@ -287,31 +363,31 @@ contract Campaign {
     /**
      * Get Refund
      *
-     * Function to retrieve donated amount when a project expires.
+     * Return pledged amount after a campaign expires.
      */
     function getRefund() public inState(State.Expired) returns (bool) {
         /* Validate contribution balance. */
-        require(contributions[msg.sender] > 0);
+        require(_pledges[msg.sender].amount > 0);
 
         /* Set amount to refund. */
-        uint amountToRefund = contributions[msg.sender];
+        uint amountToRefund = _pledges[msg.sender].amount;
 
         /* Set contribution amount to zero. */
         // NOTE: This is required to block re-entry attack.
         //       (https://docs.soliditylang.org/en/v0.5.3/security-considerations.html#re-entrancy)
         // TODO: Allow partial refund requests.
-        contributions[msg.sender] = 0;
+        _pledges[msg.sender].amount = 0;
 
         /* Send refund. */
         if (!msg.sender.send(amountToRefund)) {
             /* Reset contribution total. */
-            contributions[msg.sender] = amountToRefund;
+            _pledges[msg.sender].amount = amountToRefund;
 
             /* Return false. */
             return false;
         } else {
-            /* Reset current balance. */
-            currentBalance = currentBalance.sub(amountToRefund);
+            /* Adjust current balance. */
+            _pledgeBalance = _pledgeBalance.sub(amountToRefund);
         }
 
         /* Return true. */
@@ -321,26 +397,24 @@ contract Campaign {
     /**
      * Get Details
      *
-     * Function to get specific information about the project.
-     *
-     * @return Returns all the project's details
+     * Retrieve details about a campaign.
      */
     function getDetails() public view returns (
-        address payable projectStarter,
-        string memory projectTitle,
-        string memory projectDesc,
-        uint256 deadline,
+        address payable campaign,
+        string memory campaignTitle,
+        string memory campaignDesc,
+        uint256 expiration,
+        uint256 fundingGoal,
         State currentState,
-        uint256 currentAmount,
-        uint256 goalAmount
+        uint256 pledgeBalance
     ) {
-        projectStarter = creator;
-        projectTitle = title;
-        projectDesc = description;
-        deadline = raiseBy;
-        currentState = state;
-        currentAmount = currentBalance;
-        goalAmount = amountGoal;
+        campaign = _creator;
+        campaignTitle = _title;
+        campaignDesc = _description;
+        expiration = _expiration;
+        fundingGoal = _fundingGoal;
+        currentState = _state;
+        pledgeBalance = _pledgeBalance;
     }
 }
 

@@ -1,108 +1,5 @@
 [
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "creator",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "amountGoal",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "raiseBy",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "contributions",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "title",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "completeAt",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "description",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": false,
 		"inputs": [],
 		"name": "checkIfFundingCompleteOrExpired",
@@ -126,106 +23,26 @@
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "state",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "currentBalance",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": false,
-		"inputs": [],
-		"name": "contribute",
+		"inputs": [
+			{
+				"name": "_label",
+				"type": "string"
+			},
+			{
+				"name": "_comment",
+				"type": "string"
+			},
+			{
+				"name": "_url",
+				"type": "string"
+			}
+		],
+		"name": "makePledge",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
 		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getDetails",
-		"outputs": [
-			{
-				"name": "projectStarter",
-				"type": "address"
-			},
-			{
-				"name": "projectTitle",
-				"type": "string"
-			},
-			{
-				"name": "projectDesc",
-				"type": "string"
-			},
-			{
-				"name": "deadline",
-				"type": "uint256"
-			},
-			{
-				"name": "currentState",
-				"type": "uint8"
-			},
-			{
-				"name": "currentAmount",
-				"type": "uint256"
-			},
-			{
-				"name": "goalAmount",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"name": "projectStarter",
-				"type": "address"
-			},
-			{
-				"name": "projectTitle",
-				"type": "string"
-			},
-			{
-				"name": "projectDesc",
-				"type": "string"
-			},
-			{
-				"name": "fundRaisingDeadline",
-				"type": "uint256"
-			},
-			{
-				"name": "goalAmount",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	},
 	{
 		"anonymous": false,
@@ -237,16 +54,16 @@
 			},
 			{
 				"indexed": false,
-				"name": "amount",
+				"name": "pledgeAmount",
 				"type": "uint256"
 			},
 			{
 				"indexed": false,
-				"name": "currentTotal",
+				"name": "fundsRaised",
 				"type": "uint256"
 			}
 		],
-		"name": "FundingReceived",
+		"name": "PledgeReceived",
 		"type": "event"
 	},
 	{
@@ -260,5 +77,70 @@
 		],
 		"name": "CreatorPaid",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_campaignCreator",
+				"type": "address"
+			},
+			{
+				"name": "_campaignTitle",
+				"type": "string"
+			},
+			{
+				"name": "_campaignDesc",
+				"type": "string"
+			},
+			{
+				"name": "_campaignFundingGoal",
+				"type": "uint256"
+			},
+			{
+				"name": "_campaignExpiration",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getDetails",
+		"outputs": [
+			{
+				"name": "campaign",
+				"type": "address"
+			},
+			{
+				"name": "campaignTitle",
+				"type": "string"
+			},
+			{
+				"name": "campaignDesc",
+				"type": "string"
+			},
+			{
+				"name": "expiration",
+				"type": "uint256"
+			},
+			{
+				"name": "fundingGoal",
+				"type": "uint256"
+			},
+			{
+				"name": "currentState",
+				"type": "uint8"
+			},
+			{
+				"name": "pledgeBalance",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
