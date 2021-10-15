@@ -148,8 +148,8 @@ const TICKER_ENDPOINT = 'https://api.telr.io/v1/ticker/quote/BCH'
 
 // const ONE_BITCOIN = BigInt(100000000)
 
-const SMARTSTARTER_CONTRACT = '0x999b9a64BF7C3753f148C12a7D87EF8Fd89c401B'
-const CAMPAIGN_CONTRACT = '0x2b6F67CD1edD6BA12F6f1C0F00f945f8d784F7C1'
+const SMARTSTARTER_CONTRACT = '0xD15f180780A1cae0128Df05C8D9312514C065F5A'
+const CAMPAIGN_CONTRACT = '0x70e4801D675e90bd2f98D503E00c2be3E7eeC642'
 
 export default {
     components: {
@@ -172,6 +172,8 @@ export default {
     },
     data: () => {
         return {
+            blockNum: null,
+
             usd: null,
             summary: null,
             description: null,
@@ -242,8 +244,8 @@ export default {
                 .JsonRpcProvider('https://smartbch.devops.cash/testnet')
             console.log('PROVIDER', provider)
 
-            const blockNum = await provider.getBlockNumber()
-            console.log('BLOCK NUM', blockNum)
+            this.blockNum = await provider.getBlockNumber()
+            console.log('BLOCK NUM', this.blockNum)
 
             /* Set Smartstarter contract address. */
             const sAddr = SMARTSTARTER_CONTRACT
@@ -268,21 +270,28 @@ export default {
             const campaign = new ethers.Contract(cAddr, cAbi, provider)
             console.log('CONTRACT (campaign):', campaign)
 
-            console.log('CAMPAIGN (info):', await campaign.getCampaign())
+            /* Request campaign info. */
+            const campaignInfo = await campaign.getCampaign()
+            console.log('CAMPAIGN (info):', campaignInfo)
+
+            /* Set starting block. */
+            const startingBlock = campaignInfo.startingBlock.toNumber()
 
             // const eventFilter = campaign.filters.PledgeReceived()
             // console.log('CAMPAIGN (events):', eventFilter)
 
             /* Set from block. */
             // FIXME: How should we determine this number??
-            const fromBlock = 1118916
+            const fromBlock = startingBlock
 
             /* Set to block. */
             // FIXME: How should we determine this number??
-            const toBlock = 1118953
+            const toBlock = this.blockNum
+
+            let query
 
             /* Request event data. */
-            const query = await campaign
+            query = await campaign
                 .queryFilter('PledgeReceived', fromBlock, toBlock)
             console.log('QUERY (PledgeReceived):', query)
 
@@ -298,6 +307,25 @@ export default {
                 const pledgeAmount = entry.args.pledgeAmount
 
                 console.log('CONTRIBUTOR', contributor, fundsRaised.toString(), pledgeAmount.toString())
+            })
+
+            /* Request event data. */
+            query = await campaign
+                .queryFilter('PledgeReclaimed', fromBlock, toBlock)
+            console.log('QUERY (PledgeReclaimed):', query)
+
+            /* Handle event entries. */
+            query.forEach(entry => {
+                /* Set contributor. */
+                const contributor = entry.args.contributor
+
+                /* Set funds raised. */
+                const fundsRaised = entry.args.fundsRaised
+
+                /* Set reclaim amount. */
+                const reclaimAmount = entry.args.reclaimAmount
+
+                console.log('CONTRIBUTOR', contributor, fundsRaised.toString(), reclaimAmount.toString())
             })
 
         },
@@ -388,7 +416,7 @@ export default {
 
             /* Set value. */
             // const value = (BigInt(1000000000000000000) * sats) / ONE_BITCOIN // 1 BCH
-            const value = BigInt(1000000000)
+            const value = BigInt(1750000000)
 
             /* Make pledge. */
             await campaign
@@ -453,14 +481,12 @@ export default {
             const gasPrice = BigInt(1000000000)
 
             /* Reclaim pledge. */
-            await campaign
-                .reclaim({
-                    gasPrice,
-                })
+            await campaign.reclaim({ gasPrice })
         },
 
     },
     created: function () {
+
         /* Set all menu displays to false. */
         this.showContributors = false
         this.showFeedback = false
@@ -473,6 +499,7 @@ export default {
         this.init()
 
         /* Initialize blockchain. */
+        this.blockNum = 0
         this.initBlockchain()
 
     },

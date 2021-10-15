@@ -162,7 +162,7 @@ contract Campaign {
         Successful
     }
 
-    /* Enumerate the state of the campaign. */
+    /* Define contributor pledge model. */
     struct Pledge {
         uint amount;
         string label;
@@ -389,8 +389,10 @@ contract Campaign {
      * Return the total pledge amount to a contributor.
      *
      * NOTE: This function can only be called after a campaign has expired.
+     *       THIS RESTRICTION HAS BEEN REMOVED FOR DEVELOPMENT PURPOSES ONLY
      */
-    function reclaim() public inState(State.Expired) returns (bool) {
+    // function reclaim() public inState(State.Expired) returns (bool) {
+    function reclaim() public returns (bool) {
         /* Validate contribution balance. */
         require(_pledges[msg.sender].amount > 0);
 
