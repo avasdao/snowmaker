@@ -2,8 +2,23 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
+        /* Set Smartstarter contract address. */
+        smartstarterContractAddr: '0x68a5748c6Dd12CFDbBF322ae24B69DEB16760781',
+
+        /* Set Campaign contract address. */
+        campaignContractAddr: '0x92F7378e0412f44AB3c1DABCAE51DD836Ae16C1b',
+
+        /* Set mainnet provider. */
+        mainnetProvider: 'https://smartbch.devops.cash/mainnet',
+
+        /* Set testnet provider. */
+        testnetProvider: 'https://smartbch.devops.cash/testnet',
+
+        smartstarterAbi: require('../../contracts/Smartstarter.json'),
+        campaignAbi: require('../../contracts/Campaign.json'),
+
         /* Set amount funded. */
-        amountFunded: 1.337,
+        // amountFunded: 1.337,
 
         /* Set amount requested. */
         amountRequested: 30,
@@ -11,7 +26,7 @@ export default createStore({
         /* Set summary. */
         summary: `
 Smartstarter introduces a brand new set of smart contract functionality; elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver.
-Make your pledge now and help our team deliver this 100% Free and Open Source Software (FOSS) platform to our builders ASAP.
+Make a pledge now to help our team deliver this 100% Free and Open Source Software (FOSS) platform to support Bitcoin's builders TODAY.
         `,
 
         /* Set description. */

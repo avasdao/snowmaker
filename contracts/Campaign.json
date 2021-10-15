@@ -1,5 +1,37 @@
 [
 	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_campaignCreator",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_campaignTitle",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_campaignDesc",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_campaignFundingGoal",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_campaignExpiration",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -10,6 +42,25 @@
 			}
 		],
 		"name": "CreatorPaid",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "supporter",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "comment",
+				"type": "string"
+			}
+		],
+		"name": "FeedbackSent",
 		"type": "event"
 	},
 	{
@@ -69,43 +120,45 @@
 		"type": "event"
 	},
 	{
-		"constant": false,
-		"inputs": [],
-		"name": "checkIfFundingCompleteOrExpired",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "publisher",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			}
+		],
+		"name": "ReportCardAdded",
+		"type": "event"
 	},
 	{
 		"constant": false,
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_label",
+				"name": "_reportTitle",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "_comment",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_url",
+				"name": "_reportUrl",
 				"type": "string"
 			}
 		],
-		"name": "makePledge",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "reclaim",
+		"name": "addReportCard",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -118,36 +171,13 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address payable",
-				"name": "_campaignCreator",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_campaignTitle",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_campaignDesc",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_campaignFundingGoal",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_campaignExpiration",
-				"type": "uint256"
-			}
-		],
+		"constant": false,
+		"inputs": [],
+		"name": "checkIfFundingCompleteOrExpired",
+		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "constructor"
+		"type": "function"
 	},
 	{
 		"constant": true,
@@ -238,6 +268,67 @@
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_label",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_comment",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_url",
+				"type": "string"
+			}
+		],
+		"name": "makePledge",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "reclaim",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_comment",
+				"type": "string"
+			}
+		],
+		"name": "sendFeedback",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

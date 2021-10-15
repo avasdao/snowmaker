@@ -31,28 +31,7 @@
                         {{summary}}
                     </p>
 
-                    <div class="mt-5">
-                        <h4 class="sr-only">Status</h4>
-
-                        <p class="text-3xl text-center font-medium text-gray-700">
-                            {{$store.state.amountFunded}} sBCH of {{$store.state.amountRequested}} sBCH
-                        </p>
-
-                        <p class="text-center text-sm text-gray-500 font-medium">
-                            {{fundedDisplay}} of {{requestedDisplay}}
-                        </p>
-
-                        <div class="mt-6" aria-hidden="true">
-                            <div class="bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-2 bg-green-600 rounded-full" style="width: 80%"></div>
-                            </div>
-
-                            <div class="text-sm font-medium text-gray-600 mt-1 pl-5">
-                                <div class="text-green-600">Campaign is <span class="text-xl">78%</span> complete...</div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <Status :usd="usd" />
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                         <button
@@ -80,6 +59,24 @@
                         </button>
                     </div>
 
+                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+                        <button
+                            @click="sendFeedback"
+                            type="button"
+                            class="w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-green-500"
+                        >
+                            Send Feedback
+                        </button>
+
+                        <button
+                            @click="addReportCard"
+                            type="button"
+                            class="w-full bg-red-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-red-700 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-red-500"
+                        >
+                            Add Report Card
+                        </button>
+                    </div>
+
                     <Monitor class="hidden" />
 
                     <Highlights />
@@ -94,7 +91,7 @@
 
                 <div class="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
                     <div>
-                        <Menu @tabbed="toggleMenu" />
+                        <Menu class="" @tabbed="toggleMenu" />
 
                         <Contributors v-if="showContributors" />
                         <Description v-if="showDescription" />
@@ -121,7 +118,6 @@
 
 /* Import modules. */
 import { ethers } from 'ethers'
-import numeral from 'numeral'
 import superagent from 'superagent'
 
 /* Import (global) components. */
@@ -141,15 +137,13 @@ import ReportCards from './Campaign/ReportCards.vue'
 import Reviews from './Campaign/Reviews.vue'
 import Share from './Campaign/Share.vue'
 import Sponsors from './Campaign/Sponsors.vue'
+import Status from './Campaign/Status.vue'
 import Title from './Campaign/Title.vue'
 
 /* Set ticker endpoint. */
 const TICKER_ENDPOINT = 'https://api.telr.io/v1/ticker/quote/BCH'
 
-// const ONE_BITCOIN = BigInt(100000000)
-
-const SMARTSTARTER_CONTRACT = '0xD15f180780A1cae0128Df05C8D9312514C065F5A'
-const CAMPAIGN_CONTRACT = '0x70e4801D675e90bd2f98D503E00c2be3E7eeC642'
+const ONE_BITCOIN = BigInt(100000000)
 
 export default {
     components: {
@@ -168,6 +162,7 @@ export default {
         Reviews,
         Share,
         Sponsors,
+        Status,
         Title,
     },
     data: () => {
@@ -183,20 +178,6 @@ export default {
             showFeedback: null,
             showReportCards: null,
         }
-    },
-    computed: {
-        fundedDisplay() {
-            if (!this.$store.state.amountFunded) return 'n/a'
-
-            return numeral(this.$store.state.amountFunded * this.usd).format('$0,0.00')
-        },
-
-        requestedDisplay() {
-            if (!this.$store.state.amountRequested) return 'n/a'
-
-            return numeral(this.$store.state.amountRequested * this.usd).format('$0,0.00')
-        },
-
     },
     methods: {
         async init() {
@@ -229,33 +210,31 @@ export default {
             this.description = this.$store.state.description
 
             // FOR DEVELOPMENT PURPOSES ONLY
-            this.amountFunded = 1.337
+            // this.amountFunded = 1.337
 
             // FOR DEVELOPMENT PURPOSES ONLY
-            this.amountRequested = 30
+            // this.amountRequested = 30
 
         },
 
         async initBlockchain() {
             /* Initialize provider. */
-            const provider = new ethers
-                .providers
-                // .JsonRpcProvider('https://smartbch.fountainhead.cash/mainnet') // no CORS available
-                .JsonRpcProvider('https://smartbch.devops.cash/testnet')
-            console.log('PROVIDER', provider)
+            const provider = new ethers.providers
+                .JsonRpcProvider(this.$store.state.testnetProvider)
+            // console.log('PROVIDER', provider)
 
             this.blockNum = await provider.getBlockNumber()
-            console.log('BLOCK NUM', this.blockNum)
+            // console.log('BLOCK NUM', this.blockNum)
 
             /* Set Smartstarter contract address. */
-            const sAddr = SMARTSTARTER_CONTRACT
+            const sAddr = this.$store.state.smartstarterContractAddr
 
             /* Set Smartstarter ABI. */
             const sAbi = require('../../contracts/Smartstarter.json')
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = CAMPAIGN_CONTRACT
+            const cAddr = this.$store.state.campaignContractAddr
 
             /* Set Campaign ABI. */
             const cAbi = require('../../contracts/Campaign.json')
@@ -341,6 +320,41 @@ export default {
                 console.log('RECEIPIENT', recipient)
             })
 
+            /* Request event data. */
+            query = await campaign
+                .queryFilter('FeedbackSent', fromBlock, toBlock)
+            console.log('QUERY (FeedbackSent):', query)
+
+            /* Handle event entries. */
+            query.forEach(entry => {
+                /* Set supporter. */
+                const supporter = entry.args.supporter
+
+                /* Set comment. */
+                const comment = entry.args.comment
+
+                console.log('SUPPORTER', supporter, comment)
+            })
+
+            /* Request event data. */
+            query = await campaign
+                .queryFilter('ReportCardAdded', fromBlock, toBlock)
+            console.log('QUERY (ReportCardAdded):', query)
+
+            /* Handle event entries. */
+            query.forEach(entry => {
+                /* Set publisher. */
+                const publisher = entry.args.publisher
+
+                /* Set title. */
+                const title = entry.args.title
+
+                /* Set URL. */
+                const url = entry.args.url
+
+                console.log('PUBLISHER', publisher, title, url)
+            })
+
         },
 
         /**
@@ -410,7 +424,7 @@ export default {
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = CAMPAIGN_CONTRACT
+            const cAddr = this.$store.state.campaignContractAddr
 
             /* Set Campaign ABI. */
             const cAbi = require('../../contracts/Campaign.json')
@@ -425,15 +439,15 @@ export default {
             // NOTE: Current minimum is 1 gWei (1,000,000,000)
             const gasPrice = BigInt(1000000000)
 
-            // const sats = BigInt(150000) // 0.015 BCH
+            const sats = BigInt(13370000) // 0.1337 BCH
 
             /* Set value. */
-            // const value = (BigInt(1000000000000000000) * sats) / ONE_BITCOIN // 1 BCH
-            const value = BigInt(1750000000)
+            const value = (BigInt(1000000000000000000) * sats) / ONE_BITCOIN // 1 BCH
+            // const value = BigInt(1750000000)
 
             /* Make pledge. */
             await campaign
-                .makePledge('Codie', 'bits and bytes', 'http://code.fun', {
+                .makePledge('Dade', 'hack the planet', 'https://hackers.movie', {
                     gasPrice,
                     value,
                 })
@@ -478,7 +492,7 @@ export default {
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = CAMPAIGN_CONTRACT
+            const cAddr = this.$store.state.campaignContractAddr
 
             /* Set Campaign ABI. */
             const cAbi = require('../../contracts/Campaign.json')
@@ -495,6 +509,113 @@ export default {
 
             /* Reclaim pledge. */
             await campaign.reclaim({ gasPrice })
+        },
+
+        async sendFeedback() {
+            /* Validate embedded Web3 objects. */
+            if (!window.ethereum && !window.bitcoin) {
+                /* Validate embedded ethereum object. */
+                if (window.bitcoin) {
+                    console.info('Found Bitcoin provider.')
+                } else if (window.ethereum) {
+                    console.info('Found Ethereum provider.')
+                } else {
+                    return console.error('No Web3 provider found.')
+                }
+            }
+
+            /* Initialize provider. */
+            const provider = new ethers
+                .providers
+                .Web3Provider(window.ethereum, 'any')
+
+            /* Prompt user for account connections. */
+            // await provider.send('eth_requestAccounts', [])
+
+            /* Set signer. */
+            const signer = provider.getSigner()
+
+            /* Request account. */
+            // this.account = await signer.getAddress()
+            // console.log('Account:', this.account)
+
+            // FOR DEVELOPMENT PURPOSES ONLY
+            // The first campaign contract is hardcoded.
+            const cAddr = this.$store.state.campaignContractAddr
+
+            /* Set Campaign ABI. */
+            const cAbi = require('../../contracts/Campaign.json')
+
+            /* Initialize campaign instance. */
+            const campaign = new ethers.Contract(cAddr, cAbi, signer)
+            console.log('CONTRACT (campaign):', campaign)
+
+            // console.log('CAMPAIGN (info):', await campaign.getDetails())
+
+            /* Set gas price. */
+            // NOTE: Current minimum is 1 gWei (1,000,000,000)
+            const gasPrice = BigInt(1000000000)
+
+            // FOR DEV PURPOSES ONLY
+            const comment = 'when can i launch my own campaign??'
+
+            /* Reclaim pledge. */
+            await campaign.sendFeedback(comment, { gasPrice })
+
+        },
+
+        async addReportCard() {
+            /* Validate embedded Web3 objects. */
+            if (!window.ethereum && !window.bitcoin) {
+                /* Validate embedded ethereum object. */
+                if (window.bitcoin) {
+                    console.info('Found Bitcoin provider.')
+                } else if (window.ethereum) {
+                    console.info('Found Ethereum provider.')
+                } else {
+                    return console.error('No Web3 provider found.')
+                }
+            }
+
+            /* Initialize provider. */
+            const provider = new ethers
+                .providers
+                .Web3Provider(window.ethereum, 'any')
+
+            /* Prompt user for account connections. */
+            // await provider.send('eth_requestAccounts', [])
+
+            /* Set signer. */
+            const signer = provider.getSigner()
+
+            /* Request account. */
+            // this.account = await signer.getAddress()
+            // console.log('Account:', this.account)
+
+            // FOR DEVELOPMENT PURPOSES ONLY
+            // The first campaign contract is hardcoded.
+            const cAddr = this.$store.state.campaignContractAddr
+
+            /* Set Campaign ABI. */
+            const cAbi = require('../../contracts/Campaign.json')
+
+            /* Initialize campaign instance. */
+            const campaign = new ethers.Contract(cAddr, cAbi, signer)
+            console.log('CONTRACT (campaign):', campaign)
+
+            // console.log('CAMPAIGN (info):', await campaign.getDetails())
+
+            /* Set gas price. */
+            // NOTE: Current minimum is 1 gWei (1,000,000,000)
+            const gasPrice = BigInt(1000000000)
+
+            // FOR DEV PURPOSES ONLY
+            const title = 'Testing is 99% complete!'
+            const url = 'https://ipfs.io/ipfs/another-cool-hash-goes-here'
+
+            /* Reclaim pledge. */
+            await campaign.addReportCard(title, url, { gasPrice })
+
         },
 
     },

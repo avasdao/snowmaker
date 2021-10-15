@@ -43,6 +43,21 @@
 		"type": "event"
 	},
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "getCampaigns",
+		"outputs": [
+			{
+				"internalType": "contract Campaign[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -70,21 +85,6 @@
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getCampaigns",
-		"outputs": [
-			{
-				"internalType": "contract Campaign[]",
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	}
 ]
