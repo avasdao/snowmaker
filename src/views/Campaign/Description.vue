@@ -54,14 +54,23 @@ export default {
 #campaign-description h2 {
     font-size: 1.875em;
     border-bottom: 1pt solid #999;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 #campaign-description h3 {
-    font-size: 1.25em;
+    margin-top: 15px;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 #campaign-description p {
     padding: 10px 0;
+}
+
+#campaign-description a {
+    color: blue;
 }
 
 #campaign-description ol, #campaign-description ul {

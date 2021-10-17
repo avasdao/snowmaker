@@ -9,10 +9,10 @@
             <div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
                 <!-- Product image -->
                 <div class="lg:row-end-1 lg:col-span-4">
-                    <div class="aspect-w-4 aspect-h-3 lg:aspect-h-2 bg-gray-100 overflow-hidden rounded-lg lg:rounded-3xl">
+                    <div class="aspect-w-4 aspect-h-2 bg-gray-100 overflow-hidden rounded-lg lg:rounded-3xl">
                         <img
-                            src="https://tailwindui.com/img/ecommerce-images/product-page-05-product-01.jpg"
-                            alt="Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles."
+                            src="@/assets/poster.jpg"
+                            alt="Introducing the next era in peer-to-peer crowdfunding."
                             class="object-center object-cover"
                         />
                     </div>
@@ -59,6 +59,10 @@
                         </button>
                     </div>
 
+                    <Monitor class="hidden" />
+
+                    <Highlights />
+
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                         <button
                             @click="sendFeedback"
@@ -76,10 +80,6 @@
                             Add Report Card
                         </button>
                     </div>
-
-                    <Monitor class="hidden" />
-
-                    <Highlights />
 
                     <Sponsors />
 

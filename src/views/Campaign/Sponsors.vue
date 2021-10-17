@@ -4,7 +4,9 @@
             Featured Sponsors
         </h3>
 
-        <div class="mt-4 prose prose-sm text-gray-500">
+        ...
+
+        <div class="hidden mt-4 prose prose-sm text-gray-500">
             <ul role="list">
                 <li v-for="sponsor of $store.state.sponsors" :key="sponsor.id">
                     <strong class="mr-2">{{sponsor.cat}}</strong>
@@ -13,7 +15,9 @@
             </ul>
         </div>
 
-        Show ALL (11) Sponsors
+        <a href="javascript://" class="hidden mt-5 text-sm">
+            Show ALL (11) Sponsors
+        </a>
     </div>
 </template>
 

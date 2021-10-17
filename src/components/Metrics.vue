@@ -30,7 +30,7 @@
                 </p>
 
                 <p class="mt-5 text-lg text-gray-300">
-                    All data is stored on-chain. This guarantees 100% transparency with every smartBit earned and spent.
+                    All data is stored on-chain. This guarantees 100% transparency with every satoshi earned and spent.
                 </p>
 
                 <div class="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">

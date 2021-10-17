@@ -15,8 +15,10 @@
                 <div class="h-2 bg-green-600 rounded-full" :style="{ width: pctCompleted + '%' }"></div>
             </div>
 
-            <div class="text-sm font-medium text-gray-600 mt-1 pl-5">
-                <div class="text-green-600">Campaign is <span class="text-xl">{{pctCompleted}}%</span> complete...</div>
+            <div class="text-sm text-center font-medium text-gray-600 mt-1 pl-5">
+                <div class="text-green-600">
+                    <span class="text-xl">{{pctCompleted}}%</span> complete with <span class="text-xl">10</span> days to go
+                </div>
             </div>
 
         </div>

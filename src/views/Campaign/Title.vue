@@ -6,7 +6,7 @@
 
         <h2 id="information-heading" class="sr-only">Campaign Information</h2>
 
-        <div class="flex justify-between items-center px-10">
+        <div class="flex justify-between items-center px-10 flex-col sm:flex-row">
             <a href="https://bchplease.org" target="_blank">
                 <img src="https://i.imgur.com/lez4zfn.png" alt="" class="w-8 h-8 rounded-full" /></a>
 
