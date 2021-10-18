@@ -9,23 +9,20 @@
 import DOMPurify from 'dompurify'
 import showdown from 'showdown'
 
-/* Import components. */
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
     components: {
         // HelloWorld
     },
     data: () => {
         return {
-            //
+            description: null,
         }
     },
     created: function () {
         this.description = this.$store.state.description
 
         /* Sanitize markdown (from description). */
-        const markdown = DOMPurify.sanitize( this.description , {
+        const markdown = DOMPurify.sanitize( this.description, {
             USE_PROFILES: { html: true } // HTML ONLY
         })
 

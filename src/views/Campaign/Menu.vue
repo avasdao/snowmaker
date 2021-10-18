@@ -39,7 +39,7 @@
                 type="button"
                 @click="$emit('tabbed', 'report-cards')"
             >
-                REPORT CARDS <small>(1)</small>
+                REPORT CARDS <small>(3)</small>
             </button>
         </div>
     </main>

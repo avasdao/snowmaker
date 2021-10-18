@@ -71,6 +71,8 @@ Smartstarter will introduce and support transparent accountability for peer-to-p
 
 We're developing a simple system of Report Cards to encourage frequent status updates from campaign managers.
 
+Report Cards are specifically designed to present a campaign's supporters with the most relevent information.
+
 Our team will be proposing a new specification to allow report data to be saved directly on-chain.
 This would allow ANY peer-to-peer platform to directly access (read & write) this data for the purpose of building additional tools and services.
 
