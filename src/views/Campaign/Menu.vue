@@ -19,7 +19,7 @@
                 type="button"
                 @click="$emit('tabbed', 'contributors')"
             >
-                PLEDGES <small>(8)</small>
+                PLEDGES <small>({{numContributors}})</small>
             </button>
 
             <button
@@ -50,8 +50,29 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-    components: {
-        // HelloWorld
+    props: {
+        contributors: Array,
+    },
+    computed: {
+        numContributors() {
+            /* Validate contributors. */
+            if (!this.contributors) return 0
+
+            /* Initialize contributors. */
+            const contributors = []
+
+            /* Handle contributors. */
+            this.contributors.forEach(_contributor => {
+                // NOTE: We filter out donation under 1 satoshi
+                if (_contributor.pledgeAmount.gt(10000000000n)) {
+                    contributors.push(_contributor)
+                }
+            })
+
+            /* Return count of contributors. */
+            return contributors.length
+        },
+
     },
     data: () => {
         return {

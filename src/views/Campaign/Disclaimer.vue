@@ -5,7 +5,8 @@
         </h3>
 
         <p class="mt-4 text-sm text-gray-500">
-            For personal and professional use. You cannot resell or redistribute these icons in their original or modified state. <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Read full license</a>
+            <span class="inline sm:block">When you use Smartstarter, you’re agreeing to all of our terms. </span>
+            <router-link to="/terms" class="font-medium text-indigo-600 hover:text-indigo-500">Read our terms of use.</router-link>
         </p>
     </main>
 </template>

@@ -91,9 +91,9 @@
 
                 <div class="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
                     <div>
-                        <Menu class="" @tabbed="toggleMenu" />
+                        <Menu class="" @tabbed="toggleMenu" :contributors="contributors" />
 
-                        <Contributors v-if="showContributors" />
+                        <Contributors v-if="showContributors" :contributors="contributors" :usd="usd" />
                         <Description v-if="showDescription" />
                         <Feedback v-if="showFeedback" />
                         <ReportCards v-if="showReportCards" />
@@ -119,6 +119,7 @@
 /* Import modules. */
 import { ethers } from 'ethers'
 import superagent from 'superagent'
+import { v4 as uuidv4 } from 'uuid'
 
 /* Import (global) components. */
 import CTA from '@/components/CTA.vue'
@@ -177,6 +178,8 @@ export default {
             showDescription: null,
             showFeedback: null,
             showReportCards: null,
+
+            contributors: null,
         }
     },
     methods: {
@@ -274,10 +277,13 @@ export default {
                 .queryFilter('PledgeReceived', fromBlock, toBlock)
             console.log('QUERY (PledgeReceived):', query)
 
+            /* Initialize contributors. */
+            this.contributors = []
+
             /* Handle event entries. */
             query.forEach(entry => {
-                /* Set contributor. */
-                const contributor = entry.args.contributor
+                /* Set (contributor) address. */
+                const address = entry.args.contributor
 
                 /* Set funds raised. */
                 const fundsRaised = entry.args.fundsRaised
@@ -285,7 +291,19 @@ export default {
                 /* Set pledge amount. */
                 const pledgeAmount = entry.args.pledgeAmount
 
-                console.log('CONTRIBUTOR', contributor, fundsRaised.toString(), pledgeAmount.toString())
+                console.log('CONTRIBUTOR (received):', address, fundsRaised.toString(), pledgeAmount.toString())
+
+                /* Generate a new UUID. */
+                const id = uuidv4()
+
+                /* Add contributor. */
+                this.contributors.push({
+                    id,
+                    address,
+                    fundsRaised,
+                    pledgeAmount,
+                })
+
             })
 
             /* Request event data. */
@@ -304,7 +322,7 @@ export default {
                 /* Set reclaim amount. */
                 const reclaimAmount = entry.args.reclaimAmount
 
-                console.log('CONTRIBUTOR', contributor, fundsRaised.toString(), reclaimAmount.toString())
+                console.log('CONTRIBUTOR (reclaimed):', contributor, fundsRaised.toString(), reclaimAmount.toString())
             })
 
             /* Request event data. */
@@ -367,7 +385,7 @@ export default {
 
             /* Set all menu displays to false. */
             this.showContributors = false
-            this.showDescription = true
+            this.showDescription = false
             this.showFeedback = false
             this.showReportCards = false
 

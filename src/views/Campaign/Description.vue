@@ -35,7 +35,7 @@ export default {
 
         /* Convert markdown to HTML. */
         const html = converter.makeHtml(markdown)
-        console.log('HTML', html)
+        // console.log('HTML', html)
 
         // this.description = clean
         this.description = html
