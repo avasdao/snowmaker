@@ -1,6 +1,6 @@
 <template>
     <main id="campaign-description">
-        <div class="mt-10 p-10 bg-gray-50 border-2 border-gray-200 rounded-xl" v-html="description" />
+        <div class="mt-10 sm:p-10 sm:bg-gray-50 sm:border-2 border-gray-200 rounded-xl" v-html="description" />
     </main>
 </template>
 

@@ -37,7 +37,7 @@
                         <button
                             @click="makePledge"
                             type="button"
-                            class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                            class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-medium font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                         >
                             Make a Pledge
                         </button>
@@ -53,7 +53,7 @@
                         <button
                             @click="reclaim"
                             type="button"
-                            class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                            class="w-full bg-indigo-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-medium font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                         >
                             Reclaim My Pledge
                         </button>
@@ -67,7 +67,7 @@
                         <button
                             @click="sendFeedback"
                             type="button"
-                            class="w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-green-500"
+                            class="w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-medium font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-green-500"
                         >
                             Send Feedback
                         </button>
@@ -75,9 +75,9 @@
                         <button
                             @click="addReportCard"
                             type="button"
-                            class="w-full bg-red-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-red-700 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-red-500"
+                            class="w-full bg-red-50 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-medium font-medium text-red-700 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-red-500"
                         >
-                            Add Report Card
+                            Add a Report Card
                         </button>
                     </div>
 
@@ -594,58 +594,8 @@ export default {
 
         },
 
-        async addReportCard() {
-            /* Validate embedded Web3 objects. */
-            if (!window.ethereum && !window.bitcoin) {
-                /* Validate embedded ethereum object. */
-                if (window.bitcoin) {
-                    console.info('Found Bitcoin provider.')
-                } else if (window.ethereum) {
-                    console.info('Found Ethereum provider.')
-                } else {
-                    return console.error('No Web3 provider found.')
-                }
-            }
-
-            /* Initialize provider. */
-            const provider = new ethers
-                .providers
-                .Web3Provider(window.ethereum, 'any')
-
-            /* Prompt user for account connections. */
-            // await provider.send('eth_requestAccounts', [])
-
-            /* Set signer. */
-            const signer = provider.getSigner()
-
-            /* Request account. */
-            // this.account = await signer.getAddress()
-            // console.log('Account:', this.account)
-
-            // FOR DEVELOPMENT PURPOSES ONLY
-            // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
-
-            /* Set Campaign ABI. */
-            const cAbi = require('../../contracts/Campaign.json')
-
-            /* Initialize campaign instance. */
-            const campaign = new ethers.Contract(cAddr, cAbi, signer)
-            console.log('CONTRACT (campaign):', campaign)
-
-            // console.log('CAMPAIGN (info):', await campaign.getDetails())
-
-            /* Set gas price. */
-            // NOTE: Current minimum is 1 gWei (1,000,000,000)
-            const gasPrice = BigInt(1000000000)
-
-            // FOR DEV PURPOSES ONLY
-            const title = 'Testing is 99% complete!'
-            const url = 'https://ipfs.io/ipfs/another-cool-hash-goes-here'
-
-            /* Reclaim pledge. */
-            await campaign.addReportCard(title, url, { gasPrice })
-
+        addReportCard() {
+            alert('You do not have permission to do that.')
         },
 
     },

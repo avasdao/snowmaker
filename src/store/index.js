@@ -31,7 +31,7 @@ Make a pledge now to help our team deliver this 100% Free and Open Source Softwa
 
         /* Set description. */
         description: `
-# Introducing Smartstarter
+# Introducing SMARTSTARTER!
 
 ### [https://smartstarter.cash](https://smartstarter.cash)
 
@@ -40,8 +40,9 @@ Make a pledge now to help our team deliver this 100% Free and Open Source Softwa
 Smartstarter introduces a brand new set of smart contract functionality; elevating the existing __[Flipstarter](https://flipstarter.cash)__ platform in ways that ONLY __[SmartBCH](https://smartbch.org/)__ can deliver:
 
 - __100% On-chain Transparency:__ With all data stored on-chain, full transparency is GUARANTEED!
-- __NO Minimum Pledge Amount:__ Smartstarter removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
 - __Self-Reporting:__ Transparent accountability after a campaign has been funded will be highly encouraged and fully supported with our NEW Report Cards.
+- __Android & iPhone Compatible:__ Smartstarter is built mobile-first which allows for easy campaign pledging and management while you're on-the-go.
+- __NO Minimum Pledge Amount:__ Smartstarter removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
 - __Secure, Managed Hosting:__ No need to deploy your own server. Simply point your domain's __[CNAME](https://en.wikipedia.org/wiki/CNAME_record)__ to smartstarter.cash .. and DONE!
 
 Bitcoin Cash is leading the way in peer-to-peer crowdfunding.
@@ -52,8 +53,8 @@ This guarantees 100% transparency with every satoshi earned and spent.
 ## Campaign Goals
 
 1. __FOSS PLATFORM:__ Build and deploy a self-hosted FOSS "smart" crowdfunding platform to the DigitalOcean app marketplace.
-2. __REPORT CARDS:__ Develop a self-reporting toolkit for campaign managers.
-3. __HOW-TO VIDEOS:__ Produce step-by-step How-to "Smart" Pledge videos (en, es, cn).
+2. __REPORT CARDS:__ Develop a self-reporting portal with tools and resources for campaign managers.
+3. __HOW-TO VIDEOS:__ Produce step-by-step How-to "Smart" Pledge videos (English, Spanish & Chinese).
 
 ### FOSS Platform
 
