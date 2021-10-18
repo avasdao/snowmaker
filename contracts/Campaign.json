@@ -39,6 +39,12 @@
 				"internalType": "address",
 				"name": "recipient",
 				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
 			}
 		],
 		"name": "CreatorPaid",
@@ -58,6 +64,12 @@
 				"internalType": "string",
 				"name": "comment",
 				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
 			}
 		],
 		"name": "FeedbackSent",
@@ -107,6 +119,12 @@
 				"internalType": "uint256",
 				"name": "fundsRaised",
 				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
 			}
 		],
 		"name": "PledgeReceived",
@@ -131,6 +149,12 @@
 				"indexed": false,
 				"internalType": "uint256",
 				"name": "fundsRaised",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
 				"type": "uint256"
 			}
 		],
@@ -157,6 +181,12 @@
 				"internalType": "string",
 				"name": "url",
 				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
 			}
 		],
 		"name": "ReportCardAdded",

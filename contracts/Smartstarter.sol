@@ -168,6 +168,7 @@ contract Campaign {
         string label;
         string comment;
         string url;
+        uint timestamp;
     }
 
     /* Initialize creator. */
@@ -205,12 +206,16 @@ contract Campaign {
     State private _state = State.Fundraising;
 
     /* Emitted after campaign creator has received the funds. */
-    event CreatorPaid(address recipient);
+    event CreatorPaid(
+        address recipient,
+        uint timestamp
+    );
 
     /* Emitted after feedback is sent. */
     event FeedbackSent(
         address indexed supporter,
-        string comment
+        string comment,
+        uint timestamp
     );
 
     /* Emitted after pledge is received. */
@@ -221,21 +226,24 @@ contract Campaign {
         string label,
         string comment,
         string url,
-        uint fundsRaised
+        uint fundsRaised,
+        uint timestamp
     );
 
     /* Emitted after pledge is reclaimed. */
     event PledgeReclaimed(
         address indexed contributor,
         uint reclaimAmount,
-        uint fundsRaised
+        uint fundsRaised,
+        uint timestamp
     );
 
     /* Emitted after report card is added. */
     event ReportCardAdded(
         address indexed publisher,
         string title,
-        string url
+        string url,
+        uint timestamp
     );
 
     /* Validate current state. */
@@ -328,6 +336,9 @@ contract Campaign {
         /* Set pledge url. */
         pledge.url = _url;
 
+        /* Set pledge timestamp. */
+        pledge.timestamp = now;
+
         /* Save pledge to contributor. */
         _pledges[msg.sender] = pledge;
 
@@ -342,7 +353,8 @@ contract Campaign {
             _label,
             _comment,
             _url,
-            _pledgeBalance
+            _pledgeBalance,
+            now
         );
 
         /* Validate campaign completion / expiration. */
@@ -386,7 +398,10 @@ contract Campaign {
         /* Send total raised to creator. */
         if (_creator.send(totalRaised)) {
             /* Emit event. */
-            emit CreatorPaid(_creator);
+            emit CreatorPaid(
+                _creator,
+                now
+            );
 
             /* Return true. */
             return true;
@@ -440,7 +455,8 @@ contract Campaign {
         emit PledgeReclaimed(
             msg.sender,
             amountToRefund,
-            _pledgeBalance
+            _pledgeBalance,
+            now
         );
 
         /* Return true. */
@@ -530,7 +546,8 @@ contract Campaign {
         /* Send feedback notification. */
         emit FeedbackSent(
             msg.sender,
-            _comment
+            _comment,
+            now
         );
 
     }
@@ -550,7 +567,8 @@ contract Campaign {
         emit ReportCardAdded(
             msg.sender,
             _reportTitle,
-            _reportUrl
+            _reportUrl,
+            now
         );
 
     }
