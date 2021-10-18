@@ -24,7 +24,7 @@
                     <div class="flex flex-col-reverse">
                         <Title />
 
-                        <Reviews />
+                        <Rating />
                     </div>
 
                     <p class="text-gray-500 mt-6 text-lg">
@@ -133,9 +133,9 @@ import Highlights from './Campaign/Highlights.vue'
 import Policy from './Campaign/Policy.vue'
 import Menu from './Campaign/Menu.vue'
 import Monitor from './Campaign/Monitor.vue'
+import Rating from './Campaign/Rating.vue'
 import Related from './Campaign/Related.vue'
 import ReportCards from './Campaign/ReportCards.vue'
-import Reviews from './Campaign/Reviews.vue'
 import Share from './Campaign/Share.vue'
 import Sponsors from './Campaign/Sponsors.vue'
 import Status from './Campaign/Status.vue'
@@ -158,9 +158,9 @@ export default {
         Policy,
         Menu,
         Monitor,
+        Rating,
         Related,
         ReportCards,
-        Reviews,
         Share,
         Sponsors,
         Status,
@@ -244,17 +244,17 @@ export default {
 
             /* Initialize Smartstarter instance. */
             const smartstarter = new ethers.Contract(sAddr, sAbi, provider)
-            console.log('CONTRACT (smartstarter):', smartstarter)
+            // console.log('CONTRACT (smartstarter):', smartstarter)
 
-            console.log('ALL CAMPAIGNS', await smartstarter.getCampaigns());
+            // console.log('ALL CAMPAIGNS', await smartstarter.getCampaigns());
 
             /* Initialize campaign instance. */
             const campaign = new ethers.Contract(cAddr, cAbi, provider)
-            console.log('CONTRACT (campaign):', campaign)
+            // console.log('CONTRACT (campaign):', campaign)
 
             /* Request campaign info. */
             const campaignInfo = await campaign.getCampaign()
-            console.log('CAMPAIGN (info):', campaignInfo)
+            // console.log('CAMPAIGN (info):', campaignInfo)
 
             /* Set starting block. */
             const startingBlock = campaignInfo.startingBlock.toNumber()
@@ -275,7 +275,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('PledgeReceived', fromBlock, toBlock)
-            console.log('QUERY (PledgeReceived):', query)
+            // console.log('QUERY (PledgeReceived):', query)
 
             /* Initialize contributors. */
             this.contributors = []
@@ -291,7 +291,7 @@ export default {
                 /* Set pledge amount. */
                 const pledgeAmount = entry.args.pledgeAmount
 
-                console.log('CONTRIBUTOR (received):', address, fundsRaised.toString(), pledgeAmount.toString())
+                // console.log('CONTRIBUTOR (received):', address, fundsRaised.toString(), pledgeAmount.toString())
 
                 /* Generate a new UUID. */
                 const id = uuidv4()
@@ -309,7 +309,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('PledgeReclaimed', fromBlock, toBlock)
-            console.log('QUERY (PledgeReclaimed):', query)
+            // console.log('QUERY (PledgeReclaimed):', query)
 
             /* Handle event entries. */
             query.forEach(entry => {
@@ -322,20 +322,20 @@ export default {
                 /* Set reclaim amount. */
                 const reclaimAmount = entry.args.reclaimAmount
 
-                console.log('CONTRIBUTOR (reclaimed):', contributor, fundsRaised.toString(), reclaimAmount.toString())
+                // console.log('CONTRIBUTOR (reclaimed):', contributor, fundsRaised.toString(), reclaimAmount.toString())
             })
 
             /* Request event data. */
             query = await campaign
                 .queryFilter('CreatorPaid', fromBlock, toBlock)
-            console.log('QUERY (CreatorPaid):', query)
+            // console.log('QUERY (CreatorPaid):', query)
 
             /* Handle event entries. */
             query.forEach(entry => {
                 /* Set recipient. */
                 const recipient = entry.args.recipient
 
-                console.log('RECEIPIENT', recipient)
+                // console.log('RECEIPIENT', recipient)
             })
 
             /* Request event data. */

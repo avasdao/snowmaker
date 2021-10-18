@@ -86,6 +86,24 @@
 			},
 			{
 				"indexed": false,
+				"internalType": "string",
+				"name": "label",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "comment",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			},
+			{
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "fundsRaised",
 				"type": "uint256"

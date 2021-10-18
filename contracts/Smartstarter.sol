@@ -5,7 +5,7 @@
  *
  * https://smartstarter.cash
  *
- * Current version: v21.10.14
+ * Current version: v21.10.17
  *
  * Individual supporters can now easily send financial support to their
  * favorite crypto-accepting campaign(s).
@@ -207,11 +207,20 @@ contract Campaign {
     /* Emitted after campaign creator has received the funds. */
     event CreatorPaid(address recipient);
 
+    /* Emitted after feedback is sent. */
+    event FeedbackSent(
+        address indexed supporter,
+        string comment
+    );
+
     /* Emitted after pledge is received. */
     event PledgeReceived(
         address indexed contributor,
         uint pledgeAmount,
         uint totalPledgeAmount,
+        string label,
+        string comment,
+        string url,
         uint fundsRaised
     );
 
@@ -220,6 +229,13 @@ contract Campaign {
         address indexed contributor,
         uint reclaimAmount,
         uint fundsRaised
+    );
+
+    /* Emitted after report card is added. */
+    event ReportCardAdded(
+        address indexed publisher,
+        string title,
+        string url
     );
 
     /* Validate current state. */
@@ -323,6 +339,9 @@ contract Campaign {
             msg.sender,
             msg.value,
             totalPledged,
+            _label,
+            _comment,
+            _url,
             _pledgeBalance
         );
 
@@ -391,8 +410,8 @@ contract Campaign {
      * NOTE: This function can only be called after a campaign has expired.
      *       THIS RESTRICTION HAS BEEN REMOVED FOR DEVELOPMENT PURPOSES ONLY
      */
-    // function reclaim() public inState(State.Expired) returns (bool) {
-    function reclaim() public returns (bool) {
+    // function reclaim() external inState(State.Expired) returns (bool) {
+    function reclaim() external returns (bool) {
         /* Validate contribution balance. */
         require(_pledges[msg.sender].amount > 0);
 
@@ -433,7 +452,7 @@ contract Campaign {
      *
      * Retrieve details about a campaign.
      */
-    function getCampaign() public view returns (
+    function getCampaign() external view returns (
         address payable creator,
         string memory title,
         string memory description,
@@ -477,7 +496,9 @@ contract Campaign {
      *
      * Retrieve details about a contributor.
      */
-    function getContributor(address _contributor) public view returns (
+    function getContributor(
+        address _contributor
+    ) external view returns (
         uint256 amount,
         string memory label,
         string memory comment,
@@ -496,12 +517,50 @@ contract Campaign {
         url = _pledges[_contributor].url;
     }
 
+    /**
+     * Send Feedback
+     *
+     * Allows ANYONE to leave feedback about the campaign.
+     *
+     * NOTE: Gas fees must still be paid.
+     */
+    function sendFeedback(
+        string calldata _comment
+    ) external returns (bool) {
+        /* Send feedback notification. */
+        emit FeedbackSent(
+            msg.sender,
+            _comment
+        );
+
+    }
+
+    /**
+     * Add Report Card
+     *
+     * Allows a report card to be added to the campaign.
+     *
+     * NOTE: This specification is still under development.
+     */
+    function addReportCard(
+        string calldata _reportTitle,
+        string calldata _reportUrl
+    ) external returns (bool) {
+        /* Send report card notification. */
+        emit ReportCardAdded(
+            msg.sender,
+            _reportTitle,
+            _reportUrl
+        );
+
+    }
+
 }
 
 
 /*******************************************************************************
  *
- * ( this contract was last updated on 2021.10.14 )
+ * ( this contract was last updated on 2021.10.17 )
  *
  * Please visit our websites:
  *   - https://smartstarter.cash

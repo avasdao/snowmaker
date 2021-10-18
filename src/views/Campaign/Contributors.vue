@@ -49,9 +49,6 @@
 import { ethers } from 'ethers'
 import numeral from 'numeral'
 
-/* Import components. */
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
     props: {
         contributors: Array,
@@ -117,8 +114,6 @@ export default {
         }
     },
     created: async function () {
-        console.log('CONTRIBUTORS (CREATED):', this.contributors)
-
         /* Initialize provider. */
         const provider = new ethers.providers
             .JsonRpcProvider(this.$store.state.testnetProvider)
@@ -133,25 +128,27 @@ export default {
 
         /* Initialize campaign instance. */
         const campaign = new ethers.Contract(cAddr, cAbi, provider)
-        console.log('CONTRACT (campaign):', campaign)
+        // console.log('CONTRACT (campaign):', campaign)
 
         /* Handle contributors. */
         for (let i = 0; i < this.contributors.length; i++) {
+            /* Set contributor. */
             const contributor = this.contributors[i]
 
             // NOTE: We filter out donation under 1 satoshi
             if (contributor.pledgeAmount.gt(10000000000n)) {
                 /* Request contributor info. */
                 const contributorInfo = await campaign.getContributor(contributor.address)
-                console.log('CAMPAIGN (info):', contributorInfo)
+                // console.log('CAMPAIGN (info):', contributorInfo)
 
+                /* Add label. */
                 contributor.label = contributorInfo.label
 
+                /* Add comment. */
                 contributor.comment = contributorInfo.comment
 
+                /* Add URL. */
                 contributor.url = contributorInfo.url
-
-                // contributors.push(contributor)
             }
         }
 
