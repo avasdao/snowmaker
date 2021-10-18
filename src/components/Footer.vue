@@ -8,19 +8,19 @@
                     </router-link>
                 </div>
 
-                <div class="px-5 py-2">
+                <div class="hidden px-5 py-2">
                     <router-link to="/reports" class="text-base text-gray-500 hover:text-gray-900">
                         Reporting
                     </router-link>
                 </div>
 
-                <div class="px-5 py-2">
+                <div class="hidden px-5 py-2">
                     <a href="https://pif.cash" target="_blank" class="text-base text-gray-500 hover:text-gray-900">
                         Pay It Forward
                     </a>
                 </div>
 
-                <div class="px-5 py-2">
+                <div class="hidden px-5 py-2">
                     <router-link to="/spotlight" class="text-base text-gray-500 hover:text-gray-900">
                         Spotlight
                     </router-link>

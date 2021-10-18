@@ -2,9 +2,14 @@
     <main id="report-cards">
         <div
             v-for="card of cards" :key="card.id"
-            class="mt-10 p-5 bg-gray-50 border-2 border-gray-200 rounded-xl">
+            class="mt-10 p-5 bg-gray-50 border-2 border-gray-200 rounded-xl"
+        >
             <div class="text-right text-sm font-bold text-gray-500">
                 {{card.category}}
+            </div>
+
+            <div class="text-right text-sm font-medium text-gray-500">
+                posted 14 hours ago
             </div>
 
             <div v-html="card.body" />

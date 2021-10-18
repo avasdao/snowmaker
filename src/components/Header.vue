@@ -9,20 +9,20 @@
                     </router-link>
 
                     <div class="hidden ml-10 space-x-8 lg:block">
-                        <router-link to="/reports" class="text-base font-medium text-white hover:text-indigo-50" key="Reporting">
+                        <router-link to="/reports" class="hidden text-base font-medium text-white hover:text-indigo-50" key="Reporting">
                             Reporting
                         </router-link>
 
-                        <a href="https://pif.cash" target="_blank" class="text-base font-medium text-white hover:text-indigo-50" key="Pay It Forwrad">
+                        <a href="https://pif.cash" target="_blank" class="hidden text-base font-medium text-white hover:text-indigo-50" key="Pay It Forwrad">
                             Pay It Forward
                         </a>
 
-                        <router-link to="/spotlight" class="text-base font-medium text-white hover:text-indigo-50" key="Spotlight">
+                        <router-link to="/spotlight" class="hidden text-base font-medium text-white hover:text-indigo-50" key="Spotlight">
                             Spotlight
                         </router-link>
 
                         <router-link to="/support" class="text-base font-medium text-white hover:text-indigo-50" key="Support">
-                            Support
+                            Do you need help?
                         </router-link>
                     </div>
                 </div>

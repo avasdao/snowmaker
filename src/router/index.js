@@ -8,13 +8,13 @@ import Campaign from '../views/Campaign.vue'
 import Compare from '../views/Compare.vue'
 import Edit from '../views/Edit.vue'
 import Help from '../views/Help.vue'
+import How from '../views/How.vue'
 import Launchpad from '../views/Launchpad.vue'
 import Profile from '../views/Profile.vue'
 import Reports from '../views/Reports.vue'
 import Sponsors from '../views/Sponsors.vue'
 import Spotlight from '../views/Spotlight.vue'
 import Stats from '../views/Stats.vue'
-import Support from '../views/Support.vue'
 
 const routes = [
     {
@@ -58,6 +58,11 @@ const routes = [
         component: Help,
     },
     {
+        path: '/how',
+        name: 'How',
+        component: How,
+    },
+    {
         path: '/launchpad',
         name: 'Launchpad',
         component: Launchpad,
@@ -87,15 +92,21 @@ const routes = [
         name: 'Stats',
         component: Stats,
     },
-    {
-        path: '/support',
-        name: 'Support',
-        component: Support,
-    },
 ]
 
 const router = createRouter({
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { top: 0 }
+        }
+    },
     history: createWebHistory(process.env.BASE_URL),
+    // mode: process.env.BASE_URL === '/' ? 'history': 'hash',
+    // mode: 'hash',
+    mode: 'history',
+    base: process.env.BASE_URL,
     routes,
 })
 
