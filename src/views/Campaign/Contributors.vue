@@ -57,8 +57,8 @@ export default {
     watch: {
         contributors: function (_contributors) {
             console.log('CONTRIBUTORS HAS CHANGED', _contributors)
+        },
 
-        }
     },
     computed: {
         pledges() {
@@ -114,6 +114,7 @@ export default {
         }
     },
     created: async function () {
+        console.log('CONTRIBUTORS', this.contributors);
         /* Initialize provider. */
         const provider = new ethers.providers
             .JsonRpcProvider(this.$store.state.testnetProvider)

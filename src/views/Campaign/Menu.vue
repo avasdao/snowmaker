@@ -29,7 +29,7 @@
                 type="button"
                 @click="$emit('tabbed', 'feedback')"
             >
-                FEEDBACK <small>(3)</small>
+                FEEDBACK <small>({{numSupporters}})</small>
             </button>
 
             <button
@@ -52,6 +52,7 @@
 export default {
     props: {
         contributors: Array,
+        supporters: Array,
     },
     computed: {
         numContributors() {
@@ -71,6 +72,13 @@ export default {
 
             /* Return count of contributors. */
             return contributors.length
+        },
+
+        numSupporters() {
+            /* Validate supporters. */
+            if (!this.supporters) return 0
+
+            return this.supporters.length
         },
 
     },

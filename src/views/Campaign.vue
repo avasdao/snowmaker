@@ -91,11 +91,11 @@
 
                 <div class="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
                     <div>
-                        <Menu class="" @tabbed="toggleMenu" :contributors="contributors" />
+                        <Menu class="" @tabbed="toggleMenu" :contributors="contributors" :supporters="supporters" />
 
                         <Contributors v-if="showContributors" :contributors="contributors" :usd="usd" />
                         <Description v-if="showDescription" />
-                        <Feedback v-if="showFeedback" />
+                        <Feedback v-if="showFeedback" :supporters="supporters" />
                         <ReportCards v-if="showReportCards" />
 
                     </div>
@@ -180,6 +180,7 @@ export default {
             showReportCards: null,
 
             contributors: null,
+            supporters: null,
         }
     },
     methods: {
@@ -227,13 +228,13 @@ export default {
             // console.log('PROVIDER', provider)
 
             this.blockNum = await provider.getBlockNumber()
-            // console.log('BLOCK NUM', this.blockNum)
+            console.log('BLOCK NUM', this.blockNum)
 
             /* Set Smartstarter contract address. */
-            const sAddr = this.$store.state.smartstarterContractAddr
+            // const sAddr = this.$store.state.smartstarterContractAddr
 
             /* Set Smartstarter ABI. */
-            const sAbi = require('../../contracts/Smartstarter.json')
+            // const sAbi = require('../../contracts/Smartstarter.json')
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
@@ -243,7 +244,7 @@ export default {
             const cAbi = require('../../contracts/Campaign.json')
 
             /* Initialize Smartstarter instance. */
-            const smartstarter = new ethers.Contract(sAddr, sAbi, provider)
+            // const smartstarter = new ethers.Contract(sAddr, sAbi, provider)
             // console.log('CONTRACT (smartstarter):', smartstarter)
 
             // console.log('ALL CAMPAIGNS', await smartstarter.getCampaigns());
@@ -275,7 +276,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('PledgeReceived', fromBlock, toBlock)
-            // console.log('QUERY (PledgeReceived):', query)
+            console.log('QUERY (PledgeReceived):', query)
 
             /* Initialize contributors. */
             this.contributors = []
@@ -291,7 +292,7 @@ export default {
                 /* Set pledge amount. */
                 const pledgeAmount = entry.args.pledgeAmount
 
-                // console.log('CONTRIBUTOR (received):', address, fundsRaised.toString(), pledgeAmount.toString())
+                console.log('CONTRIBUTOR (received):', address, fundsRaised.toString(), pledgeAmount.toString())
 
                 /* Generate a new UUID. */
                 const id = uuidv4()
@@ -322,7 +323,7 @@ export default {
                 /* Set reclaim amount. */
                 const reclaimAmount = entry.args.reclaimAmount
 
-                // console.log('CONTRIBUTOR (reclaimed):', contributor, fundsRaised.toString(), reclaimAmount.toString())
+                console.log('CONTRIBUTOR (reclaimed):', contributor, fundsRaised.toString(), reclaimAmount.toString())
             })
 
             /* Request event data. */
@@ -335,8 +336,10 @@ export default {
                 /* Set recipient. */
                 const recipient = entry.args.recipient
 
-                // console.log('RECEIPIENT', recipient)
+                console.log('RECEIPIENT', recipient)
             })
+
+            this.supporters = []
 
             /* Request event data. */
             query = await campaign
@@ -345,13 +348,22 @@ export default {
 
             /* Handle event entries. */
             query.forEach(entry => {
-                /* Set supporter. */
-                const supporter = entry.args.supporter
+                /* Set (supporter) address. */
+                const address = entry.args.supporter
 
                 /* Set comment. */
                 const comment = entry.args.comment
 
-                console.log('SUPPORTER', supporter, comment)
+                console.log('SUPPORTER', address, comment)
+
+                /* Generate a new UUID. */
+                const id = uuidv4()
+
+                this.supporters.push({
+                    id,
+                    address,
+                    comment,
+                })
             })
 
             /* Request event data. */
