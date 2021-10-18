@@ -11,7 +11,8 @@
 
                 <p class="mt-6 max-w-3xl text-xl text-gray-300">
                     Smartstarter is a FULLY decentralized platform.
-                    There are NO central servers, so ALL (meta)data has to be stored on-chain and is 100% controlled by YOU.
+                    There are NO central servers to censor.
+                    ALL campaign details are stored on-chain and 100% controlled by YOU.
                 </p>
             </div>
         </div>
@@ -153,28 +154,28 @@
                         <div>
                             <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
                             <div class="mt-1">
-                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
+                                <input disabled type="text" name="first-name" id="first-name" autocomplete="given-name" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                             </div>
                         </div>
 
                         <div>
                             <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
                             <div class="mt-1">
-                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
+                                <input disabled type="text" name="last-name" id="last-name" autocomplete="family-name" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                             </div>
                         </div>
 
                         <div class="sm:col-span-2">
                             <label for="company" class="block text-sm font-medium text-gray-700">Project / Campaign Name</label>
                             <div class="mt-1">
-                                <input type="text" name="company" id="company" autocomplete="organization" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
+                                <input disabled type="text" name="company" id="company" autocomplete="organization" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                             </div>
                         </div>
 
                         <div class="sm:col-span-2">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                             <div class="mt-1">
-                                <input id="email" name="email" type="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
+                                <input disabled id="email" name="email" type="email" autocomplete="email" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" />
                             </div>
                         </div>
 
@@ -190,6 +191,7 @@
                                     </select>
                                 </div>
                                 <input
+                                    disabled
                                     type="text"
                                     name="phone-number"
                                     id="phone-number"
@@ -203,7 +205,7 @@
                         <div class="sm:col-span-2">
                             <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                             <div class="mt-1">
-                                <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"></textarea>
+                                <textarea disabled id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"></textarea>
                             </div>
                         </div>
 
@@ -212,6 +214,7 @@
                                 <div class="flex-shrink-0">
                                     <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
                                     <button
+                                        disabled
                                         type="button"
                                         class="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                         role="switch"
@@ -236,6 +239,7 @@
 
                         <div class="sm:col-span-2">
                             <button
+                                disabled
                                 type="submit"
                                 class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             >

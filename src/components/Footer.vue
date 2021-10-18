@@ -27,15 +27,15 @@
                 </div>
 
                 <div class="px-5 py-2">
-                    <router-link to="/support" class="text-base text-gray-500 hover:text-gray-900">
-                        Support
+                    <router-link to="/help" class="text-base text-gray-500 hover:text-gray-900">
+                        Need help?
                     </router-link>
                 </div>
 
             </nav>
 
-            <div class="mt-8 flex justify-center space-x-6">
-                <a href="javascript://" class="text-gray-400 hover:text-gray-500">
+            <div class="mt-8 flex justify-center">
+                <a href="javascript://" class="hidden mx-5 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Facebook</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -46,7 +46,7 @@
                     </svg>
                 </a>
 
-                <a href="javascript://" class="text-gray-400 hover:text-gray-500">
+                <a href="javascript://" class="mx-5 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Instagram</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -57,7 +57,7 @@
                     </svg>
                 </a>
 
-                <a href="javascript://" class="text-gray-400 hover:text-gray-500">
+                <a href="javascript://" class="mx-5 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Twitter</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -66,7 +66,7 @@
                     </svg>
                 </a>
 
-                <a href="javascript://" class="text-gray-400 hover:text-gray-500">
+                <a href="javascript://" class="mx-5 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">GitHub</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -77,7 +77,7 @@
                     </svg>
                 </a>
 
-                <a href="javascript://" class="text-gray-400 hover:text-gray-500">
+                <a href="javascript://" class="hidden mx-5 text-gray-400 hover:text-gray-500">
                     <span class="sr-only">Dribbble</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path

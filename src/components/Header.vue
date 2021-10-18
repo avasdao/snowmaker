@@ -21,7 +21,7 @@
                             Spotlight
                         </router-link>
 
-                        <router-link to="/support" class="text-base font-medium text-white hover:text-indigo-50" key="Support">
+                        <router-link to="/help" class="text-base font-medium text-white hover:text-indigo-50" key="Support">
                             Do you need help?
                         </router-link>
                     </div>
