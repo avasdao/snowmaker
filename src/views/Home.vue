@@ -18,7 +18,7 @@
 
         <CTA class="my-20" />
 
-        <Recent class="py-16 lg:py-24" />
+        <Recent class="hidden py-16 lg:py-24" />
 
     </main>
 </template>

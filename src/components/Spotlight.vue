@@ -10,7 +10,7 @@
                     SPOTLIGHT
                 </h2>
 
-                <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                <p class="hidden mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
                     We are proud to feature the 3 campaigns that have received the most love from our generous <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">Pay It Forward (PIF) community</a>.
                 </p>
             </div>

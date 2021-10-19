@@ -594,8 +594,17 @@ export default {
 
         },
 
+        /**
+         * Add Report Card
+         *
+         * Allow authorized users to add a new Report Card.
+         */
         addReportCard() {
-            alert('You do not have permission to do that.')
+            this.$store.dispatch('showNotif', {
+                icon: 'error',
+                title: 'Authorization Error!',
+                message: 'You do not have permission to do that.',
+            })
         },
 
     },

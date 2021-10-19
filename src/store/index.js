@@ -14,7 +14,16 @@ export default createStore({
         /* Set testnet provider. */
         testnetProvider: 'https://smartbch.devops.cash/testnet',
 
+        notif: {
+            isShowing: false,
+            icon: null,
+            title: null,
+            description: null,
+            delay: 7000,
+        },
+
         smartstarterAbi: require('../../contracts/Smartstarter.json'),
+
         campaignAbi: require('../../contracts/Campaign.json'),
 
         /* Set amount funded. */
@@ -187,10 +196,57 @@ Don't trust. Verify!
 
     },
     mutations: {
-        //
+        /* Set notification. */
+        setNotif(state, _pkg) {
+            // console.log('ACTIONS (pkg):', _pkg);
+
+            /* Set showing flag. */
+            const isShowing = _pkg.isShowing
+
+            /* Set icon. */
+            const icon = _pkg.icon
+
+            /* Set title. */
+            const title = _pkg.title
+
+            /* Set message. */
+            const message = _pkg.message
+
+            /* Retrieve delay. */
+            const delay = state.notif.delay
+
+            /* Set notification. */
+            state.notif = {
+                isShowing,
+                icon,
+                title,
+                message,
+                delay,
+            }
+        }
     },
     actions: {
-        //
+        /* Show notification. */
+        showNotif({ state, commit }, _pkg) {
+            console.log('SHOW NOTIF', _pkg);
+
+            /* Enable showing flag. */
+            _pkg.isShowing = true
+
+            /* Set new master (private) key. */
+            commit('setNotif', _pkg)
+
+            /* Set timeout to close/reset. */
+            setTimeout(() => {
+                /* Commit notification. */
+                commit('setNotif', {
+                    isShowing: false,
+                    icon: null,
+                    title: null,
+                    message: null,
+                })
+            }, state.notif.delay)
+        }
     },
     modules: {
         //

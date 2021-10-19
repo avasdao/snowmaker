@@ -7,15 +7,15 @@
 
     <Modal class="hidden" />
 
-    <Notif class="hidden" />
+    <Notif :notif="$store.state.notif" />
 </template>
 
 <script>
 /* Import components. */
 import Footer from '@/components/Footer.vue'
-import Profile from '@/components/Profile.vue'
 import Modal from '@/components/Modal.vue'
 import Notif from '@/components/Notif.vue'
+import Profile from '@/components/Profile.vue'
 
 export default {
     components: {
@@ -23,7 +23,18 @@ export default {
         Profile,
         Modal,
         Notif,
-    }
+    },
+    data: () => {
+        return {
+            //
+        }
+    },
+    created: function () {
+        //
+    },
+    mounted: function () {
+        //
+    },
 }
 </script>
 
