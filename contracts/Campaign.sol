@@ -126,6 +126,7 @@ contract Campaign {
         string label,
         string comment,
         string url,
+        uint bchUsd,
         uint fundsRaised,
         uint timestamp
     );
@@ -198,12 +199,16 @@ contract Campaign {
      *
      * Fund a certain campaign.
      *
+     * Application is required to provide the current BCH/USD spot price.
+     * This value is added to the event log and used for historical pricing display.
+     *
      * NOTE: Requires the current state to be "Fundraising".
      */
     function makePledge(
         string calldata _label,
         string calldata _comment,
-        string calldata _url
+        string calldata _url,
+        uint _bchUsd
     ) external inState(State.Fundraising) payable {
         /* Validate the contributor is NOT the creator. */
         require(msg.sender != _creator);
@@ -253,6 +258,7 @@ contract Campaign {
             _label,
             _comment,
             _url,
+            _bchUsd,
             _pledgeBalance,
             block.timestamp
         );

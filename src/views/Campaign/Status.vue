@@ -53,7 +53,7 @@ export default {
     },
     computed: {
         fundedDisplay() {
-            if (!this.pledgeBalance) return 'n/a'
+            if (!this.pledgeBalance) return '0.0'
 
             const weiValue = this.pledgeBalance
 
@@ -63,7 +63,7 @@ export default {
         },
 
         fundedDisplayUsd() {
-            if (!this.pledgeBalance || !this.usd) return 'n/a'
+            if (!this.pledgeBalance || !this.usd) return '$0.00'
 
             const cents = BigInt(parseInt(this.usd * 100))
 
@@ -75,7 +75,7 @@ export default {
         },
 
         requestedDisplay() {
-            if (!this.fundingGoal || !this.usd) return 'n/a'
+            if (!this.fundingGoal || !this.usd) return '0.00'
 
             const weiValue = this.fundingGoal
 
@@ -85,7 +85,7 @@ export default {
         },
 
         requestedDisplayUsd() {
-            if (!this.fundingGoal || !this.usd) return 'n/a'
+            if (!this.fundingGoal || !this.usd) return '$0.00'
 
             const cents = BigInt(parseInt(this.usd * 100))
 

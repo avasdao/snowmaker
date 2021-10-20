@@ -465,6 +465,11 @@ export default {
 
             // console.log('CAMPAIGN (info):', await campaign.getDetails())
 
+            const label = 'Dade'
+            const comment = 'hack the planet'
+            const url = 'https://hackers.movie'
+            const bchUsd = this.usd ? parseInt(this.usd * 100) : 0
+
             /* Set gas price. */
             // NOTE: Current minimum is 1 gWei (1,000,000,000)
             const gasPrice = BigInt(1000000000)
@@ -475,12 +480,19 @@ export default {
             const value = (BigInt(1000000000000000000) * sats) / ONE_BITCOIN // 1 BCH
             // const value = BigInt(1750000000)
 
+            const contractOptions = {
+                gasPrice,
+                value,
+            }
+
             /* Make pledge. */
-            await campaign
-                .makePledge('Dade', 'hack the planet', 'https://hackers.movie', {
-                    gasPrice,
-                    value,
-                })
+            await campaign.makePledge(
+                label,
+                comment,
+                url,
+                bchUsd,
+                { ...contractOptions }
+            )
         },
 
         /**

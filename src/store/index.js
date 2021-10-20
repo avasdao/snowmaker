@@ -3,10 +3,10 @@ import { createStore } from 'vuex'
 export default createStore({
     state: {
         /* Set Smartstarter contract address. */
-        smartstarterContractAddr: '0xa1e69c32d136aD16870e17E607E03DA528a12043',
+        smartstarterContractAddr: '0xe028D0cE60C2be7Ddea4E99BD63D14817baB5f87',
 
         /* Set Campaign contract address. */
-        campaignContractAddr: '0x63E62F58793bB62297A3fEf8399b18e1234a3D30',
+        campaignContractAddr: '0x68252a539a77ab503589D835d0062EfaEf705799',
 
         /* Set mainnet provider. */
         mainnetProvider: 'https://smartbch.devops.cash/mainnet',

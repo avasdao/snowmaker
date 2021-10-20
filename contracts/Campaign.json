@@ -116,6 +116,12 @@
 			{
 				"indexed": false,
 				"internalType": "uint256",
+				"name": "bchUsd",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
 				"name": "fundsRaised",
 				"type": "uint256"
 			},
@@ -325,6 +331,11 @@
 				"internalType": "string",
 				"name": "_url",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_bchUsd",
+				"type": "uint256"
 			}
 		],
 		"name": "makePledge",
