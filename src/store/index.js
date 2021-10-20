@@ -3,10 +3,10 @@ import { createStore } from 'vuex'
 export default createStore({
     state: {
         /* Set Smartstarter contract address. */
-        smartstarterContractAddr: '0x68a5748c6Dd12CFDbBF322ae24B69DEB16760781',
+        smartstarterContractAddr: '0xa1e69c32d136aD16870e17E607E03DA528a12043',
 
         /* Set Campaign contract address. */
-        campaignContractAddr: '0x92F7378e0412f44AB3c1DABCAE51DD836Ae16C1b',
+        campaignContractAddr: '0x63E62F58793bB62297A3fEf8399b18e1234a3D30',
 
         /* Set mainnet provider. */
         mainnetProvider: 'https://smartbch.devops.cash/mainnet',
@@ -125,6 +125,7 @@ Beyond this initial Mininum Viable Product (MVP) release, our team intends to ex
 1. Launching the __[Pay It Forward (PIF)](https://pif.cash)__ infrastructure and development fund.
 2. Developing and maintaining a system to automagically refund expired pledges.
 3. Performing a 3rd-party audit of our __[Solidity contracts](https://gitlab.com/bchplease/smartstarter/-/tree/master/contracts)__ by a certified security firm.
+4. Add support for the __[Ledger](https://www.ledger.com/)__ hardware wallet.
 
 ## SmartBCH Resources
 

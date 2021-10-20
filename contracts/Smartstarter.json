@@ -43,7 +43,6 @@
 		"type": "event"
 	},
 	{
-		"constant": true,
 		"inputs": [],
 		"name": "getCampaigns",
 		"outputs": [
@@ -53,12 +52,10 @@
 				"type": "address[]"
 			}
 		],
-		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"constant": false,
 		"inputs": [
 			{
 				"internalType": "string",
@@ -83,7 +80,6 @@
 		],
 		"name": "startCampaign",
 		"outputs": [],
-		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
