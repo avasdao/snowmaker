@@ -102,7 +102,7 @@
                 </div>
             </div>
 
-            <Policy />
+            <Policy class="hidden" />
 
             <Related />
 
