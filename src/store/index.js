@@ -2,10 +2,15 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
+        /* Set constants. */
+        ONE_BITCOIN: 100000000,
+
         /* Set Smartstarter contract address. */
+        smartstarterAbi: require('../../contracts/Smartstarter.json'),
         smartstarterContractAddr: '0xe028D0cE60C2be7Ddea4E99BD63D14817baB5f87',
 
         /* Set Campaign contract address. */
+        campaignAbi: require('../../contracts/Campaign.json'),
         campaignContractAddr: '0x68252a539a77ab503589D835d0062EfaEf705799',
 
         /* Set mainnet provider. */
@@ -21,10 +26,6 @@ export default createStore({
             description: null,
             delay: 7000,
         },
-
-        smartstarterAbi: require('../../contracts/Smartstarter.json'),
-
-        campaignAbi: require('../../contracts/Campaign.json'),
 
         /* Set amount funded. */
         // amountFunded: 1.337,

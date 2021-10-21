@@ -110,6 +110,8 @@
 
         </section>
 
+        <FeedbackWin :hasFeedback="hasFeedback" @close="closeFeedback" />
+        <PledgeWin :isPledging="isPledging" :usd="usd" @close="closePledge" />
     </main>
 </template>
 
@@ -129,7 +131,9 @@ import Contributors from './Campaign/Contributors.vue'
 import Description from './Campaign/Description.vue'
 import Disclaimer from './Campaign/Disclaimer.vue'
 import Feedback from './Campaign/Feedback.vue'
+import FeedbackWin from './Campaign/FeedbackWin.vue'
 import Highlights from './Campaign/Highlights.vue'
+import PledgeWin from './Campaign/PledgeWin.vue'
 import Policy from './Campaign/Policy.vue'
 import Menu from './Campaign/Menu.vue'
 import Monitor from './Campaign/Monitor.vue'
@@ -144,8 +148,6 @@ import Title from './Campaign/Title.vue'
 /* Set ticker endpoint. */
 const TICKER_ENDPOINT = 'https://api.telr.io/v1/ticker/quote/BCH'
 
-const ONE_BITCOIN = BigInt(100000000)
-
 export default {
     components: {
         CTA,
@@ -154,7 +156,9 @@ export default {
         Description,
         Disclaimer,
         Feedback,
+        FeedbackWin,
         Highlights,
+        PledgeWin,
         Policy,
         Menu,
         Monitor,
@@ -181,6 +185,9 @@ export default {
 
             contributors: null,
             supporters: null,
+
+            isPledging: null,
+            hasFeedback: null,
         }
     },
     methods: {
@@ -234,14 +241,14 @@ export default {
             // const sAddr = this.$store.state.smartstarterContractAddr
 
             /* Set Smartstarter ABI. */
-            // const sAbi = require('../../contracts/Smartstarter.json')
+            // const sAbi = this.$store.state.smartstarterAbi
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
             const cAddr = this.$store.state.campaignContractAddr
 
             /* Set Campaign ABI. */
-            const cAbi = require('../../contracts/Campaign.json')
+            const cAbi = this.$store.state.campaignAbi
 
             /* Initialize Smartstarter instance. */
             // const smartstarter = new ethers.Contract(sAddr, sAbi, provider)
@@ -292,7 +299,19 @@ export default {
                 /* Set pledge amount. */
                 const pledgeAmount = entry.args.pledgeAmount
 
-                console.log('CONTRIBUTOR (received):', address, fundsRaised.toString(), pledgeAmount.toString())
+                /* Set label. */
+                const label = entry.args.label
+
+                /* Set comment. */
+                const comment = entry.args.comment
+
+                /* Set url. */
+                const url = entry.args.url
+
+                /* Set BCH/USD. */
+                const bchUsd = entry.args.bchUsd
+
+                // console.log('CONTRIBUTOR (received):', address, fundsRaised.toString(), pledgeAmount.toString())
 
                 /* Generate a new UUID. */
                 const id = uuidv4()
@@ -301,8 +320,12 @@ export default {
                 this.contributors.push({
                     id,
                     address,
-                    fundsRaised,
                     pledgeAmount,
+                    fundsRaised,
+                    label,
+                    comment,
+                    url,
+                    bchUsd,
                 })
 
             })
@@ -354,6 +377,9 @@ export default {
                 /* Set comment. */
                 const comment = entry.args.comment
 
+                /* Set timestamp. */
+                const timestamp = entry.args.timestamp
+
                 console.log('SUPPORTER', address, comment)
 
                 /* Generate a new UUID. */
@@ -363,6 +389,7 @@ export default {
                     id,
                     address,
                     comment,
+                    timestamp,
                 })
             })
 
@@ -417,82 +444,8 @@ export default {
 
         },
 
-        /**
-         * Make Pledge
-         *
-         * Begins the pledge process by launching a UI modal.
-         */
-        async makePledge() {
-            console.log('START PLEDGE');
-
-            /* Validate embedded Web3 objects. */
-            if (!window.ethereum && !window.bitcoin) {
-                /* Validate embedded ethereum object. */
-                if (window.bitcoin) {
-                    console.info('Found Bitcoin provider.')
-                } else if (window.ethereum) {
-                    console.info('Found Ethereum provider.')
-                } else {
-                    return console.error('No Web3 provider found.')
-                }
-            }
-
-            /* Initialize provider. */
-            const provider = new ethers
-                .providers
-                .Web3Provider(window.ethereum, 'any')
-
-            /* Prompt user for account connections. */
-            // await provider.send('eth_requestAccounts', [])
-
-            /* Set signer. */
-            const signer = provider.getSigner()
-
-            /* Request account. */
-            // this.account = await signer.getAddress()
-            // console.log('Account:', this.account)
-
-            // FOR DEVELOPMENT PURPOSES ONLY
-            // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
-
-            /* Set Campaign ABI. */
-            const cAbi = require('../../contracts/Campaign.json')
-
-            /* Initialize campaign instance. */
-            const campaign = new ethers.Contract(cAddr, cAbi, signer)
-            console.log('CONTRACT (campaign):', campaign)
-
-            // console.log('CAMPAIGN (info):', await campaign.getDetails())
-
-            const label = 'Dade'
-            const comment = 'hack the planet'
-            const url = 'https://hackers.movie'
-            const bchUsd = this.usd ? parseInt(this.usd * 100) : 0
-
-            /* Set gas price. */
-            // NOTE: Current minimum is 1 gWei (1,000,000,000)
-            const gasPrice = BigInt(1000000000)
-
-            const sats = BigInt(13370000) // 0.1337 BCH
-
-            /* Set value. */
-            const value = (BigInt(1000000000000000000) * sats) / ONE_BITCOIN // 1 BCH
-            // const value = BigInt(1750000000)
-
-            const contractOptions = {
-                gasPrice,
-                value,
-            }
-
-            /* Make pledge. */
-            await campaign.makePledge(
-                label,
-                comment,
-                url,
-                bchUsd,
-                { ...contractOptions }
-            )
+        makePledge() {
+            this.isPledging = true
         },
 
         /**
@@ -537,7 +490,7 @@ export default {
             const cAddr = this.$store.state.campaignContractAddr
 
             /* Set Campaign ABI. */
-            const cAbi = require('../../contracts/Campaign.json')
+            const cAbi = this.$store.state.campaignAbi
 
             /* Initialize campaign instance. */
             const campaign = new ethers.Contract(cAddr, cAbi, signer)
@@ -553,57 +506,8 @@ export default {
             await campaign.reclaim({ gasPrice })
         },
 
-        async sendFeedback() {
-            /* Validate embedded Web3 objects. */
-            if (!window.ethereum && !window.bitcoin) {
-                /* Validate embedded ethereum object. */
-                if (window.bitcoin) {
-                    console.info('Found Bitcoin provider.')
-                } else if (window.ethereum) {
-                    console.info('Found Ethereum provider.')
-                } else {
-                    return console.error('No Web3 provider found.')
-                }
-            }
-
-            /* Initialize provider. */
-            const provider = new ethers
-                .providers
-                .Web3Provider(window.ethereum, 'any')
-
-            /* Prompt user for account connections. */
-            // await provider.send('eth_requestAccounts', [])
-
-            /* Set signer. */
-            const signer = provider.getSigner()
-
-            /* Request account. */
-            // this.account = await signer.getAddress()
-            // console.log('Account:', this.account)
-
-            // FOR DEVELOPMENT PURPOSES ONLY
-            // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
-
-            /* Set Campaign ABI. */
-            const cAbi = require('../../contracts/Campaign.json')
-
-            /* Initialize campaign instance. */
-            const campaign = new ethers.Contract(cAddr, cAbi, signer)
-            console.log('CONTRACT (campaign):', campaign)
-
-            // console.log('CAMPAIGN (info):', await campaign.getDetails())
-
-            /* Set gas price. */
-            // NOTE: Current minimum is 1 gWei (1,000,000,000)
-            const gasPrice = BigInt(1000000000)
-
-            // FOR DEV PURPOSES ONLY
-            const comment = 'when can i launch my own campaign??'
-
-            /* Reclaim pledge. */
-            await campaign.sendFeedback(comment, { gasPrice })
-
+        sendFeedback() {
+            this.hasFeedback = true
         },
 
         /**
@@ -615,8 +519,16 @@ export default {
             this.$store.dispatch('showNotif', {
                 icon: 'error',
                 title: 'Authorization Error!',
-                message: 'You do not have permission to do that.',
+                message: `You don't have permission to do that`,
             })
+        },
+
+        closeFeedback() {
+            this.hasFeedback = false
+        },
+
+        closePledge() {
+            this.isPledging = false
         },
 
     },
@@ -629,6 +541,9 @@ export default {
 
         /* Set description (default) display to true. */
         this.showDescription = true
+
+        this.hasFeedback = false
+        this.isPledging = false
 
         /* Initialize campaign. */
         this.init()
