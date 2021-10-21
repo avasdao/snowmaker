@@ -147,32 +147,23 @@ export default {
                 .providers
                 .Web3Provider(window.ethereum, 'any')
 
-            /* Prompt user for account connections. */
-            // await provider.send('eth_requestAccounts', [])
-
             /* Set signer. */
             const signer = provider.getSigner()
 
-            /* Request account. */
-            // this.account = await signer.getAddress()
-            // console.log('Account:', this.account)
+            /* Set Campaign ABI. */
+            const cAbi = this.$store.getters.getCampaignAbi
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
-
-            /* Set Campaign ABI. */
-            const cAbi = this.$store.state.campaignAbi
+            const cAddr = this.$store.getters.getCampaignAddr
 
             /* Initialize campaign instance. */
             const campaign = new ethers.Contract(cAddr, cAbi, signer)
-            console.log('CONTRACT (campaign):', campaign)
-
-            // console.log('CAMPAIGN (info):', await campaign.getDetails())
+            // console.log('CONTRACT (campaign):', campaign)
 
             /* Set gas price. */
-            // NOTE: Current minimum is 1 gWei (1,000,000,000)
-            const gasPrice = BigInt(1000000000)
+            // NOTE: Current minimum is 1.1 gWei (1,100,000,000)
+            const gasPrice = BigInt(1100000000)
 
             // FOR DEV PURPOSES ONLY
             const comment = this.comment
@@ -180,7 +171,29 @@ export default {
             /* Reclaim pledge. */
             await campaign
                 .sendFeedback(comment, { gasPrice })
-                .catch(err => console.error(err))
+                .catch(err => {
+                    console.error(err)
+
+                    /* Initialize message. */
+                    let message = ''
+
+                    /* Validate message. */
+                    if (err.message) {
+                        message += err.message
+                    }
+
+                    /* Validate data message. */
+                    if (err.data.message) {
+                        message += ' - ' + err.data.message
+                    }
+
+                    /* Send notification request. */
+                    this.$store.dispatch('showNotif', {
+                        icon: 'error',
+                        title: 'MetaMask Error!',
+                        message,
+                    })
+                })
 
         },
 

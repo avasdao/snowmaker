@@ -6,7 +6,7 @@
 
         <p class="mt-4 text-sm text-gray-500">
             <span class="inline sm:block">When you use Smartstarter, you’re agreeing to all of our terms. </span>
-            <router-link to="/terms" class="font-medium text-indigo-600 hover:text-indigo-500">Read our terms of use.</router-link>
+            <router-link to="/help" class="font-medium text-indigo-600 hover:text-indigo-500">Read our terms of use.</router-link>
         </p>
     </main>
 </template>

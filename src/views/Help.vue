@@ -7,7 +7,9 @@
                 <div class="absolute inset-0 bg-gray-800 mix-blend-multiply" aria-hidden="true"></div>
             </div>
             <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-                <h1 class="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">Help &amp; Support</h1>
+                <h1 class="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+                    Help &amp; Support
+                </h1>
 
                 <p class="mt-6 max-w-3xl text-xl text-gray-300">
                     Smartstarter is a FULLY decentralized platform.
@@ -102,23 +104,20 @@
             </div>
         </section>
 
+        <section>
+            <div>
+                Do you need help setting up your MetaMask?
+            </div>
 
-        <!--
-          This example requires Tailwind CSS v2.0+
+            <button @click="setupDevOpsMainnet" class="m-3 p-3 bg-pink-300 rounded-xl border-2 border-pink-500">
+                Setup DevOps (Mainnet)
+            </button>
 
-          This example requires some changes to your config:
+            <button @click="setupDevOpsTestnet" class="m-3 p-3 bg-pink-300 rounded-xl border-2 border-pink-500">
+                Setup DevOps (Testnet)
+            </button>
+        </section>
 
-          ```
-          // tailwind.config.js
-          module.exports = {
-            // ...
-            plugins: [
-              // ...
-              require('@tailwindcss/forms'),
-            ],
-          }
-          ```
-        -->
         <section class="bg-white pb-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:pb-24">
             <div class="relative max-w-xl mx-auto">
                 <svg class="absolute left-full transform translate-x-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
@@ -266,6 +265,104 @@ export default {
         return {
             //
         }
+    },
+    computed: {
+        mainnetProvider() {
+            return {
+                chainId: '0x2710',
+                rpcUrls: [
+                    'https://smartbch.devops.cash/mainnet',
+                    'https://smartbch.greyh.at',
+                    'https://smartbch.fountainhead.cash/mainnet',
+                ],
+                chainName: 'smartBCH',
+                nativeCurrency: {
+                    name: 'Smart Bitcoin',
+                    symbol: 'sBCH',
+                    decimals: 18,
+                },
+                blockExplorerUrls: ['https://smartscan.cash'],
+                iconUrls: ['https://smartmask.cash/img/smartbch_logo.png'],
+            }
+        },
+
+        testnetProvider() {
+            return {
+                chainId: '0x2711',
+                rpcUrls: [
+                    'https://smartbch.devops.cash/testnet',
+                    'https://smartbch.fountainhead.cash/testnet',
+                ],
+                chainName: 'tsmartBCH',
+                nativeCurrency: {
+                    name: 'Smart Bitcoin Testnet',
+                    symbol: 'tsBCH',
+                    decimals: 18,
+                },
+                blockExplorerUrls: ['https://smartscan.cash'],
+                iconUrls: ['https://smartmask.cash/img/smartbch_logo.png'],
+            }
+        },
+
+    },
+    methods: {
+        async init() {
+            try {
+                await window.ethereum
+                    .request({
+                        method: 'wallet_switchEthereumChain',
+                        params: [{ chainId: '0x2710' }],
+                    })
+                    .catch(err => console.error(err))
+
+                return true
+            } catch (err) {
+                console.error(err)
+
+                /* Handle error. */
+                // NOTE: This error code indicates that the chain has not been added to MetaMask.
+                if (err.code === 4902) {
+                    try {
+                        await window.ethereum
+                            .request({
+                                method: 'wallet_addEthereumChain',
+                                params: [ this.mainnetProvider() ],
+                            })
+                            .catch(err => console.error(err))
+
+                        return true
+                    } catch (err) {
+                        console.error(err)
+                        return false
+                    }
+                }
+
+                return false
+            }
+        },
+
+        async setupDevOpsMainnet() {
+            console.log('SETUP DEVOPS MAINNET')
+
+            await window.ethereum
+                .request({
+                    method: 'wallet_addEthereumChain',
+                    params: [ this.mainnetProvider ],
+                })
+                .catch(err => console.error(err))
+        },
+
+        async setupDevOpsTestnet() {
+            console.log('SETUP DEVOPS TESTNET')
+
+            await window.ethereum
+                .request({
+                    method: 'wallet_addEthereumChain',
+                    params: [ this.testnetProvider ],
+                })
+                .catch(err => console.error(err))
+        },
+
     },
     created: function () {
         //

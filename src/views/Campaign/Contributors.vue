@@ -46,7 +46,6 @@
 
 <script>
 /* Import modules. */
-// import { ethers } from 'ethers'
 import numeral from 'numeral'
 
 export default {
@@ -114,45 +113,7 @@ export default {
         }
     },
     created: async function () {
-        // console.log('CONTRIBUTORS', this.contributors);
-        // /* Initialize provider. */
-        // const provider = new ethers.providers
-        //     .JsonRpcProvider(this.$store.state.testnetProvider)
-        // // console.log('PROVIDER', provider)
         //
-        // // FOR DEVELOPMENT PURPOSES ONLY
-        // // The first campaign contract is hardcoded.
-        // const cAddr = this.$store.state.campaignContractAddr
-        //
-        // /* Set Campaign ABI. */
-        // const cAbi = this.$store.state.campaignAbi
-        //
-        // /* Initialize campaign instance. */
-        // const campaign = new ethers.Contract(cAddr, cAbi, provider)
-        // // console.log('CONTRACT (campaign):', campaign)
-        //
-        // /* Handle contributors. */
-        // for (let i = 0; i < this.contributors.length; i++) {
-        //     /* Set contributor. */
-        //     const contributor = this.contributors[i]
-        //
-        //     // NOTE: We filter out donation under 1 satoshi
-        //     if (contributor.pledgeAmount.gt(10000000000n)) {
-        //         /* Request contributor info. */
-        //         const contributorInfo = await campaign.getContributor(contributor.address)
-        //         // console.log('CAMPAIGN (info):', contributorInfo)
-        //
-        //         /* Add label. */
-        //         contributor.label = contributorInfo.label
-        //
-        //         /* Add comment. */
-        //         contributor.comment = contributorInfo.comment
-        //
-        //         /* Add URL. */
-        //         contributor.url = contributorInfo.url
-        //     }
-        // }
-
     },
     mounted: function () {
         //

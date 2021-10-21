@@ -177,29 +177,20 @@ export default {
                 .providers
                 .Web3Provider(window.ethereum, 'any')
 
-            /* Prompt user for account connections. */
-            // await provider.send('eth_requestAccounts', [])
-
             /* Set signer. */
             const signer = provider.getSigner()
             console.log('SIGNER', signer)
 
-            /* Request account. */
-            // this.account = await signer.getAddress()
-            // console.log('Account:', this.account)
-
             /* Set Campaign ABI. */
-            const cAbi = this.$store.state.campaignAbi
+            const cAbi = this.$store.getters.getCampaignAbi
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
+            const cAddr = this.$store.getters.getCampaignAddr
 
             /* Initialize campaign instance. */
             const campaign = new ethers.Contract(cAddr, cAbi, signer)
-            console.log('CONTRACT (campaign):', campaign)
-
-            // console.log('CAMPAIGN (info):', await campaign.getDetails())
+            // console.log('CONTRACT (campaign):', campaign)
 
             const label = this.label || ''
             const comment = this.comment || ''
@@ -207,8 +198,8 @@ export default {
             const bchUsd = this.usd ? parseInt(this.usd * 100) : 0
 
             /* Set gas price. */
-            // NOTE: Current minimum is 1 gWei (1,000,000,000)
-            const gasPrice = BigInt(1000000000)
+            // NOTE: Current minimum is 1.1 gWei (1,100,000,000)
+            const gasPrice = BigInt(1100000000)
 
             // const sats = BigInt(13370000) // 0.1337 BCH
             const sats = BigInt(parseInt(this.amount * this.$store.state.ONE_BITCOIN))
@@ -217,35 +208,56 @@ export default {
             const value = (BigInt(1000000000000000000) * sats) / BigInt(this.$store.state.ONE_BITCOIN)
             // const value = BigInt(1750000000)
 
+            /* Set contract options. */
             const contractOptions = {
                 gasPrice,
                 value,
             }
 
-            console.log('LABEL / COMMENT URL / BCHUSD', label, comment, url, bchUsd);
+            // console.log('LABEL / COMMENT URL / BCHUSD', label, comment, url, bchUsd);
 
             /* Make pledge. */
-            await campaign.makePledge(
-                label,
-                comment,
-                url,
-                bchUsd,
-                { ...contractOptions }
-            )
-            .catch(err => console.error(err))
+            await campaign
+                .makePledge(
+                    label,
+                    comment,
+                    url,
+                    bchUsd,
+                    { ...contractOptions }
+                )
+                .catch(err => {
+                    console.error(err)
+
+                    /* Initialize message. */
+                    let message = ''
+
+                    /* Validate message. */
+                    if (err.message) {
+                        message += err.message
+                    }
+
+                    /* Validate data message. */
+                    if (err.data.message) {
+                        message += ' - ' + err.data.message
+                    }
+
+                    /* Send notification request. */
+                    this.$store.dispatch('showNotif', {
+                        icon: 'error',
+                        title: 'MetaMask Error!',
+                        message,
+                    })
+                })
         },
 
     },
     created: function () {
-
+        /* Set (default) currency. */
         this.currency = 'USD'
 
+        /* Set initial window (class) handler. */
         this.winHandler = 'transform transition ease-in-out duration-500 sm:duration-700 translate-x-full'
 
-        // setTimeout(() => {
-        //     this.winHandler = 'transform transition ease-in-out duration-500 sm:duration-700 translate-x-0'
-        //
-        // }, 5000)
     },
     mounted: function () {
         //

@@ -32,8 +32,9 @@
 import { ethers } from 'ethers'
 import numeral from 'numeral'
 
-/* Import components. */
-// import HelloWorld from '@/components/HelloWorld.vue'
+/* Set constants. */
+const RETRY_DELAY = 500 // 0.5 seconds
+const RETRY_ATTEMPTS = 10 // approx. 5 seconds
 
 export default {
     props: {
@@ -109,27 +110,45 @@ export default {
     },
     methods: {
         async initBlockchain() {
+            /* Validate Web3 provider. */
+            if (this.$store.getters.getProvider) {
+                console.error('(Status) Blockchain init failed!')
+
+                /* Validate retry attempts. */
+                if (this.retries++ < RETRY_ATTEMPTS) {
+                    /* Pause and try again. */
+                    setTimeout(() => {
+                        /* Initialize blockchain. */
+                        this.initBlockchain()
+                    }, RETRY_DELAY)
+                }
+            }
+
             /* Initialize provider. */
             const provider = new ethers.providers
-                .JsonRpcProvider(this.$store.state.testnetProvider)
-            // console.log('PROVIDER', provider)
+                .JsonRpcProvider(this.$store.getters.getProvider)
+            console.log('PROVIDER', provider)
 
-            this.blockNum = await provider.getBlockNumber()
+            this.blockNum = await provider
+                .getBlockNumber()
+                .catch(err => console.error(err))
             // console.log('BLOCK NUM', this.blockNum)
+
+            /* Set Campaign ABI. */
+            const cAbi = this.$store.getters.getCampaignAbi
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
-
-            /* Set Campaign ABI. */
-            const cAbi = this.$store.state.campaignAbi
+            const cAddr = this.$store.getters.getCampaignAddr
 
             /* Initialize campaign instance. */
             const campaign = new ethers.Contract(cAddr, cAbi, provider)
-            // console.log('CONTRACT (campaign):', campaign)
+            console.log('CONTRACT (campaign):', campaign)
 
             /* Request campaign info. */
-            const campaignInfo = await campaign.getCampaign()
+            const campaignInfo = await campaign
+                .getCampaign()
+                .catch(err => console.error(err))
             console.log('STATUS (info):', campaignInfo)
 
             this.fundingGoal = BigInt(campaignInfo.fundingGoal)
@@ -137,20 +156,6 @@ export default {
 
             this.pledgeBalance = BigInt(campaignInfo.pledgeBalance)
             // console.log('PLEDGE BALANCE', this.pledgeBalance)
-
-            /* Set starting block. */
-            // const startingBlock = campaignInfo.startingBlock.toNumber()
-
-            // const eventFilter = campaign.filters.PledgeReceived()
-            // console.log('CAMPAIGN (events):', eventFilter)
-
-            /* Set from block. */
-            // FIXME: How should we determine this number??
-            // const fromBlock = startingBlock
-
-            /* Set to block. */
-            // FIXME: How should we determine this number??
-            // const toBlock = this.blockNum
 
         },
 
@@ -162,10 +167,11 @@ export default {
 
         this.pledgeBalance = BigInt(0)
 
-        this.initBlockchain()
+        // this.initBlockchain()
     },
     mounted: function () {
-        //
+        /* Initialize blockchain. */
+        this.initBlockchain()
     },
 }
 </script>

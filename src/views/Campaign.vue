@@ -148,7 +148,14 @@ import Title from './Campaign/Title.vue'
 /* Set ticker endpoint. */
 const TICKER_ENDPOINT = 'https://api.telr.io/v1/ticker/quote/BCH'
 
+/* Set constants. */
+const RETRY_DELAY = 500 // 0.5 seconds
+const RETRY_ATTEMPTS = 10 // approx. 5 seconds
+
 export default {
+    props: {
+        network: String,
+    },
     components: {
         CTA,
 
@@ -220,48 +227,48 @@ export default {
             // FOR DEVELOPMENT PURPOSES ONLY
             this.description = this.$store.state.description
 
-            // FOR DEVELOPMENT PURPOSES ONLY
-            // this.amountFunded = 1.337
-
-            // FOR DEVELOPMENT PURPOSES ONLY
-            // this.amountRequested = 30
-
         },
 
         async initBlockchain() {
+            /* Validate Web3 provider. */
+            if (!this.$store.getters.getProvider) {
+                console.error('(Campaign) Blockchain init failed!')
+
+                /* Validate retry attempts. */
+                if (this.retries++ < RETRY_ATTEMPTS) {
+                    /* Pause and try again. */
+                    setTimeout(() => {
+                        /* Initialize blockchain. */
+                        this.initBlockchain()
+                    }, RETRY_DELAY)
+                }
+            }
+
             /* Initialize provider. */
             const provider = new ethers.providers
-                .JsonRpcProvider(this.$store.state.testnetProvider)
+                .JsonRpcProvider(this.$store.getters.getProvider)
             // console.log('PROVIDER', provider)
 
-            this.blockNum = await provider.getBlockNumber()
-            console.log('BLOCK NUM', this.blockNum)
-
-            /* Set Smartstarter contract address. */
-            // const sAddr = this.$store.state.smartstarterContractAddr
-
-            /* Set Smartstarter ABI. */
-            // const sAbi = this.$store.state.smartstarterAbi
+            this.blockNum = await provider
+                .getBlockNumber()
+                .catch(err => console.error(err))
+            console.info('Current block height:', this.blockNum)
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
+            const cAddr = this.$store.getters.getCampaignAddr
 
             /* Set Campaign ABI. */
-            const cAbi = this.$store.state.campaignAbi
-
-            /* Initialize Smartstarter instance. */
-            // const smartstarter = new ethers.Contract(sAddr, sAbi, provider)
-            // console.log('CONTRACT (smartstarter):', smartstarter)
-
-            // console.log('ALL CAMPAIGNS', await smartstarter.getCampaigns());
+            const cAbi = this.$store.getters.getCampaignAbi
 
             /* Initialize campaign instance. */
             const campaign = new ethers.Contract(cAddr, cAbi, provider)
             // console.log('CONTRACT (campaign):', campaign)
 
             /* Request campaign info. */
-            const campaignInfo = await campaign.getCampaign()
+            const campaignInfo = await campaign
+                .getCampaign()
+                .catch(err => console.error(err))
             // console.log('CAMPAIGN (info):', campaignInfo)
 
             /* Set starting block. */
@@ -283,6 +290,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('PledgeReceived', fromBlock, toBlock)
+                .catch(err => console.error(err))
             console.log('QUERY (PledgeReceived):', query)
 
             /* Initialize contributors. */
@@ -333,6 +341,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('PledgeReclaimed', fromBlock, toBlock)
+                .catch(err => console.error(err))
             // console.log('QUERY (PledgeReclaimed):', query)
 
             /* Handle event entries. */
@@ -352,6 +361,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('CreatorPaid', fromBlock, toBlock)
+                .catch(err => console.error(err))
             // console.log('QUERY (CreatorPaid):', query)
 
             /* Handle event entries. */
@@ -367,6 +377,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('FeedbackSent', fromBlock, toBlock)
+                .catch(err => console.error(err))
             console.log('QUERY (FeedbackSent):', query)
 
             /* Handle event entries. */
@@ -396,6 +407,7 @@ export default {
             /* Request event data. */
             query = await campaign
                 .queryFilter('ReportCardAdded', fromBlock, toBlock)
+                .catch(err => console.error(err))
             console.log('QUERY (ReportCardAdded):', query)
 
             /* Handle event entries. */
@@ -476,34 +488,38 @@ export default {
                 .Web3Provider(window.ethereum, 'any')
 
             /* Prompt user for account connections. */
-            // await provider.send('eth_requestAccounts', [])
+            // await provider
+            //     .send('eth_requestAccounts', [])
+            //     .catch(err => console.error(err))
 
             /* Set signer. */
             const signer = provider.getSigner()
 
             /* Request account. */
-            // this.account = await signer.getAddress()
+            // this.account = await signer
+            //     .getAddress()
+            //     .catch(err => console.error(err))
             // console.log('Account:', this.account)
+
+            /* Set Campaign ABI. */
+            const cAbi = this.$store.getters.getCampaignAbi
 
             // FOR DEVELOPMENT PURPOSES ONLY
             // The first campaign contract is hardcoded.
-            const cAddr = this.$store.state.campaignContractAddr
-
-            /* Set Campaign ABI. */
-            const cAbi = this.$store.state.campaignAbi
+            const cAddr = this.$store.getters.getCampaignAddr
 
             /* Initialize campaign instance. */
             const campaign = new ethers.Contract(cAddr, cAbi, signer)
-            console.log('CONTRACT (campaign):', campaign)
-
-            // console.log('CAMPAIGN (info):', await campaign.getDetails())
+            // console.log('CONTRACT (campaign):', campaign)
 
             /* Set gas price. */
             // NOTE: Current minimum is 1 gWei (1,000,000,000)
             const gasPrice = BigInt(1000000000)
 
             /* Reclaim pledge. */
-            await campaign.reclaim({ gasPrice })
+            await campaign
+                .reclaim({ gasPrice })
+                .catch(err => console.error(err))
         },
 
         sendFeedback() {
@@ -550,11 +566,10 @@ export default {
 
         /* Initialize blockchain. */
         this.blockNum = 0
-        this.initBlockchain()
-
     },
     mounted: function () {
-        //
+        /* Initialize blockchain. */
+        this.initBlockchain()
     },
 }
 </script>

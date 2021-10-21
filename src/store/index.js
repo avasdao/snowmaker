@@ -2,22 +2,12 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
+        /* Initialize network. */
+        // NOTE: Current available options are `mainnet` and `testnet`.
+        network: null,
+
         /* Set constants. */
         ONE_BITCOIN: 100000000,
-
-        /* Set Smartstarter contract address. */
-        smartstarterAbi: require('../../contracts/Smartstarter.json'),
-        smartstarterContractAddr: '0xe028D0cE60C2be7Ddea4E99BD63D14817baB5f87',
-
-        /* Set Campaign contract address. */
-        campaignAbi: require('../../contracts/Campaign.json'),
-        campaignContractAddr: '0x68252a539a77ab503589D835d0062EfaEf705799',
-
-        /* Set mainnet provider. */
-        mainnetProvider: 'https://smartbch.devops.cash/mainnet',
-
-        /* Set testnet provider. */
-        testnetProvider: 'https://smartbch.devops.cash/testnet',
 
         notif: {
             isShowing: false,
@@ -197,37 +187,55 @@ Don't trust. Verify!
         ],
 
     },
-    mutations: {
-        /* Set notification. */
-        setNotif(state, _pkg) {
-            // console.log('ACTIONS (pkg):', _pkg);
-
-            /* Set showing flag. */
-            const isShowing = _pkg.isShowing
-
-            /* Set icon. */
-            const icon = _pkg.icon
-
-            /* Set title. */
-            const title = _pkg.title
-
-            /* Set message. */
-            const message = _pkg.message
-
-            /* Retrieve delay. */
-            const delay = state.notif.delay
-
-            /* Set notification. */
-            state.notif = {
-                isShowing,
-                icon,
-                title,
-                message,
-                delay,
+    getters: {
+        getProvider(_state) {
+            /* Validate network. */
+            if (_state.network === 'mainnet') {
+                return 'https://smartbch.devops.cash/mainnet'
+            } else if (_state.network === 'testnet') {
+                return 'https://smartbch.devops.cash/testnet'
             }
-        }
+
+            return null
+        },
+
+        getSmartstarterAbi() {
+            return require('../../contracts/Smartstarter.json')
+        },
+
+        getSmartstarterAddr(_state) {
+            /* Validate network. */
+            if (_state.network === 'mainnet') {
+                return '0xf8226c5a9429DcAdbEff5AA98Ba1c90A45A6a241'
+            } else if (_state.network === 'testnet') {
+                return '0x8aBDa61456243fB8BBc81c2e3c0Cff516f45EB8A'
+            }
+
+            return null
+        },
+
+        getCampaignAbi() {
+            return require('../../contracts/Campaign.json')
+        },
+
+        getCampaignAddr(_state) {
+            /* Validate network. */
+            if (_state.network === 'mainnet') {
+                return '0xF681789b4d1254Ca56A9BCaef0B4b326dd53bE57'
+            } else if (_state.network === 'testnet') {
+                return '0x8B5113D4698C15da9396c8Ef273418a27089572F'
+            }
+
+            return null
+        },
+
     },
     actions: {
+        /* Set network. */
+        setNetwork({ commit }, _network) {
+            commit('setNetwork', _network)
+        },
+
         /* Show notification. */
         showNotif({ state, commit }, _pkg) {
             console.log('SHOW NOTIF', _pkg);
@@ -248,6 +256,42 @@ Don't trust. Verify!
                     message: null,
                 })
             }, state.notif.delay)
+        },
+
+    },
+    mutations: {
+        /* Set network. */
+        setNetwork(_state, _network) {
+            _state.network = _network
+        },
+
+        /* Set notification. */
+        setNotif(_state, _pkg) {
+            // console.log('ACTIONS (pkg):', _pkg);
+
+            /* Set showing flag. */
+            const isShowing = _pkg.isShowing
+
+            /* Set icon. */
+            const icon = _pkg.icon
+
+            /* Set title. */
+            const title = _pkg.title
+
+            /* Set message. */
+            const message = _pkg.message
+
+            /* Retrieve delay. */
+            const delay = _state.notif.delay
+
+            /* Set notification. */
+            _state.notif = {
+                isShowing,
+                icon,
+                title,
+                message,
+                delay,
+            }
         }
     },
     modules: {
