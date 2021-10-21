@@ -237,7 +237,7 @@ export default {
                     }
 
                     /* Validate data message. */
-                    if (err.data.message) {
+                    if (err.data && err.data.message) {
                         message += ' - ' + err.data.message
                     }
 

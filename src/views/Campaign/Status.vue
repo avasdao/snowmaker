@@ -38,6 +38,7 @@ const RETRY_ATTEMPTS = 10 // approx. 5 seconds
 
 export default {
     props: {
+        provider: String,
         usd: Number,
     },
     components: {
@@ -51,6 +52,18 @@ export default {
             fundingGoal: null,
             pledgeBalance: null,
         }
+    },
+    watch: {
+        provider: function (_provider) {
+            console.log('(STATUS) PROVIDER HAS CHANGED', _provider);
+
+            if (_provider) {
+                /* Initialize blockchain. */
+                setTimeout(() => {
+                    this.initBlockchain()
+                }, RETRY_DELAY)
+            }
+        },
     },
     computed: {
         fundedDisplay() {
@@ -170,8 +183,7 @@ export default {
         // this.initBlockchain()
     },
     mounted: function () {
-        /* Initialize blockchain. */
-        this.initBlockchain()
+        // 
     },
 }
 </script>

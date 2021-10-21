@@ -31,7 +31,7 @@
                         {{summary}}
                     </p>
 
-                    <Status :usd="usd" />
+                    <Status :usd="usd" :provider="provider" />
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                         <button
@@ -155,6 +155,7 @@ const RETRY_ATTEMPTS = 10 // approx. 5 seconds
 export default {
     props: {
         network: String,
+        provider: String,
     },
     components: {
         CTA,
@@ -196,6 +197,18 @@ export default {
             isPledging: null,
             hasFeedback: null,
         }
+    },
+    watch: {
+        provider: function (_provider) {
+            console.log('(CAMPAIGN) PROVIDER HAS CHANGED', _provider);
+
+            if (_provider) {
+                /* Initialize blockchain. */
+                setTimeout(() => {
+                    this.initBlockchain()
+                }, RETRY_DELAY)
+            }
+        },
     },
     methods: {
         async init() {
@@ -568,8 +581,7 @@ export default {
         this.blockNum = 0
     },
     mounted: function () {
-        /* Initialize blockchain. */
-        this.initBlockchain()
+        // 
     },
 }
 </script>

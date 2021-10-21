@@ -1,5 +1,8 @@
 <template>
-    <router-view :network="$store.state.network" />
+    <router-view
+        :network="$store.state.network"
+        :provider="$store.getters.getProvider" 
+    />
 
     <Footer />
 
@@ -83,7 +86,9 @@ export default {
         /* Initialize Web3. */
         // NOTE: It's best to wait until we're mounted to allow time for the
         //       Web3 provider to complete its script injection.
-        this.initWeb3()
+        setTimeout(() => {
+            this.initWeb3()
+        }, RETRY_DELAY)
     },
 }
 </script>
