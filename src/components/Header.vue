@@ -27,18 +27,18 @@
                     </div>
                 </div>
 
-                <div class="ml-10 space-x-4">
+                <div class="ml-2 sm:ml-10 space-x-4">
                     <a href="javascript://" class="hidden inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">
                         Sign in
                     </a>
 
-                    <router-link to="/flipstarter" class="inline-block bg-pink-500 py-2 px-4 border-4 border-pink-300 rounded-md text-base font-bold text-gray-50 hover:bg-pink-300 hover:border-pink-500">
-                        OUR FLIPSTARTER IS LIVE !!
+                    <router-link to="/flipstarter" class="inline-block bg-blue-500 py-2 px-4 border-4 border-blue-300 rounded-md text-base font-bold text-gray-50 hover:bg-blue-300 hover:border-blue-500">
+                        OUR FLIPSTARTER IS LIVE
                     </router-link>
                 </div>
             </div>
 
-            <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
+            <div class="hidden py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
                 <a href="javascript://" class="text-base font-medium text-white hover:text-indigo-50" key="Solutions">
                     Solutions
                 </a>

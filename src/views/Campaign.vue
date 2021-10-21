@@ -4,7 +4,7 @@
 
         <!-- <Header /> -->
 
-        <section class="mx-auto pt-14 pb-10 px-4 sm:pt-16 sm:pb-20 sm:px-6 lg:max-w-7xl lg:px-8">
+        <section class="mx-auto pt-6 sm:pt-10 lg:pt-16 pb-4 sm:pb-10 px-4 lg:pb-20 sm:px-6 lg:max-w-7xl lg:px-8">
             <!-- Product -->
             <div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
                 <!-- Product image -->
@@ -19,7 +19,7 @@
                 </div>
 
                 <!-- Product details -->
-                <div class="max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
+                <div class="max-w-2xl mx-auto mt-4 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
 
                     <div class="flex flex-col-reverse">
                         <Title />
@@ -469,7 +469,25 @@ export default {
 
         },
 
-        makePledge() {
+        async makePledge() {
+            /* Validate Web3 provider. */
+            if (!window.ethereum) {
+                /* Send notification request. */
+                this.$store.dispatch('showNotif', {
+                    icon: 'error',
+                    title: 'MetaMask Error!',
+                    message: `No Web3 provider found!`,
+                })
+
+                return
+            }
+
+            /* Connect to Web3 provider. */
+            await window.ethereum
+                .enable()
+                .catch(err => console.error(err))
+
+            /* Set pledging flag. */
             this.isPledging = true
         },
 
@@ -482,6 +500,23 @@ export default {
          */
         async reclaim() {
             console.log('RECLAIM PLEDGE');
+
+            /* Validate Web3 provider. */
+            if (!window.ethereum) {
+                /* Send notification request. */
+                this.$store.dispatch('showNotif', {
+                    icon: 'error',
+                    title: 'MetaMask Error!',
+                    message: `No Web3 provider found!`,
+                })
+
+                return
+            }
+
+            /* Connect to Web3 provider. */
+            await window.ethereum
+                .enable()
+                .catch(err => console.error(err))
 
             /* Validate embedded Web3 objects. */
             if (!window.ethereum && !window.bitcoin) {
@@ -535,7 +570,25 @@ export default {
                 .catch(err => console.error(err))
         },
 
-        sendFeedback() {
+        async sendFeedback() {
+            /* Validate Web3 provider. */
+            if (!window.ethereum) {
+                /* Send notification request. */
+                this.$store.dispatch('showNotif', {
+                    icon: 'error',
+                    title: 'MetaMask Error!',
+                    message: `No Web3 provider found!`,
+                })
+
+                return
+            }
+
+            /* Connect to Web3 provider. */
+            await window.ethereum
+                .enable()
+                .catch(err => console.error(err))
+
+            /* Set feedback flag. */
             this.hasFeedback = true
         },
 
@@ -581,7 +634,7 @@ export default {
         this.blockNum = 0
     },
     mounted: function () {
-        // 
+        //
     },
 }
 </script>
