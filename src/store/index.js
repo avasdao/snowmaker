@@ -221,7 +221,8 @@ Don't trust. Verify!
         getCampaignAddr(_state) {
             /* Validate network. */
             if (_state.network === 'mainnet') {
-                return '0xF681789b4d1254Ca56A9BCaef0B4b326dd53bE57'
+                // return '0xF681789b4d1254Ca56A9BCaef0B4b326dd53bE57' // first test
+                return '0x76b5f82B3Bb1C70B61A2d646CB94BE6C8af80989'
             } else if (_state.network === 'testnet') {
                 return '0x8B5113D4698C15da9396c8Ef273418a27089572F'
             }

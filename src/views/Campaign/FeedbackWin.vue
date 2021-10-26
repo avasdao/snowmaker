@@ -129,7 +129,13 @@ export default {
     },
     methods: {
         async sendFeedback() {
-            this.hasPledging = true
+            // this.hasPledging = true
+
+            /* Close window. */
+            // FIXME: Detect a succussfully submitted tx before closing.
+            this.$emit('close')
+
+
             /* Validate embedded Web3 objects. */
             if (!window.ethereum && !window.bitcoin) {
                 /* Validate embedded ethereum object. */

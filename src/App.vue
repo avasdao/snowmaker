@@ -22,7 +22,7 @@ import Profile from '@/components/Profile.vue'
 
 /* Set constants. */
 const RETRY_DELAY = 500 // 0.5 seconds
-const RETRY_ATTEMPTS = 10 // approx. 5 seconds
+const RETRY_ATTEMPTS = 5 // approx. 2.5 seconds
 
 export default {
     components: {
@@ -75,6 +75,9 @@ export default {
                         /* Initialize Web3. */
                         this.initWeb3()
                     }, RETRY_DELAY)
+                } else {
+                    /* Set to (Mainnet) default. */
+                    this.$store.dispatch('setNetwork', 'mainnet')
                 }
             }
         },

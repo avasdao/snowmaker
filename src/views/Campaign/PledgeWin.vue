@@ -160,6 +160,10 @@ export default {
         async makePledge() {
             console.log('START PLEDGE');
 
+            /* Close window. */
+            // FIXME: Detect a succussfully submitted tx before closing.
+            this.$emit('close')
+
             /* Validate embedded Web3 objects. */
             if (!window.ethereum && !window.bitcoin) {
                 /* Validate embedded ethereum object. */
@@ -248,6 +252,7 @@ export default {
                         message,
                     })
                 })
+
         },
 
     },

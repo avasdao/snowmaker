@@ -93,8 +93,8 @@
                     <div>
                         <Menu class="" @tabbed="toggleMenu" :contributors="contributors" :supporters="supporters" />
 
-                        <Contributors v-if="showContributors" :contributors="contributors" :usd="usd" />
                         <Description v-if="showDescription" />
+                        <Pledges v-if="showPledges" :contributors="contributors" :usd="usd" />
                         <Feedback v-if="showFeedback" :supporters="supporters" />
                         <ReportCards v-if="showReportCards" />
 
@@ -127,7 +127,7 @@ import { v4 as uuidv4 } from 'uuid'
 import CTA from '@/components/CTA.vue'
 
 /* Import (local) components. */
-import Contributors from './Campaign/Contributors.vue'
+import Pledges from './Campaign/Pledges.vue'
 import Description from './Campaign/Description.vue'
 import Disclaimer from './Campaign/Disclaimer.vue'
 import Feedback from './Campaign/Feedback.vue'
@@ -160,7 +160,7 @@ export default {
     components: {
         CTA,
 
-        Contributors,
+        Pledges,
         Description,
         Disclaimer,
         Feedback,
@@ -186,7 +186,7 @@ export default {
             summary: null,
             description: null,
 
-            showContributors: null,
+            showPledges: null,
             showDescription: null,
             showFeedback: null,
             showReportCards: null,
@@ -448,7 +448,7 @@ export default {
             // console.log('TOGGLE MENU (selected):', _selected)
 
             /* Set all menu displays to false. */
-            this.showContributors = false
+            this.showPledges = false
             this.showDescription = false
             this.showFeedback = false
             this.showReportCards = false
@@ -456,7 +456,7 @@ export default {
             /* Handle user selection. */
             switch(_selected) {
             case 'contributors':
-                return this.showContributors = true
+                return this.showPledges = true
             case 'description':
                 return this.showDescription = true
             case 'feedback':
@@ -561,8 +561,8 @@ export default {
             // console.log('CONTRACT (campaign):', campaign)
 
             /* Set gas price. */
-            // NOTE: Current minimum is 1 gWei (1,000,000,000)
-            const gasPrice = BigInt(1000000000)
+            // NOTE: Current minimum is 1.1 gWei (1,100,000,000)
+            const gasPrice = BigInt(1100000000)
 
             /* Reclaim pledge. */
             await campaign
@@ -617,7 +617,7 @@ export default {
     created: function () {
 
         /* Set all menu displays to false. */
-        this.showContributors = false
+        this.showPledges = false
         this.showFeedback = false
         this.showReportCards = false
 
