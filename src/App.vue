@@ -1,7 +1,7 @@
 <template>
     <router-view
         :network="$store.state.network"
-        :provider="$store.getters.getProvider" 
+        :provider="$store.getters.getProvider"
     />
 
     <Footer />
@@ -46,6 +46,8 @@ export default {
         initWeb3() {
             if (window.ethereum && window.ethereum.chainId) {
                 /* Set chain id. */
+                // FIXME: This is DEPRECATED
+                // https://docs.metamask.io/guide/provider-migration.html#handling-eth-chainid-return-values
                 const chainId = window.ethereum.chainId
                 console.log('CHAIN ID', chainId)
 

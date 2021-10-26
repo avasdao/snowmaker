@@ -17,7 +17,7 @@
 
             <div class="text-sm text-center font-medium text-gray-600 mt-1 pl-5">
                 <div class="text-green-600">
-                    <span class="text-xl">{{pctCompleted}}%</span> complete with <span class="text-xl">10</span> days to go
+                    <span class="text-xl">{{pctCompleted}}%</span> complete with <span class="text-xl">{{expirationDisplay}}</span> to go
                 </div>
             </div>
 
@@ -30,6 +30,7 @@
 
 /* Import modules. */
 import { ethers } from 'ethers'
+import moment from 'moment'
 import numeral from 'numeral'
 
 /* Set constants. */
@@ -48,6 +49,7 @@ export default {
         return {
             // amountFunded: null,
             blockNum: null,
+            expiration: null,
 
             fundingGoal: null,
             pledgeBalance: null,
@@ -120,6 +122,12 @@ export default {
             return pct
         },
 
+        expirationDisplay() {
+            if (!this.expiration) return 'n/a'
+
+            return moment.unix(this.expiration).fromNow(true)
+        }
+
     },
     methods: {
         async initBlockchain() {
@@ -170,6 +178,8 @@ export default {
             this.pledgeBalance = BigInt(campaignInfo.pledgeBalance)
             // console.log('PLEDGE BALANCE', this.pledgeBalance)
 
+            this.expiration = Number(campaignInfo.expiration)
+
         },
 
     },
@@ -183,7 +193,7 @@ export default {
         // this.initBlockchain()
     },
     mounted: function () {
-        // 
+        //
     },
 }
 </script>
