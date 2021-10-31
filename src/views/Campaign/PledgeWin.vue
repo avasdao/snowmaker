@@ -202,8 +202,8 @@ export default {
             const bchUsd = this.usd ? parseInt(this.usd * 100) : 0
 
             /* Set gas price. */
-            // NOTE: Current minimum is 1.1 gWei (1,100,000,000)
-            const gasPrice = BigInt(1100000000)
+            // NOTE: Current minimum is 1.05 gWei (1,050,000,000)
+            const gasPrice = BigInt(1050000000)
 
             // const sats = BigInt(13370000) // 0.1337 BCH
             const sats = BigInt(parseInt(this.amount * this.$store.state.ONE_BITCOIN))

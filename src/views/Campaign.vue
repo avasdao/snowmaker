@@ -561,8 +561,8 @@ export default {
             // console.log('CONTRACT (campaign):', campaign)
 
             /* Set gas price. */
-            // NOTE: Current minimum is 1.1 gWei (1,100,000,000)
-            const gasPrice = BigInt(1100000000)
+            // NOTE: Current minimum is 1.05 gWei (1,050,000,000)
+            const gasPrice = BigInt(1050000000)
 
             /* Reclaim pledge. */
             await campaign

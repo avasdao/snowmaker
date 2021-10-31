@@ -118,14 +118,6 @@ Beyond this initial Mininum Viable Product (MVP) release, our team intends to ex
 3. Performing a 3rd-party audit of our __[Solidity contracts](https://gitlab.com/bchplease/smartstarter/-/tree/master/contracts)__ by a certified security firm.
 4. Add support for the __[Ledger](https://www.ledger.com/)__ hardware wallet.
 
-## SmartBCH Resources
-
-Here are some helpful tools to get you started with SmartBCH.
-
-### [Smartscan](https://smartmask.cash/)
-
-If you're having trouble getting your MetaMask setup for SmartBCH, __[Josh Ellithorpe](https://twitter.com/zquestz)__ recently deployed __[smartscan.cash](https://smartmask.cash/)__ to help you out.
-
 ## Donate Directly
 
 Send BCH  → [bitcoincash:qqvl7fwc ... mlm053fy](https://blockchair.com/bitcoin-cash/address/qqvl7fwcthhhntsew056t8007pw55k258vmlm053fy)

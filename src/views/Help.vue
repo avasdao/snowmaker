@@ -104,21 +104,50 @@
             </div>
         </section>
 
-        <section>
-            <div>
-                Do you need help setting up your MetaMask?
+        <section class="max-w-5xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold">SmartBCH Resources</h1>
+
+                <p class="text-medium text-gray-600">
+                    Below are some helpful tools and services to get you started with SmartBCH.
+                </p>
+
+                <hr class="max-w-2xl my-10 mx-auto" />
+
+                <div class="mt-5 max-w-2xl mx-auto">
+                    <h1 class="text-2xl font-bold">
+                        Do you need help setting up your <a class="text-blue-500 font-bold hover:underline" href="https://metamask.io" target="_blank">MetaMask</a>?
+                    </h1>
+
+                    <button @click="setupDevOpsMainnet" class="m-3 p-5 bg-green-300 rounded-xl border-4 border-green-500">
+                        Setup DevOps (Mainnet)
+                    </button>
+
+                    <button @click="setupDevOpsTestnet" class="m-3 p-5 bg-green-300 rounded-xl border-4 border-green-500">
+                        Setup DevOps (Testnet)
+                    </button>
+
+                    <p class="text-medium text-gray-600">
+                        Open / unlock MetaMask, then click one of the buttons above for a one-click setup.
+                    </p>
+                </div>
+
+                <hr class="max-w-2xl my-10 mx-auto" />
+
+                <div class="mt-5 max-w-2xl mx-auto">
+                    <a class="text-2xl text-blue-500 font-bold hover:underline" href="https://smartmask.cash/" target="_blank">SMARTMASK</a>
+
+                    <p>
+                        If you have any trouble with the buttons above, please visit a new portal
+                        <a class="text-blue-500 font-medium hover:underline" href="https://twitter.com/zquestz" target="_blank">Josh Ellithorpe</a> recently deployed
+                        <a class="text-blue-500 font-medium hover:underline" href="https://smartmask.cash/" target="_blank">smartmask.cash</a> to help sort you out.
+                    </p>
+                </div>
+
             </div>
-
-            <button @click="setupDevOpsMainnet" class="m-3 p-3 bg-pink-300 rounded-xl border-2 border-pink-500">
-                Setup DevOps (Mainnet)
-            </button>
-
-            <button @click="setupDevOpsTestnet" class="m-3 p-3 bg-pink-300 rounded-xl border-2 border-pink-500">
-                Setup DevOps (Testnet)
-            </button>
         </section>
 
-        <section class="bg-white pb-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:pb-24">
+        <section class="mt-20 bg-white pb-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:pb-24">
             <div class="relative max-w-xl mx-auto">
                 <svg class="absolute left-full transform translate-x-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
                     <defs>
@@ -239,7 +268,6 @@
                         <div class="sm:col-span-2">
                             <button
                                 disabled
-                                type="submit"
                                 class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             >
                                 Let's talk
