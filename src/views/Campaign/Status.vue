@@ -193,7 +193,8 @@ export default {
         // this.initBlockchain()
     },
     mounted: function () {
-        //
+        /* Initialize the blockchain. */
+        this.initBlockchain()
     },
 }
 </script>

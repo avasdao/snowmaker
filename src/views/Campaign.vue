@@ -615,7 +615,6 @@ export default {
 
     },
     created: function () {
-
         /* Set all menu displays to false. */
         this.showPledges = false
         this.showFeedback = false
@@ -634,7 +633,8 @@ export default {
         this.blockNum = 0
     },
     mounted: function () {
-        //
+        /* Initialize the blockchain. */
+        this.initBlockchain()
     },
 }
 </script>
