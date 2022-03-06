@@ -52,7 +52,7 @@
                     </legend>
 
                     <p class="text-sm p-3">
-                        Spotlight campaigns are featured on sites like Smartstarter and Causes Cash.
+                        Spotlight campaigns are featured on sites like Snowmaker and Causes Cash.
 
                         If the campaign is successfully funded, 1% of proceeds will be sent to the
                         <a class="text-red-500 font-medium" href="https://pif.cash" target="_blank">Pay It Forward Treasury</a>.
@@ -137,12 +137,12 @@
 
                         <div class="text-xs">
                             Set masking to <span class="text-2xl">→</span>
-                            <span class="text-red-500">https://smartstarter.cash/&lt;your-campaign-id&gt;</span>
+                            <span class="text-red-500">https://snowmaker.io/&lt;your-campaign-id&gt;</span>
                         </div>
 
                         <div class="text-xs -mt-3">
                             Set CNAME to <span class="text-2xl">→</span>
-                            <span class="text-red-500">https://&lt;your-campaign-id&gt;.smartstarter.cash</span>
+                            <span class="text-red-500">https://&lt;your-campaign-id&gt;.snowmaker.io</span>
                         </div>
                     </div>
                 </div>

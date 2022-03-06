@@ -1,6 +1,6 @@
 {
-  "name": "smartstarter",
-  "version": "21.10.14",
+  "name": "snowmaker",
+  "version": "22.3.6",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",

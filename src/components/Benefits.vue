@@ -2,11 +2,11 @@
     <main class="bg-gradient-to-r from-indigo-900 to-purple-900">
         <div class="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white tracking-tight">
-                What are the KEY BENEFITS of a Smartstarter?
+                What are the KEY BENEFITS of a Snowmaker?
             </h2>
 
             <p class="mt-4 max-w-3xl text-xl text-purple-200">
-                Smartstarter introduces a brand new set of smart contract functionality; elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver:
+                Snowmaker introduces a brand new set of smart contract functionality; elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver:
             </p>
 
             <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
@@ -31,7 +31,7 @@
                         </h3>
 
                         <p class="mt-2 text-base text-purple-200">
-                            Smartstarter removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
+                            Snowmaker removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
                         </p>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
 
                         <p class="mt-2 text-base text-purple-200">
                             No need to deploy your own server.
-                            Simply point your domain's CNAME to smartstarter.cash ..
+                            Simply point your domain's CNAME to snowmaker.io ..
                             and DONE!
                         </p>
                     </div>

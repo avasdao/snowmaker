@@ -60,11 +60,11 @@ export default {
         card = `
 ## Testnet is ONLINE!
 
-The Smartstarter Testnet is now online.
+The Snowmaker Testnet is now online.
 
 ### Completed
 
-1. Deployed the first Smartstarter.sol contract on the Amber testnet.
+1. Deployed the first Snowmaker.sol contract on the Amber testnet.
 
 ### Links to other resources
 
@@ -104,8 +104,8 @@ The first release of this new SmartBCH peer-to-peer, crowdfunding platform.
 
 ### Completed
 
-1. Launched smartstarter.cash Testnet
-2. Created docs.smartstarter.cash
+1. Launched snowmaker.io Testnet
+2. Created docs.snowmaker.io
 3. Published new GitLab repository
 
 ### Links to other resources

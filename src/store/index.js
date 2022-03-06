@@ -25,25 +25,25 @@ export default createStore({
 
         /* Set summary. */
         summary: `
-Smartstarter introduces a brand new set of smart contract features, elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver.
+Snowmaker introduces a brand new set of smart contract features, elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver.
 Make a pledge now to help our team deliver this 100% Free and Open Source Software (FOSS) platform to support Bitcoin's builders TODAY.
         `,
 
         /* Set description. */
         description: `
-# Introducing SMARTSTARTER!
+# Introducing SNOWMAKER!
 
-### [https://smartstarter.cash](https://smartstarter.cash)
+### [https://snowmaker.io](https://snowmaker.io)
 
 ![Badge](https://i.imgur.com/hVN5DVB.png)
 
-Smartstarter introduces a brand new set of smart contract functionality; elevating the existing __[Flipstarter](https://flipstarter.cash)__ platform in ways that ONLY __[SmartBCH](https://smartbch.org/)__ can deliver:
+Snowmaker introduces a brand new set of smart contract functionality; elevating the existing __[Flipstarter](https://flipstarter.cash)__ platform in ways that ONLY __[SmartBCH](https://smartbch.org/)__ can deliver:
 
 - __100% On-chain Transparency:__ With all data stored on-chain, full transparency is GUARANTEED!
 - __Self-Reporting:__ Transparent accountability after a campaign has been funded will be highly encouraged and fully supported with our NEW Report Cards.
-- __Android & iPhone Compatible:__ Smartstarter is built mobile-first which allows for easy campaign pledging and management while you're on-the-go.
-- __NO Minimum Pledge Amount:__ Smartstarter removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
-- __Secure, Managed Hosting:__ No need to deploy your own server. Simply point your domain's __[CNAME](https://en.wikipedia.org/wiki/CNAME_record)__ to smartstarter.cash .. and DONE!
+- __Android & iPhone Compatible:__ Snowmaker is built mobile-first which allows for easy campaign pledging and management while you're on-the-go.
+- __NO Minimum Pledge Amount:__ Snowmaker removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
+- __Secure, Managed Hosting:__ No need to deploy your own server. Simply point your domain's __[CNAME](https://en.wikipedia.org/wiki/CNAME_record)__ to snowmaker.io .. and DONE!
 
 Bitcoin Cash is leading the way in peer-to-peer crowdfunding.
 SmartBCH introduces an improved system for managing public, peer-to-peer fundraisers.
@@ -58,9 +58,9 @@ This guarantees 100% transparency with every satoshi earned and spent.
 
 ### FOSS Platform
 
-The primary goal of this campaign is to complete and successfully deploy the Smartstarter Peer-to-Peer Crowdfunding Platform.
+The primary goal of this campaign is to complete and successfully deploy the Snowmaker Peer-to-Peer Crowdfunding Platform.
 
-Smartstarter is 100% Free and Opensource Software (FOSS).
+Snowmaker is 100% Free and Opensource Software (FOSS).
 Initially, it will be built and deployed to DigitalOcean's app marketplace, as we plan to closely replicate the current process used by Flipstarter to launch self-hosted campaigns.
 
 _NOTE: We also plan to offer a "managed-hosting" solution that will allow campaigns to be conveniently created and deployed in under 5 minutes._
@@ -68,7 +68,7 @@ _NOTE: We also plan to offer a "managed-hosting" solution that will allow campai
 ### Report Cards
 
 Over the past year, the #1 request from Flipstarter supporters has been better accountability and transparency from campaigns that they've sponsored.
-Smartstarter will introduce and support transparent accountability for peer-to-peer crowdfunding.
+Snowmaker will introduce and support transparent accountability for peer-to-peer crowdfunding.
 
 We're developing a simple system of Report Cards to encourage frequent status updates from campaign managers.
 
@@ -101,11 +101,11 @@ If you've got questions, we're very happy to answer them:
 - support [at] bchplease [dot] org
 - [Join Our Slack](https://join.slack.com/t/bchplease/shared_invite/zt-e7jj03j5-vJbe47kNrPBjTgTXwLNRkA)
 
-### #1 Will Smartstarter be FREE to use?
+### #1 Will Snowmaker be FREE to use?
 
 Yes! We will create a 100% FOSS platform that can be easily deployed and run on a standard VPS -OR- launched directly from DigitalOcean's app marketplace.
 
-### #2 Can I use Smartstarter from a mobile device?
+### #2 Can I use Snowmaker from a mobile device?
 
 Yes! You can easily install __[Metamask](https://metamask.io/)__ (or ANY compatible DApp browser) on your Android or iPhone to manage your pledges while on-the-go.
 
@@ -191,11 +191,11 @@ Don't trust. Verify!
             return null
         },
 
-        getSmartstarterAbi() {
-            return require('../../contracts/Smartstarter.json')
+        getSnowmakerAbi() {
+            return require('../../contracts/Snowmaker.json')
         },
 
-        getSmartstarterAddr(_state) {
+        getSnowmakerAddr(_state) {
             /* Validate network. */
             if (_state.network === 'mainnet') {
                 return '0xf8226c5a9429DcAdbEff5AA98Ba1c90A45A6a241'

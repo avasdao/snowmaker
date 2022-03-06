@@ -12,7 +12,7 @@
                     </h1>
 
                     <p class="mt-4 text-xl text-indigo-100 font-bold">
-                        Smartstarter will always remain 100% Free and Open Source Software (FOSS)
+                        Snowmaker will always remain 100% Free and Open Source Software (FOSS)
                     </p>
                 </div>
 

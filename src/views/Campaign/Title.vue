@@ -41,7 +41,7 @@ export default {
         }
     },
     created: function () {
-        this.title = 'Smartstarter Flipstarter'
+        this.title = 'Snowmaker Bootstrapping'
     },
     mounted: function () {
         //
