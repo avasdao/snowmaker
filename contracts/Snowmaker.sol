@@ -1,11 +1,11 @@
 /*******************************************************************************
  *
- * SMARTSTARTER - SMART BITCOIN CROWDFUNDING
+ * SNOWMAKER - AVALANCE PEER-TO-PEER CROWDFUNDING
  * __________________________________________________
  *
- * https://smartstarter.cash
+ * https://snowmaker.io
  *
- * Current version: v21.10.19
+ * Current version: v22.3.5
  *
  * Individual supporters can now easily send financial support to their
  * favorite crypto-accepting campaign(s).
@@ -15,7 +15,7 @@
  *
  * __________________________________________________
  *
- * Copyright (c) 2021 Bitcoin Please
+ * Copyright (c) 2022 Ava's DAO
  *
  * SPDX-License-Identifier: MIT
  *
@@ -39,17 +39,14 @@
  *
  */
 
-pragma solidity ^0.7.0;
-
-/* Import libraries. */
-import './SafeMath.sol';
+pragma solidity ^0.8.0;
 
 /* Import contracts. */
 import './Campaign.sol';
 
 /*******************************************************************************
  *
- * Smartstarter Contract
+ * Snowmaker Contract
  * __________________________________________________
  *
  * This is the platform's primary contract.
@@ -57,9 +54,7 @@ import './Campaign.sol';
  * This contract will manage the campaigns created on the platform.
  *
  */
-contract Smartstarter {
-    using SafeMath for uint256;
-
+contract Snowmaker {
     /* Initialize campaigns holder. */
     Campaign[] private _campaigns;
 
@@ -76,7 +71,7 @@ contract Smartstarter {
     /**
      * Start Campaign
      *
-     * Create a new campaign in Smartstarter.
+     * Create a new campaign in Snowmaker.
      *
      * Params:
      *   - title: Title of the campaign to be created
@@ -92,11 +87,11 @@ contract Smartstarter {
         uint _amountToRaise
     ) external {
         /* Set expiration date. */
-        uint expiration = block.timestamp.add(_durationInDays.mul(1 days));
+        uint expiration = block.timestamp + (_durationInDays * 1 days);
 
         /* Initialize a new campaign. */
         Campaign newCampaign = new Campaign(
-            msg.sender,
+            payable(msg.sender),
             _title,
             _description,
             _amountToRaise,
@@ -104,6 +99,7 @@ contract Smartstarter {
         );
 
         /* Add new campaign. */
+        // TODO: Save a copy to Eternal Database to support future upgrades.
         _campaigns.push(newCampaign);
 
         /* Send notification. */
@@ -130,25 +126,20 @@ contract Smartstarter {
 
 /*******************************************************************************
  *
- * ( this contract was last updated on 2021.10.19 )
+ * ( this contract was last updated on 2022.3.5 )
  *
  * Please visit our websites:
- *   - https://smartstarter.cash
- *   - https://bchplease.org
+ *   - https://snowmaker.io
+ *   - https://avasdao.org
  *
  * Don't hesitate to reach out to our team for support:
- *   - support@bchplease.org
- *   - bchplease.slack.com
+ *   - support@avasdao.org
+ *   - avasdao.slack.com
  *
  * Chceck out these useful links:
- *   - https://docs.smartstarter.cash
- *   - https://flipstarter.cash
+ *   - https://docs.snowmaker.io
  *
- * We greatly appreciate ANY support for those that can offer it. For your
- * convenience, we accept many forms of crypto donations:
- *
- *   - Donate BCH     bitcoincash:qqvl7fwcthhhntsew056t8007pw55k258vmlm053fy
- *   - Donate SLP     simpleledger:qqxtz0fw3gs5ndmwjm2we92k20zu3z99uuuxr25a2s
- *   - Donate sBCH    << hardware wallet support is currently in development >>
+ * We greatly appreciate ANY support for those that can offer it to our donation
+ * address: xxx
  *
  */

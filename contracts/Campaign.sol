@@ -1,11 +1,11 @@
 /*******************************************************************************
  *
- * SMARTSTARTER - SMART BITCOIN CROWDFUNDING
+ * SNOWMAKER - AVALANCHE PEER-TO-PEER CROWDFUNDING
  * __________________________________________________
  *
- * https://smartstarter.cash
+ * https://snowmaker.io
  *
- * Current version: v21.10.19
+ * Current version: v22.3.5
  *
  * Individual supporters can now easily send financial support to their
  * favorite crypto-accepting campaign(s).
@@ -15,7 +15,7 @@
  *
  * __________________________________________________
  *
- * Copyright (c) 2021 Bitcoin Please
+ * Copyright (c) 2022 Ava's DAO
  *
  * SPDX-License-Identifier: MIT
  *
@@ -39,10 +39,7 @@
  *
  */
 
-pragma solidity ^0.7.0;
-
-/* Import libraries. */
-import './SafeMath.sol';
+pragma solidity ^0.8.0;
 
 /*******************************************************************************
  *
@@ -53,8 +50,6 @@ import './SafeMath.sol';
  *
  */
 contract Campaign {
-    using SafeMath for uint256;
-
     /* Enumerate the state of the campaign. */
     enum State {
         Fundraising,
@@ -100,10 +95,14 @@ contract Campaign {
     mapping (address => Pledge) private _pledges;
 
     /* Initialize total (campaign) pledges. */
-    uint256 private _pledgeBalance;
+    uint private _pledgeBalance;
 
     /* Initialize (campaign) state. */
     State private _state = State.Fundraising;
+
+    /* Stretch goals. */
+    // TODO: Coming soon
+    address[] private _stretchGoals;
 
     /* Emitted after campaign creator has received the funds. */
     event CreatorPaid(
@@ -208,7 +207,7 @@ contract Campaign {
         string calldata _label,
         string calldata _comment,
         string calldata _url,
-        uint _bchUsd
+        uint _avaxUsd
     ) external inState(State.Fundraising) payable {
         /* Validate the contributor is NOT the creator. */
         require(msg.sender != _creator);
@@ -223,7 +222,7 @@ contract Campaign {
         /* Validate outstanding pledge from contributor. */
         if (_pledges[msg.sender].amount > 0) {
             /* Calculate (accumulated) pledge total. */
-            totalPledged = _pledges[msg.sender].amount.add(msg.value);
+            totalPledged = _pledges[msg.sender].amount + msg.value;
         } else {
             /* Set initial pledge total. */
             totalPledged = msg.value;
@@ -248,7 +247,7 @@ contract Campaign {
         _pledges[msg.sender] = pledge;
 
         /* Add contribution to pledge balance. */
-        _pledgeBalance = _pledgeBalance.add(msg.value);
+        _pledgeBalance = _pledgeBalance + msg.value;
 
         /* Send pledge notification. */
         emit PledgeReceived(
@@ -258,7 +257,7 @@ contract Campaign {
             _label,
             _comment,
             _url,
-            _bchUsd,
+            _avaxUsd,
             _pledgeBalance,
             block.timestamp
         );
@@ -346,7 +345,7 @@ contract Campaign {
         _pledges[msg.sender].amount = 0;
 
         /* Send refund. */
-        if (!msg.sender.send(amountToRefund)) {
+        if (!payable(msg.sender).send(amountToRefund)) {
             /* Reset contribution total. */
             _pledges[msg.sender].amount = amountToRefund;
 
@@ -354,7 +353,7 @@ contract Campaign {
             return false;
         } else {
             /* Adjust current balance. */
-            _pledgeBalance = _pledgeBalance.sub(amountToRefund);
+            _pledgeBalance = _pledgeBalance - amountToRefund;
         }
 
         /* Send reclaim notification. */
@@ -488,25 +487,20 @@ contract Campaign {
 
 /*******************************************************************************
  *
- * ( this contract was last updated on 2021.10.19 )
+ * ( this contract was last updated on 2022.3.5 )
  *
  * Please visit our websites:
- *   - https://smartstarter.cash
- *   - https://bchplease.org
+ *   - https://snowmaker.io
+ *   - https://avasdao.org
  *
  * Don't hesitate to reach out to our team for support:
- *   - support@bchplease.org
- *   - bchplease.slack.com
+ *   - support@avasdao.org
+ *   - avasdao.slack.com
  *
  * Chceck out these useful links:
- *   - https://docs.smartstarter.cash
- *   - https://flipstarter.cash
+ *   - https://docs.snowmaker.io
  *
- * We greatly appreciate ANY support for those that can offer it. For your
- * convenience, we accept many forms of crypto donations:
- *
- *   - Donate BCH     bitcoincash:qqvl7fwcthhhntsew056t8007pw55k258vmlm053fy
- *   - Donate SLP     simpleledger:qqxtz0fw3gs5ndmwjm2we92k20zu3z99uuuxr25a2s
- *   - Donate sBCH    << hardware wallet support is currently in development >>
+ * We greatly appreciate ANY support for those that can offer it to our donation
+ * address: xxx
  *
  */
