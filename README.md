@@ -1,34 +1,31 @@
-# smartstarter.cash
+# Snowmaker
 
-## Project setup
-```
-yarn install
-```
+https://snowmaker.io
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+A peer-to-peer crowdfunding platform for the Avalanche community of BUIDLers.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Motivation
 
-### Run your unit tests
-```
-yarn test:unit
-```
+Blockchain developers have many resources available to them for building. But when it comes to financing, there are very few on-chain solutions to choose from.
 
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
+Snowmaker aims to be the "rainmaker" for developers building on the Avalanche blockchain.
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Featured Benefits
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Discoverability
+2. Donor Protections
+3. Accountability
+
+### Discoverability
+
+Snowmaker makes it super easy to find new and noteworthy projects to support.
+
+### Donor Protections
+
+Donors will ALWAYS maintain complete control over the campaigns they support. At any time, before the campaign ends, they can add/modify/remove their pledge.
+
+### Accountability
+
+WIP
+
+Our team aims to develop a Report Card system to encourage accountability and transparency AFTER a campaign has been successfully funded.
