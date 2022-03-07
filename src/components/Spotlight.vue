@@ -17,9 +17,9 @@
 
             <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
 
-                <router-link to="/flipstarter" class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                <router-link to="/afterparty" class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/KohV11V.png" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -44,15 +44,15 @@
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
-                                    <span class="sr-only">Roel Aufderehar</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    <span class="sr-only">Musing</span>
+                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/KohV11V.png" alt="" />
                                 </a>
                             </div>
 
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">
                                     <a href="javascript://" class="hover:underline">
-                                        Roel Aufderehar
+                                        Musing
                                     </a>
                                 </p>
 
@@ -76,7 +76,7 @@
 
                 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/iKtVmQ5.png" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -101,15 +101,15 @@
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
-                                    <span class="sr-only">Brenna Goyette</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    <span class="sr-only">Snowflakes.network</span>
+                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/iKtVmQ5.png" alt="" />
                                 </a>
                             </div>
 
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">
                                     <a href="javascript://" class="hover:underline">
-                                        Brenna Goyette
+                                        Snowflakes.network
                                     </a>
                                 </p>
 
@@ -133,7 +133,7 @@
 
                 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/V198sSQ.png" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -158,15 +158,15 @@
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
-                                    <span class="sr-only">Daniela Metz</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    <span class="sr-only">Astrocave Academy</span>
+                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/V198sSQ.png" alt="" />
                                 </a>
                             </div>
 
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">
                                     <a href="javascript://" class="hover:underline">
-                                        Daniela Metz
+                                        Astrocave Academy
                                     </a>
                                 </p>
 

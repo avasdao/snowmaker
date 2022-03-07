@@ -37,7 +37,7 @@ Make a pledge now to help our team deliver this 100% Free and Open Source Softwa
 
 ![Badge](https://i.imgur.com/hVN5DVB.png)
 
-Snowmaker introduces a brand new set of smart contract functionality; elevating the existing __[Flipstarter](https://flipstarter.cash)__ platform in ways that ONLY __[SmartBCH](https://smartbch.org/)__ can deliver:
+Snowmaker introduces a brand new set of smart contract functionality; elevating the existing crowdfunding platforms in ways that ONLY __[Avalanche](https://avax.network/)__ can deliver:
 
 - __100% On-chain Transparency:__ With all data stored on-chain, full transparency is GUARANTEED!
 - __Self-Reporting:__ Transparent accountability after a campaign has been funded will be highly encouraged and fully supported with our NEW Report Cards.

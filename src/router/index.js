@@ -38,7 +38,7 @@ const routes = [
         component: Campaign,
     },
     {
-        path: '/flipstarter',     // alias for campaign
+        path: '/afterparty',     // alias for campaign
         name: 'Campaign',
         component: Campaign,
     },

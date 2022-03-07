@@ -5,7 +5,7 @@
                 <div class="flex items-center">
                     <router-link to="/">
                         <span class="sr-only">Workflow</span>
-                        <img class="h-10 w-auto" :src="require('@/assets/logo.png')" alt="" />
+                        <img class="h-16 w-auto" :src="require('@/assets/logo.png')" alt="" />
                     </router-link>
 
                     <div class="hidden ml-10 space-x-8 lg:block">
@@ -32,8 +32,8 @@
                         Sign in
                     </a>
 
-                    <router-link to="/flipstarter" class="inline-block bg-blue-500 py-2 px-4 border-4 border-blue-300 rounded-md text-base font-bold text-gray-50 hover:bg-blue-300 hover:border-blue-500">
-                        OUR FLIPSTARTER IS LIVE
+                    <router-link to="/afterparty" class="inline-block bg-blue-500 py-2 px-4 border-4 border-blue-300 rounded-md text-base font-bold text-gray-50 hover:bg-blue-300 hover:border-blue-500">
+                        JOIN THE AFTERPARTY!
                     </router-link>
                 </div>
             </div>

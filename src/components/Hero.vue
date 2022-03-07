@@ -6,7 +6,7 @@
                 <div class="absolute inset-0">
                     <img
                         class="h-full w-full object-cover"
-                        src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100"
+                        :src="require('../assets/ambreen-hasan-E9ANYNkN4Sc-unsplash.jpg')"
                         alt="People working on laptops"
                     />
                     <div class="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-700 mix-blend-multiply"></div>
@@ -17,8 +17,8 @@
                         <span class="block text-white sm:text-5xl lg:text-7xl">SNOWMAKER</span> <span class="block text-indigo-200">Peer-to-Peer Crowdfunding</span>
                     </h1>
 
-                    <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">
-                        The most effective way to <span class="font-bold">Build</span>, <span class="font-bold">Collect</span> and <span class="font-bold">Manage</span> support for your next project.
+                    <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-4xl">
+                        The most effective way to <span class="font-bold">Build</span>, <span class="font-bold">Collect</span> and <span class="font-bold">Manage</span> support for your next campaign.
                     </p>
 
                     <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
