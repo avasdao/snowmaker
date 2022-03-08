@@ -6,7 +6,7 @@
                 <div class="absolute inset-0">
                     <img
                         class="h-full w-full object-cover"
-                        :src="require('../assets/ambreen-hasan-E9ANYNkN4Sc-unsplash.jpg')"
+                        :src="banner"
                         alt="People working on laptops"
                     />
                     <div class="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-700 mix-blend-multiply"></div>
@@ -14,11 +14,13 @@
 
                 <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
                     <h1 class="text-center font-extrabold tracking-tight text-4xl">
-                        <span class="block text-white sm:text-5xl lg:text-7xl">SNOWMAKER</span> <span class="block text-indigo-200">Peer-to-Peer Crowdfunding</span>
+                        <span class="block text-white text-5xl sm:text-6xl lg:text-8xl">SNOWMAKER</span>
+                        <span class="block text-indigo-100">Peer-to-Peer Crowdfunding</span>
                     </h1>
 
-                    <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-4xl">
-                        The most effective way to <span class="font-bold">Build</span>, <span class="font-bold">Collect</span> and <span class="font-bold">Manage</span> support for your next campaign.
+                    <p class="mt-6 max-w-lg mx-auto text-center text-2xl text-indigo-100 sm:max-w-4xl">
+                        The MOST effective way to <span class="font-bold">Build</span>, <span class="font-bold">Collect</span> and <span class="font-bold">Manage </span>
+                        <br class="hidden sm:block" />support for your project's next campaign.
                     </p>
 
                     <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
@@ -53,6 +55,22 @@ export default {
         return {
             //
         }
+    },
+    computed: {
+        banner() {
+            /* Set banners. */
+            const banners = [
+                'ambreen-hasan-E9ANYNkN4Sc-unsplash.jpg',
+                'jordon-conner-tIr-PWgSYB4-unsplash.jpg',
+            ]
+
+            /* Select banenr. */
+            const banner = banners[Math.floor(Math.random() * banners.length)]
+
+            /* Return banner. */
+            return require('../assets/' + banner)
+        },
+
     },
     methods: {
         launchpad() {

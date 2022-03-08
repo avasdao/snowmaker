@@ -26,17 +26,17 @@
                         <div class="flex-1">
                             <p class="text-sm font-medium text-indigo-600">
                                 <a href="javascript://" class="hover:underline">
-                                    Article
+                                    Hackathon Afterparty
                                 </a>
                             </p>
 
                             <a href="javascript://" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">
-                                    Boost your conversion rate
+                                    Musing
                                 </p>
 
                                 <p class="mt-3 text-base text-gray-500">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.
+                                    Musing is a decentralized Q&amp;A protocol where you can mine tokens by creating great questions and answers. We give users ownership over the content they create.
                                 </p>
                             </a>
                         </div>
@@ -58,15 +58,23 @@
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
                                     <time datetime="2020-03-16">
-                                        Mar 16, 2020
+                                        <a href="https://musing.io/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </time>
 
                                     <span aria-hidden="true">
-                                        &middot;
+                                        |
                                     </span>
 
                                     <span>
-                                        6 min read
+                                        <a href="https://github.com/Musing-io/musing-protocol" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                    </span>
+
+                                    <span aria-hidden="true">
+                                        |
+                                    </span>
+
+                                    <span>
+                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -83,17 +91,17 @@
                         <div class="flex-1">
                             <p class="text-sm font-medium text-indigo-600">
                                 <a href="javascript://" class="hover:underline">
-                                    Video
+                                    Hackathon Afterparty
                                 </a>
                             </p>
 
                             <a href="javascript://" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">
-                                    How to use search engine optimization to drive sales
+                                    Snowflakes.network
                                 </p>
 
                                 <p class="mt-3 text-base text-gray-500">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.
+                                    Web3 push notifications you control.
                                 </p>
                             </a>
                         </div>
@@ -114,16 +122,24 @@
                                 </p>
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-03-10">
-                                        Mar 10, 2020
+                                    <time datetime="2020-03-16">
+                                        <a href="https://snowflakes.network/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </time>
 
                                     <span aria-hidden="true">
-                                        &middot;
+                                        |
                                     </span>
 
                                     <span>
-                                        4 min read
+                                        <a href="https://github.com/snowflakes-network/platform" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                    </span>
+
+                                    <span aria-hidden="true">
+                                        |
+                                    </span>
+
+                                    <span>
+                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -133,24 +149,24 @@
 
                 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/V198sSQ.png" alt="" />
+                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/h31BVO4.png" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                         <div class="flex-1">
                             <p class="text-sm font-medium text-indigo-600">
                                 <a href="javascript://" class="hover:underline">
-                                    Case Study
+                                    Hackathon Afterparty
                                 </a>
                             </p>
 
                             <a href="javascript://" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">
-                                    Improve your customer experience
+                                    Astrocave Academy
                                 </p>
 
                                 <p class="mt-3 text-base text-gray-500">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.
+                                    A Gamified Education Platform and portfolio tracker that follows your Decentralized Finance learning journey, tracks your progress and provides guidance along the process.
                                 </p>
                             </a>
                         </div>
@@ -159,7 +175,7 @@
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
                                     <span class="sr-only">Astrocave Academy</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/V198sSQ.png" alt="" />
+                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/h31BVO4.png" alt="" />
                                 </a>
                             </div>
 
@@ -171,16 +187,24 @@
                                 </p>
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-02-12">
-                                        Feb 12, 2020
+                                    <time datetime="2020-03-16">
+                                        <a href="https://astrocave.vercel.app/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </time>
 
                                     <span aria-hidden="true">
-                                        &middot;
+                                        |
                                     </span>
 
                                     <span>
-                                        11 min read
+                                        <a href="https://github.com/Astrocavemen/app" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                    </span>
+
+                                    <span aria-hidden="true">
+                                        |
+                                    </span>
+
+                                    <span>
+                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
