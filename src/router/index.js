@@ -13,7 +13,7 @@ import Launchpad from '../views/Launchpad.vue'
 import Profile from '../views/Profile.vue'
 import Reports from '../views/Reports.vue'
 import Sponsors from '../views/Sponsors.vue'
-import Spotlight from '../views/Spotlight.vue'
+import Showcase from '../views/Showcase.vue'
 import Stats from '../views/Stats.vue'
 
 const routes = [
@@ -83,9 +83,9 @@ const routes = [
         component: Sponsors,
     },
     {
-        path: '/spotlight',
-        name: 'Spotlight',
-        component: Spotlight,
+        path: '/showcase',
+        name: 'Showcase',
+        component: Showcase,
     },
     {
         path: '/stats',

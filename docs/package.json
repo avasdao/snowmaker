@@ -1,7 +1,7 @@
 {
-  "name": "Snowmaker",
-  "version": "0.0.1",
-  "description": "A Peer-to-peer crowdfunding platform for the Avalanche community.",
+  "name": "snowmaker-docs",
+  "version": "22.3.7",
+  "description": "The premier peer-to-peer crowdfunding platform for the Avalanche community.",
   "main": "index.js",
   "authors": {
     "name": "Ava Nakamoto",

@@ -14,9 +14,9 @@
                     </router-link>
                 </div>
 
-                <div class="hidden px-5 py-2">
-                    <a href="https://pif.cash" target="_blank" class="text-base text-gray-500 hover:text-gray-900">
-                        Pay It Forward
+                <div class="px-5 py-2">
+                    <a href="https://docs.snowmaker.io" target="_blank" class="text-base text-gray-500 hover:text-gray-900">
+                        Docs
                     </a>
                 </div>
 

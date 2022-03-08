@@ -16,7 +16,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#8fcbf7' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
@@ -34,26 +34,37 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Users',
+        link: '/users/',
       },
       {
-        text: 'Config',
-        link: '/config/'
+        text: 'Sponsors',
+        link: '/sponsors/'
       },
       {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
+        text: 'Platform',
+        link: 'https://snowmaker.io'
       }
     ],
     sidebar: {
-      '/guide/': [
+      '/users/': [
         {
-          title: 'Guide',
+          title: 'User Guide',
           collapsable: false,
           children: [
             '',
-            'using-vue',
+            'create-a-campaign',
+            'markdown',
+          ]
+        }
+      ],
+      '/sponsors/': [
+        {
+          title: 'Sponsors',
+          collapsable: false,
+          children: [
+            '',
+            'transparency',
           ]
         }
       ],
