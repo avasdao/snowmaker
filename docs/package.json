@@ -1,0 +1,19 @@
+{
+  "name": "Snowmaker",
+  "version": "0.0.1",
+  "description": "A Peer-to-peer crowdfunding platform for the Avalanche community.",
+  "main": "index.js",
+  "authors": {
+    "name": "Ava Nakamoto",
+    "email": "support@avasdao.org"
+  },
+  "repository": "https://github.com/modenero/snowmaker.git/Snowmaker",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
