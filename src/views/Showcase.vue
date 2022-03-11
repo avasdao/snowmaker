@@ -6,8 +6,8 @@
 
         <div class="relative max-w-7xl mx-auto">
             <div class="text-center">
-                <h2 class="text-5xl tracking-tight font-extrabold text-gray-900 sm:text-6xl">
-                    SPOTLIGHT
+                <h2 class="text-5xl tracking-tight font-extrabold text-gray-900 sm:text-6xl uppercase">
+                    Showcase
                 </h2>
 
                 <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
@@ -20,24 +20,24 @@
 
                 <router-link to="/campaign" class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/gkRwHzE.png" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                         <div class="flex-1">
                             <p class="text-sm font-medium text-indigo-600">
                                 <a href="javascript://" class="hover:underline">
-                                    Article
+                                    Hackathon Afterparty
                                 </a>
                             </p>
 
                             <a href="javascript://" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">
-                                    Boost your conversion rate
+                                    Motoverse
                                 </p>
 
                                 <p class="mt-3 text-base text-gray-500">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.
+                                    Motoverse is a different take on DeFi investment with uniquely minted collectible motorbikes utilizing ERC721 non-fungible tokens (NFTs).
                                 </p>
                             </a>
                         </div>
@@ -45,29 +45,37 @@
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
-                                    <span class="sr-only">Roel Aufderehar</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    <span class="sr-only">Motoverse</span>
+                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/gkRwHzE.png" alt="" />
                                 </a>
                             </div>
 
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">
                                     <a href="javascript://" class="hover:underline">
-                                        Roel Aufderehar
+                                        Motoverse
                                     </a>
                                 </p>
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
                                     <time datetime="2020-03-16">
-                                        Mar 16, 2020
+                                        <a href="https://motoverse.games/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </time>
 
                                     <span aria-hidden="true">
-                                        &middot;
+                                        |
                                     </span>
 
                                     <span>
-                                        6 min read
+                                        <a href="https://github.com/motoverse" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                    </span>
+
+                                    <span aria-hidden="true">
+                                        |
+                                    </span>
+
+                                    <span>
+                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -77,24 +85,24 @@
 
                 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/IsgLgyF.png" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                         <div class="flex-1">
                             <p class="text-sm font-medium text-indigo-600">
                                 <a href="javascript://" class="hover:underline">
-                                    Video
+                                    Hackathon Afterparty
                                 </a>
                             </p>
 
                             <a href="javascript://" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">
-                                    How to use search engine optimization to drive sales
+                                    Yak Spirit
                                 </p>
 
                                 <p class="mt-3 text-base text-gray-500">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.
+                                    Yak Spirit is built on top of Yield Yak to give users a better UX of token swap on Avalanche.
                                 </p>
                             </a>
                         </div>
@@ -102,29 +110,37 @@
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
-                                    <span class="sr-only">Brenna Goyette</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    <span class="sr-only">Yak Spirit</span>
+                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/IsgLgyF.png" alt="" />
                                 </a>
                             </div>
 
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">
                                     <a href="javascript://" class="hover:underline">
-                                        Brenna Goyette
+                                        Yak Spirit
                                     </a>
                                 </p>
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-03-10">
-                                        Mar 10, 2020
+                                    <time datetime="2020-03-16">
+                                        <a href="https://yakspirit.com/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </time>
 
                                     <span aria-hidden="true">
-                                        &middot;
+                                        |
                                     </span>
 
                                     <span>
-                                        4 min read
+                                        <a href="https://github.com/dragoonzx/yak-spirit" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                    </span>
+
+                                    <span aria-hidden="true">
+                                        |
+                                    </span>
+
+                                    <span>
+                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -134,24 +150,24 @@
 
                 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/bEEDIN6.png" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                         <div class="flex-1">
                             <p class="text-sm font-medium text-indigo-600">
                                 <a href="javascript://" class="hover:underline">
-                                    Case Study
+                                    Hackathon Afterparty
                                 </a>
                             </p>
 
                             <a href="javascript://" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">
-                                    Improve your customer experience
+                                    CryptoNotify
                                 </p>
 
                                 <p class="mt-3 text-base text-gray-500">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.
+                                    Personalized, proactive alerts for the Web3 world.
                                 </p>
                             </a>
                         </div>
@@ -159,29 +175,37 @@
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
-                                    <span class="sr-only">Daniela Metz</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    <span class="sr-only">CryptoNotify</span>
+                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/bEEDIN6.png" alt="" />
                                 </a>
                             </div>
 
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">
                                     <a href="javascript://" class="hover:underline">
-                                        Daniela Metz
+                                        CryptoNotify
                                     </a>
                                 </p>
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-02-12">
-                                        Feb 12, 2020
+                                    <time datetime="2020-03-16">
+                                        <a href="https://www.cryptonotifi.xyz/login" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </time>
 
                                     <span aria-hidden="true">
-                                        &middot;
+                                        |
                                     </span>
 
                                     <span>
-                                        11 min read
+                                        <a href="https://github.com/bsileo/crypto-notifi" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                    </span>
+
+                                    <span aria-hidden="true">
+                                        |
+                                    </span>
+
+                                    <span>
+                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
