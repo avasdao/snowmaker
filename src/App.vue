@@ -1,4 +1,6 @@
 <template>
+    <Header />
+
     <router-view
         :network="$store.state.network"
         :provider="$store.getters.getProvider"
@@ -16,6 +18,7 @@
 <script>
 /* Import components. */
 import Footer from '@/components/Footer.vue'
+import Header from '@/components/Header.vue'
 import Modal from '@/components/Modal.vue'
 import Notif from '@/components/Notif.vue'
 import Profile from '@/components/Profile.vue'
@@ -27,6 +30,7 @@ const RETRY_ATTEMPTS = 5 // approx. 2.5 seconds
 export default {
     components: {
         Footer,
+        Header,
         Profile,
         Modal,
         Notif,

@@ -1,7 +1,5 @@
 <template>
     <main class="bg-white overflow-x-hidden">
-        <Header />
-
         <Hero class="pt-12 lg:pt-18" />
 
         <Sponsors class="hidden" />
@@ -28,7 +26,6 @@
 import Benefits from '@/components/Benefits.vue'
 import Contributors from '@/components/Contributors.vue'
 import CTA from '@/components/CTA.vue'
-import Header from '@/components/Header.vue'
 import Hero from '@/components/Hero.vue'
 import Metrics from '@/components/Metrics.vue'
 import Recent from '@/components/Recent.vue'
@@ -41,7 +38,6 @@ export default {
         Benefits,
         Contributors,
         CTA,
-        Header,
         Hero,
         Metrics,
         Recent,
