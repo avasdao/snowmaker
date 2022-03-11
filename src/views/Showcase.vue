@@ -20,7 +20,8 @@
 
                 <router-link
                     v-for="campaign of campaigns"
-                    :key="campaign.id" to="/campaign"
+                    :key="campaign.id"
+                    :to="'/campaign/' + campaign.id"
                     class="flex flex-col rounded-lg shadow-lg overflow-hidden border-2 border-gray-300"
                 >
                     <div class="flex-shrink-0">

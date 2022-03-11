@@ -19,77 +19,66 @@ import Stats from '../views/Stats.vue'
 const routes = [
     {
         path: '/',
-        name: 'Home',
         component: Home,
     },
     {
         path: '/about',
-        name: 'About',
         component: About,
     },
     {
         path: '/bounties',
-        name: 'Bounties',
         component: Bounties,
     },
     {
         path: '/campaign',
-        name: 'Campaign',
+        component: Campaign,
+    },
+    {
+        path: '/campaign/:id',
         component: Campaign,
     },
     {
         path: '/afterparty',     // alias for campaign
-        name: 'Campaign',
         component: Campaign,
     },
     {
         path: '/compare',
-        name: 'Compare',
         component: Compare,
     },
     {
         path: '/edit',
-        name: 'Edit',
         component: Edit,
     },
     {
         path: '/help',
-        name: 'Help',
         component: Help,
     },
     {
         path: '/how',
-        name: 'How',
         component: How,
     },
     {
         path: '/launchpad',
-        name: 'Launchpad',
         component: Launchpad,
     },
     {
         path: '/profile',
-        name: 'Profile',
         component: Profile,
     },
     {
         path: '/reports',
-        name: 'Reports',
         component: Reports,
     },
     {
         path: '/sponsors',
-        name: 'Sponsors',
         component: Sponsors,
     },
     {
         path: '/showcase',
-        name: 'Showcase',
         component: Showcase,
     },
     {
         path: '/stats',
-        name: 'Stats',
         component: Stats,
     },
 ]

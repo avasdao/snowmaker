@@ -180,6 +180,7 @@ export default {
     },
     data: () => {
         return {
+            id: null,
             blockNum: null,
 
             usd: null,
@@ -615,6 +616,17 @@ export default {
 
     },
     created: function () {
+        /* Set parameters. */
+        const params = this.$route.params
+        // console.log('PARAMS', params)
+
+        /* Validate parameters. */
+        if (params) {
+            /* Set id. */
+            this.id = params.id
+            console.log('CAMPAIGN ID', this.id)
+        }
+
         /* Set all menu displays to false. */
         this.showPledges = false
         this.showFeedback = false

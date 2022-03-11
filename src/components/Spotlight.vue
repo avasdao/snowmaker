@@ -17,26 +17,31 @@
 
             <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
 
-                <router-link to="/afterparty" class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                <router-link
+                    v-for="spotlight of spotlights"
+                    :key="spotlight.id"
+                    :to="'/campaign/' + spotlight.id"
+                    class="flex flex-col rounded-lg shadow-lg overflow-hidden border-2 border-gray-300"
+                >
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/KohV11V.png" alt="" />
+                        <img class="h-48 w-full object-cover" :src="spotlight.imgBanner" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                         <div class="flex-1">
                             <p class="text-sm font-medium text-indigo-600">
                                 <a href="javascript://" class="hover:underline">
-                                    Hackathon Afterparty
+                                    {{spotlight.category}}
                                 </a>
                             </p>
 
                             <a href="javascript://" class="block mt-2">
                                 <p class="text-xl font-semibold text-gray-900">
-                                    Musing
+                                    {{spotlight.title}}
                                 </p>
 
                                 <p class="mt-3 text-base text-gray-500">
-                                    Musing is a decentralized Q&amp;A protocol where you can mine tokens by creating great questions and answers. We give users ownership over the content they create.
+                                    {{spotlight.description}}
                                 </p>
                             </a>
                         </div>
@@ -44,29 +49,21 @@
                         <div class="mt-6 flex items-center">
                             <div class="flex-shrink-0">
                                 <a href="javascript://">
-                                    <span class="sr-only">Musing</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/KohV11V.png" alt="" />
+                                    <span class="sr-only">{{spotlight.title}}</span>
+                                    <img class="h-10 w-10 rounded-full" :src="spotlight.imgIcon" alt="" />
                                 </a>
                             </div>
 
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-gray-900">
                                     <a href="javascript://" class="hover:underline">
-                                        Musing
+                                        {{spotlight.title}}
                                     </a>
                                 </p>
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-03-16">
-                                        <a href="https://musing.io/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
-                                    </time>
-
-                                    <span aria-hidden="true">
-                                        |
-                                    </span>
-
                                     <span>
-                                        <a href="https://github.com/Musing-io/musing-protocol" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                        <a :href="spotlight.url" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -74,7 +71,15 @@
                                     </span>
 
                                     <span>
-                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
+                                        <a :href="spotlight.github" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                    </span>
+
+                                    <span aria-hidden="true">
+                                        |
+                                    </span>
+
+                                    <span>
+                                        <a :href="spotlight.video" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -82,135 +87,6 @@
                     </div>
                 </router-link>
 
-                <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                    <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/iKtVmQ5.png" alt="" />
-                    </div>
-
-                    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-indigo-600">
-                                <a href="javascript://" class="hover:underline">
-                                    Hackathon Afterparty
-                                </a>
-                            </p>
-
-                            <a href="javascript://" class="block mt-2">
-                                <p class="text-xl font-semibold text-gray-900">
-                                    Snowflakes.network
-                                </p>
-
-                                <p class="mt-3 text-base text-gray-500">
-                                    Web3 push notifications you control.
-                                </p>
-                            </a>
-                        </div>
-
-                        <div class="mt-6 flex items-center">
-                            <div class="flex-shrink-0">
-                                <a href="javascript://">
-                                    <span class="sr-only">Snowflakes.network</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/iKtVmQ5.png" alt="" />
-                                </a>
-                            </div>
-
-                            <div class="ml-3">
-                                <p class="text-sm font-medium text-gray-900">
-                                    <a href="javascript://" class="hover:underline">
-                                        Snowflakes.network
-                                    </a>
-                                </p>
-
-                                <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-03-16">
-                                        <a href="https://snowflakes.network/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
-                                    </time>
-
-                                    <span aria-hidden="true">
-                                        |
-                                    </span>
-
-                                    <span>
-                                        <a href="https://github.com/snowflakes-network/platform" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
-                                    </span>
-
-                                    <span aria-hidden="true">
-                                        |
-                                    </span>
-
-                                    <span>
-                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                    <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" src="https://i.imgur.com/h31BVO4.png" alt="" />
-                    </div>
-
-                    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                        <div class="flex-1">
-                            <p class="text-sm font-medium text-indigo-600">
-                                <a href="javascript://" class="hover:underline">
-                                    Hackathon Afterparty
-                                </a>
-                            </p>
-
-                            <a href="javascript://" class="block mt-2">
-                                <p class="text-xl font-semibold text-gray-900">
-                                    Astrocave Academy
-                                </p>
-
-                                <p class="mt-3 text-base text-gray-500">
-                                    A Gamified Education Platform and portfolio tracker that follows your Decentralized Finance learning journey, tracks your progress and provides guidance along the process.
-                                </p>
-                            </a>
-                        </div>
-
-                        <div class="mt-6 flex items-center">
-                            <div class="flex-shrink-0">
-                                <a href="javascript://">
-                                    <span class="sr-only">Astrocave Academy</span>
-                                    <img class="h-10 w-10 rounded-full" src="https://i.imgur.com/h31BVO4.png" alt="" />
-                                </a>
-                            </div>
-
-                            <div class="ml-3">
-                                <p class="text-sm font-medium text-gray-900">
-                                    <a href="javascript://" class="hover:underline">
-                                        Astrocave Academy
-                                    </a>
-                                </p>
-
-                                <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time datetime="2020-03-16">
-                                        <a href="https://astrocave.vercel.app/" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
-                                    </time>
-
-                                    <span aria-hidden="true">
-                                        |
-                                    </span>
-
-                                    <span>
-                                        <a href="https://github.com/Astrocavemen/app" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
-                                    </span>
-
-                                    <span aria-hidden="true">
-                                        |
-                                    </span>
-
-                                    <span>
-                                        <a href="javascript://" class="text-gray-500 font-medium">Video</a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="mt-20 flex justify-center">
@@ -232,11 +108,48 @@ export default {
     },
     data: () => {
         return {
-            //
+            spotlights: null,
         }
     },
     created: function () {
-        //
+        this.spotlights = []
+
+        this.spotlights.push({
+            id: '8d9bf054-afe4-4f8e-8f33-85f0aaec2015',
+            title: `Musing`,
+            category: 'Hackathon Afterparty',
+            description: `Musing is a decentralized Q&amp;A protocol where you can mine tokens by creating great questions and answers. We give users ownership over the content they create.`,
+            url: 'https://musing.io/',
+            github: 'https://github.com/Musing-io/musing-protocol',
+            video: '',
+            imgBanner: 'https://i.imgur.com/KohV11V.png',
+            imgIcon: 'https://i.imgur.com/KohV11V.png',
+        })
+
+        this.spotlights.push({
+            id: 'd81484a6-6528-473a-909c-e04b0b30040a',
+            title: `Snowflakes.network`,
+            category: 'Hackathon Afterparty',
+            description: `Web3 push notifications you control.`,
+            url: 'https://snowflakes.network/',
+            github: 'https://github.com/snowflakes-network/platform',
+            video: '',
+            imgBanner: 'https://i.imgur.com/iKtVmQ5.png',
+            imgIcon: 'https://i.imgur.com/iKtVmQ5.png',
+        })
+
+        this.spotlights.push({
+            id: '41d4a8a6-baf8-4527-aec4-9b5723067775',
+            title: `Astrocave Academy`,
+            category: 'Hackathon Afterparty',
+            description: `A Gamified Education Platform and portfolio tracker that follows your Decentralized Finance learning journey, tracks your progress and provides guidance along the process.`,
+            url: 'https://astrocave.vercel.app/',
+            github: 'https://github.com/Astrocavemen/app',
+            video: '',
+            imgBanner: 'https://i.imgur.com/h31BVO4.png',
+            imgIcon: 'https://i.imgur.com/h31BVO4.png',
+        })
+
     },
     mounted: function () {
         //
