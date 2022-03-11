@@ -22,10 +22,10 @@
                     v-for="campaign of campaigns"
                     :key="campaign.id"
                     :to="'/campaign/' + campaign.id"
-                    class="flex flex-col rounded-lg shadow-lg overflow-hidden border-2 border-gray-300"
+                    class="flex flex-col rounded-xl shadow-lg overflow-hidden border-2 border-gray-300"
                 >
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" :src="campaign.imgBanner" alt="" />
+                        <img class="h-48 w-full object-cover border-b-2 border-gray-300" :src="campaign.imgBanner" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -64,7 +64,7 @@
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
                                     <span>
-                                        <a :href="campaign.url" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
+                                        <a @click.prevent="openUrl(campaign.url)" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -72,7 +72,7 @@
                                     </span>
 
                                     <span>
-                                        <a :href="campaign.github" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                        <a @click.prevent="openUrl(campaign.github)" class="text-blue-500 font-medium hover:underline">Github</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -80,7 +80,7 @@
                                     </span>
 
                                     <span>
-                                        <a :href="campaign.video" class="text-gray-500 font-medium">Video</a>
+                                        <a @click.prevent="openUrl(campaign.video)" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -111,6 +111,12 @@ export default {
         return {
             campaigns: null,
         }
+    },
+    methods: {
+        openUrl(_url) {
+            window.open(_url)
+        },
+
     },
     created: function () {
         this.campaigns = []
@@ -150,6 +156,90 @@ export default {
             imgBanner: 'https://i.imgur.com/bEEDIN6.png',
             imgIcon: 'https://i.imgur.com/bEEDIN6.png',
         })
+
+        this.campaigns.push({
+            id: '8dba75c7-bdfd-4c54-8a6e-5cbc66f9c89e',
+            title: `Cratch`,
+            category: 'Hackathon Afterparty',
+            description: `Cratch is a fully decentralized MetaStreaming platform that allows users to create or watch live streams in a Metaverse world, while rewarding users from every minute spent in the platform.`,
+            url: 'https://cratch.io/',
+            github: 'https://github.com/skidrow8852/CratchRepo',
+            video: '',
+            imgBanner: 'https://i.imgur.com/YSuIDdv.png',
+            imgIcon: 'https://i.imgur.com/YSuIDdv.png',
+        })
+
+        this.campaigns.push({
+            id: 'db76d018-e8d5-4b3c-8c0e-7113773e7b17',
+            title: `Your Meta World`,
+            category: 'Hackathon Afterparty',
+            description: `Your Meta World is a brand new Metaverse created as an entry into the Moralis Avalanche 2022 Hackathon. YourMeta.World is a proof of concept for what is possible when the Metaverse is truly decentralized.`,
+            url: 'https://yourmetaworld.org/',
+            github: 'https://github.com/xx014939/metaworld-landing',
+            video: '',
+            imgBanner: 'https://i.imgur.com/AFLsIB9.png',
+            imgIcon: 'https://i.imgur.com/AFLsIB9.png',
+        })
+
+        this.campaigns.push({
+            id: 'fde05817-a771-4f25-be74-ccee73ba4ff2',
+            title: `AvaDoma`,
+            category: 'Hackathon Afterparty',
+            description: `Domain name registration for IPFS decentralized applications on Avalanche.`,
+            url: 'https://avadoma.com/',
+            github: 'https://github.com/AVADoma',
+            video: '',
+            imgBanner: 'https://i.imgur.com/0AaKzsG.png',
+            imgIcon: 'https://i.imgur.com/0AaKzsG.png',
+        })
+
+        this.campaigns.push({
+            id: '78266a85-9e9d-4b9e-a1f9-adf08aad7942',
+            title: `Physical Web3`,
+            category: 'Hackathon Afterparty',
+            description: `“Walk Up and Use Anything”: The Physical Web 3 is a decentralized approach to enabling quick and seamless interactions with physical objects and locations powered by smart contracts.`,
+            url: 'https://physicalweb3.com/',
+            github: 'https://github.com/gianksp/physicalweb3-builder/tree/main/public/contracts',
+            video: '',
+            imgBanner: 'https://i.imgur.com/fqDr0SZ.png',
+            imgIcon: 'https://i.imgur.com/fqDr0SZ.png',
+        })
+
+        this.campaigns.push({
+            id: 'd59ddd8e-1732-4b3c-aeac-66f62488514b',
+            title: `Whoosh Finance`,
+            category: 'Hackathon Afterparty',
+            description: `Crypto portfolio tracker: easily track your crypto, all in one place.`,
+            url: 'https://whoosh.fi/',
+            github: 'https://github.com/secondfloorlabs/whoosh',
+            video: '',
+            imgBanner: 'https://i.imgur.com/sG1Luym.png',
+            imgIcon: 'https://i.imgur.com/sG1Luym.png',
+        })
+
+        this.campaigns.push({
+            id: '4ea5b8e4-e715-497b-bf06-0d1722a92896',
+            title: `xDAO`,
+            category: 'Hackathon Afterparty',
+            description: `A multi-chain DAO constructor for collective crypto management.`,
+            url: 'https://www.xdao.app/',
+            github: 'https://github.com/XDAO-App',
+            video: '',
+            imgBanner: 'https://i.imgur.com/tHMItJI.png',
+            imgIcon: 'https://i.imgur.com/tHMItJI.png',
+        })
+
+        // this.campaigns.push({
+        //     id: '',
+        //     title: ``,
+        //     category: 'Hackathon Afterparty',
+        //     description: ``,
+        //     url: '',
+        //     github: '',
+        //     video: '',
+        //     imgBanner: '',
+        //     imgIcon: '',
+        // })
 
     },
     mounted: function () {

@@ -21,10 +21,10 @@
                     v-for="spotlight of spotlights"
                     :key="spotlight.id"
                     :to="'/campaign/' + spotlight.id"
-                    class="flex flex-col rounded-lg shadow-lg overflow-hidden border-2 border-gray-300"
+                    class="flex flex-col rounded-xl shadow-lg overflow-hidden border-2 border-gray-300"
                 >
                     <div class="flex-shrink-0">
-                        <img class="h-48 w-full object-cover" :src="spotlight.imgBanner" alt="" />
+                        <img class="h-48 w-full object-cover border-b-2 border-gray-300" :src="spotlight.imgBanner" alt="" />
                     </div>
 
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -63,7 +63,7 @@
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
                                     <span>
-                                        <a :href="spotlight.url" target="_blank" class="text-blue-500 font-medium hover:underline">Website</a>
+                                        <a @click.prevent="openUrl(spotlight.url)" class="text-blue-500 font-medium hover:underline">Website</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -71,7 +71,7 @@
                                     </span>
 
                                     <span>
-                                        <a :href="spotlight.github" target="_blank" class="text-blue-500 font-medium hover:underline">Github</a>
+                                        <a @click.prevent="openUrl(spotlight.github)" class="text-blue-500 font-medium hover:underline">Github</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -79,7 +79,7 @@
                                     </span>
 
                                     <span>
-                                        <a :href="spotlight.video" class="text-gray-500 font-medium">Video</a>
+                                        <a @click.prevent="openUrl(spotlight.video)" class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -110,6 +110,12 @@ export default {
         return {
             spotlights: null,
         }
+    },
+    methods: {
+        openUrl(_url) {
+            window.open(_url)
+        },
+
     },
     created: function () {
         this.spotlights = []
