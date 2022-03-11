@@ -25,8 +25,8 @@ export default createStore({
 
         /* Set summary. */
         summary: `
-Snowmaker introduces a brand new set of smart contract features, elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver.
-Make a pledge now to help our team deliver this 100% Free and Open Source Software (FOSS) platform to support Bitcoin's builders TODAY.
+Snowmaker introduces a brand NEW suite of smart contracts,  allowing for a permissionless crowdfunding experience that ONLY Avalanche can deliver.
+Make a pledge now to help our team deliver this 100% Free and Open Source Software (FOSS) platform to support Avalanche's builders TODAY.
         `,
 
         /* Set description. */
@@ -45,7 +45,7 @@ Snowmaker introduces a brand new set of smart contract functionality; elevating 
 - __NO Minimum Pledge Amount:__ Snowmaker removes the need to set a minimum pledge amount, while also supporting unlimited contributions.
 - __Secure, Managed Hosting:__ No need to deploy your own server. Simply point your domain's __[CNAME](https://en.wikipedia.org/wiki/CNAME_record)__ to snowmaker.io .. and DONE!
 
-Bitcoin Cash is leading the way in peer-to-peer crowdfunding.
+Avalanche is leading the way in peer-to-peer crowdfunding.
 SmartBCH introduces an improved system for managing public, peer-to-peer fundraisers.
 __All data is stored on-chain.__
 This guarantees 100% transparency with every satoshi earned and spent.
@@ -61,13 +61,13 @@ This guarantees 100% transparency with every satoshi earned and spent.
 The primary goal of this campaign is to complete and successfully deploy the Snowmaker Peer-to-Peer Crowdfunding Platform.
 
 Snowmaker is 100% Free and Opensource Software (FOSS).
-Initially, it will be built and deployed to DigitalOcean's app marketplace, as we plan to closely replicate the current process used by Flipstarter to launch self-hosted campaigns.
+Initially, it will be built and deployed to DigitalOcean's app marketplace, as we plan to closely replicate the current process used by other successful crowdfunding platforms to launch self-hosted campaigns.
 
 _NOTE: We also plan to offer a "managed-hosting" solution that will allow campaigns to be conveniently created and deployed in under 5 minutes._
 
 ### Report Cards
 
-Over the past year, the #1 request from Flipstarter supporters has been better accountability and transparency from campaigns that they've sponsored.
+Over the past year, the #1 request from crowdfunding supporters has been better accountability and transparency from campaigns that they've sponsored.
 Snowmaker will introduce and support transparent accountability for peer-to-peer crowdfunding.
 
 We're developing a simple system of Report Cards to encourage frequent status updates from campaign managers.
@@ -81,7 +81,7 @@ This would allow ANY peer-to-peer platform to directly access (read & write) thi
 
 As SmartBCH is an extremely nascent technology, we believe it's critical to provide adequte educational materials for new users.
 
-We will produce 3 How-to "Smart" Pledge videos (in English, Spanish and Chinese) explaining step-by-step how to pledge "Smart" Bitcoins.
+We will produce 3 How-to "Smart" Pledge videos (in English, Spanish and Chinese) explaining step-by-step how to pledge AVAX.
 
 These videos will be further supported by printed documents (in PDF format) and a web portal that will be kept updated as needed.
 
@@ -90,7 +90,7 @@ These videos will be further supported by printed documents (in PDF format) and 
 ### IN 30 DAYS OR LESS
 
 Our team has already laid the initial groundwork for this new platform.
-Please check out our __[GitLab repository](https://gitlab.com/bchplease/smartstarter)__.
+Please check out our __[GitHub repository](https://github.com/modenero/snowmaker)__.
 
 We intend to deliver this platform very quickly, within 30 days of the successfull completion of this campaign.
 
@@ -98,8 +98,8 @@ We intend to deliver this platform very quickly, within 30 days of the successfu
 
 If you've got questions, we're very happy to answer them:
 
-- support [at] bchplease [dot] org
-- [Join Our Slack](https://join.slack.com/t/bchplease/shared_invite/zt-e7jj03j5-vJbe47kNrPBjTgTXwLNRkA)
+- support [at] avasdao [dot] org
+- [Follow Our Twitter](https://twitter.com/Snowmaker_IO)
 
 ### #1 Will Snowmaker be FREE to use?
 
@@ -115,7 +115,7 @@ Beyond this initial Mininum Viable Product (MVP) release, our team intends to ex
 
 1. Launching the __[Pay It Forward (PIF)](https://pif.cash)__ infrastructure and development fund.
 2. Developing and maintaining a system to automagically refund expired pledges.
-3. Performing a 3rd-party audit of our __[Solidity contracts](https://gitlab.com/bchplease/smartstarter/-/tree/master/contracts)__ by a certified security firm.
+3. Performing a 3rd-party audit of our __[Solidity contracts](https://github.com/modenero/snowmaker/-/tree/master/contracts)__ by a certified security firm.
 4. Add support for the __[Ledger](https://www.ledger.com/)__ hardware wallet.
 
 ## Donate Directly
@@ -125,7 +125,7 @@ Send BCH  → [bitcoincash:qqvl7fwc ... mlm053fy](https://blockchair.com/bitcoin
 Send SLP  → [simpleledger:qqxtz0fw ... uxr25a2s](https://simpleledger.info/address/simpleledger:qqxtz0fw3gs5ndmwjm2we92k20zu3z99uuuxr25a2s)
 
 Don't trust. Verify!
-[https://bchplease.org](https://bchplease.org) (at our site's footer)
+[https://snowmaker.io](https://snowmaker.io) (at our site's footer)
 
 
         `,
@@ -154,7 +154,7 @@ Don't trust. Verify!
             {
                 id: 'ad9986b9-fe8a-48c3-808c-51fa914bea49',
                 cat: 'BUILD',
-                heading: `Bitcoin.com`,
+                heading: `Avax.Network`,
             },
             {
                 id: '658d8cdd-ee9a-4538-90dc-46fe6addb352',
@@ -164,7 +164,7 @@ Don't trust. Verify!
             {
                 id: '9d57daf4-145c-4f0b-a8cc-11ee35190ac1',
                 cat: 'BUILD',
-                heading: `Bitcoin Jesus`,
+                heading: `Ava Labs`,
             },
             {
                 id: '96b7e126-1b33-44ab-8fdc-04b522a820f7',

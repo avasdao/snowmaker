@@ -7,12 +7,12 @@
         <h2 id="information-heading" class="sr-only">Campaign Information</h2>
 
         <div class="flex justify-between items-center px-10 flex-col sm:flex-row">
-            <a href="https://bchplease.org" target="_blank">
+            <a href="https://avasdao.org" target="_blank">
                 <img src="https://i.imgur.com/lez4zfn.png" alt="" class="w-8 h-8 rounded-full" /></a>
 
             <div>
                 <p class="text-sm text-gray-500 mt-2 text-center mr-16">
-                    Produced by <a class="text-red-500 font-medium" href="https://bchplease.org" target="_blank">Bitcoin Please</a>
+                    Produced by <a class="text-red-500 font-medium" href="https://avasdao.org" target="_blank">Ava's DAO</a>
                 </p>
 
                 <p class="text-sm text-gray-500 mt-0 text-center ml-16">

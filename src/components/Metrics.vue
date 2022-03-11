@@ -22,11 +22,11 @@
                 </h2>
 
                 <p class="mt-3 text-3xl font-extrabold text-white">
-                    Bitcoin Cash is leading the way in peer-to-peer crowdfunding.
+                    Avalanche is leading the way in peer-to-peer crowdfunding.
                 </p>
 
                 <p class="mt-5 text-lg text-gray-300">
-                    SmartBCH introduces an improved system for managing public, peer-to-peer fundraisers.
+                    Avalanche introduces an improved system for managing public, peer-to-peer fundraisers.
                 </p>
 
                 <p class="mt-5 text-lg text-gray-300">
@@ -36,12 +36,12 @@
                 <div class="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
                     <p>
                         <span class="block text-2xl font-bold text-white">100+</span>
-                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Flipstarter Campaigns</span> have been successfully funded.</span>
+                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Crypto Crowdfunding Campaigns</span> have been successfully funded.</span>
                     </p>
 
                     <p>
                         <span class="block text-2xl font-bold text-white">125+</span>
-                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Countries around the globe</span> have supported Bitcoin crowdfunding.</span>
+                        <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Countries around the globe</span> have supported crypto crowdfunding.</span>
                     </p>
 
                     <p>

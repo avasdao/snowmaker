@@ -18,7 +18,7 @@
                         </h2>
 
                         <p class="mt-4 text-lg text-gray-500">
-                            Easily manage the public &amp; private of your Smart Bitcoin account.
+                            Easily manage the public &amp; private keys of your Avalanche account.
                             Create a full profile complete with photo gallery, favorite links and more..
                         </p>
 

@@ -124,6 +124,42 @@ export default {
     created: function () {
         this.campaigns = []
 
+        this.spotlights.push({
+            id: '8d9bf054-afe4-4f8e-8f33-85f0aaec2015',
+            title: `Musing`,
+            category: 'Hackathon Afterparty',
+            description: `Musing is a decentralized Q&amp;A protocol where you can mine tokens by creating great questions and answers. We give users ownership over the content they create.`,
+            url: 'https://musing.io/',
+            github: 'https://github.com/Musing-io/musing-protocol',
+            video: '',
+            imgBanner: 'https://i.imgur.com/KohV11V.png',
+            imgIcon: 'https://i.imgur.com/KohV11V.png',
+        })
+
+        this.spotlights.push({
+            id: 'd81484a6-6528-473a-909c-e04b0b30040a',
+            title: `Snowflakes.network`,
+            category: 'Hackathon Afterparty',
+            description: `Web3 push notifications you control.`,
+            url: 'https://snowflakes.network/',
+            github: 'https://github.com/snowflakes-network/platform',
+            video: '',
+            imgBanner: 'https://i.imgur.com/iKtVmQ5.png',
+            imgIcon: 'https://i.imgur.com/iKtVmQ5.png',
+        })
+
+        this.spotlights.push({
+            id: '41d4a8a6-baf8-4527-aec4-9b5723067775',
+            title: `Astrocave Academy`,
+            category: 'Hackathon Afterparty',
+            description: `A Gamified Education Platform and portfolio tracker that follows your Decentralized Finance learning journey, tracks your progress and provides guidance along the process.`,
+            url: 'https://astrocave.vercel.app/',
+            github: 'https://github.com/Astrocavemen/app',
+            video: '',
+            imgBanner: 'https://i.imgur.com/h31BVO4.png',
+            imgIcon: 'https://i.imgur.com/h31BVO4.png',
+        })
+
         this.campaigns.push({
             id: '7c139af6-8a2e-42cd-ba8d-9753712d8e1c',
             title: `Motoverse`,

@@ -6,7 +6,7 @@
             </h2>
 
             <p class="mt-4 max-w-3xl text-xl text-purple-200">
-                Snowmaker introduces a brand new set of smart contract functionality; elevating the existing Flipstarter platform in ways that ONLY SmartBCH can deliver:
+                Snowmaker introduces a NEW set of smart contracts, allowing for a permissionless crowdfunding experience that ONLY Avalanche can deliver:
             </p>
 
             <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">

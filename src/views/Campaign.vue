@@ -523,7 +523,7 @@ export default {
             if (!window.ethereum && !window.bitcoin) {
                 /* Validate embedded ethereum object. */
                 if (window.bitcoin) {
-                    console.info('Found Bitcoin provider.')
+                    console.info('Found Avalanche provider.')
                 } else if (window.ethereum) {
                     console.info('Found Ethereum provider.')
                 } else {
