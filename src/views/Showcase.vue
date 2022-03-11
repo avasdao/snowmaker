@@ -64,7 +64,8 @@
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
                                     <span>
-                                        <a @click.prevent="openUrl(campaign.url)" class="text-blue-500 font-medium hover:underline">Website</a>
+                                        <a v-if="campaign.url" @click.prevent="openUrl(campaign.url)" class="text-blue-500 font-medium hover:underline">Website</a>
+                                        <a v-else @click.prevent class="text-gray-500 font-medium">Website</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -72,7 +73,8 @@
                                     </span>
 
                                     <span>
-                                        <a @click.prevent="openUrl(campaign.github)" class="text-blue-500 font-medium hover:underline">Github</a>
+                                        <a v-if="campaign.github" @click.prevent="openUrl(campaign.github)" class="text-blue-500 font-medium hover:underline">Github</a>
+                                        <a v-else @click.prevent class="text-gray-500 font-medium">Github</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -80,7 +82,8 @@
                                     </span>
 
                                     <span>
-                                        <a @click.prevent="openUrl(campaign.video)" class="text-gray-500 font-medium">Video</a>
+                                        <a v-if="campaign.video" @click.prevent="openUrl(campaign.video)" class="text-blue-500 font-medium hover:underline">Video</a>
+                                        <a v-else @click.prevent class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
@@ -177,8 +180,8 @@ export default {
             url: 'https://yourmetaworld.org/',
             github: 'https://github.com/xx014939/metaworld-landing',
             video: '',
-            imgBanner: 'https://i.imgur.com/AFLsIB9.png',
-            imgIcon: 'https://i.imgur.com/AFLsIB9.png',
+            imgBanner: 'https://i.imgur.com/ZQfYy4p.png',
+            imgIcon: 'https://i.imgur.com/ZQfYy4p.png',
         })
 
         this.campaigns.push({
@@ -227,6 +230,174 @@ export default {
             video: '',
             imgBanner: 'https://i.imgur.com/tHMItJI.png',
             imgIcon: 'https://i.imgur.com/tHMItJI.png',
+        })
+
+        this.campaigns.push({
+            id: '4d1158d3-a4c3-40b8-85e0-465a3c33dc67',
+            title: `PRISMA Finance`,
+            category: 'Hackathon Afterparty',
+            description: `Agnostic Yield Aggregator Platform and Metaverse Bridge.`,
+            url: 'https://prisma.farm/',
+            github: 'https://github.com/Prisma-Finance',
+            video: '',
+            imgBanner: 'https://i.imgur.com/As87gd0.png',
+            imgIcon: 'https://i.imgur.com/As87gd0.png',
+        })
+
+        this.campaigns.push({
+            id: '9b260567-567e-4a63-8a3c-26947ad5d5a4',
+            title: `Rugzy`,
+            category: 'Hackathon Afterparty',
+            description: `Simplified data visualization ecosystem that highlights relevant smart wallet activity.`,
+            url: 'https://rugzy.io/',
+            github: 'https://rugzy.io/',
+            video: '',
+            imgBanner: 'https://i.imgur.com/AFLsIB9.png',
+            imgIcon: 'https://i.imgur.com/AFLsIB9.png',
+        })
+
+        this.campaigns.push({
+            id: '9bb751d8-26a8-4a2d-af03-e843962a8713',
+            title: `DeFi Dash`,
+            category: 'Hackathon Afterparty',
+            description: `Say goodbye to spreadsheets and manual portfolio trackers. DeFi Dash is here to provide an automated portfolio management solution for tracking the overall health of your Defi wallet.`,
+            url: 'https://defidash.carrd.co/',
+            github: 'https://github.com/nzee/delta/',
+            video: '',
+            imgBanner: 'https://i.imgur.com/Dhyvu36.png',
+            imgIcon: 'https://i.imgur.com/Dhyvu36.png',
+        })
+
+        this.campaigns.push({
+            id: '40e32298-aaaa-4ea1-b5ea-97230f9e0816',
+            title: `SuperFun.Social`,
+            category: 'Hackathon Afterparty',
+            description: `Created Focused Gamified Community Platform.`,
+            url: 'https://mvp.superfun.social/login',
+            github: 'https://github.com/jaydippatel83/SuperFunSocial-Moralis-Avalanch',
+            video: '',
+            imgBanner: 'https://i.imgur.com/7fRiUwr.png',
+            imgIcon: 'https://i.imgur.com/7fRiUwr.png',
+        })
+
+        this.campaigns.push({
+            id: '0a1a8aac-f1c1-4c8f-b1ef-55d8556d4187',
+            title: `GiftCards NFT`,
+            category: 'Hackathon Afterparty',
+            description: `Turn your birthday cards into NFTs, digitize your memories forever.`,
+            url: 'https://giftcards-nfts.netlify.app/',
+            github: 'https://github.com/electrone901/Gift-Cards-NFT-Moralis-avax',
+            video: '',
+            imgBanner: 'https://i.imgur.com/bBWgqel.png',
+            imgIcon: 'https://i.imgur.com/bBWgqel.png',
+        })
+
+        this.campaigns.push({
+            id: '321faa66-0f32-4cff-a76f-fe26ab53f2a2',
+            title: `Factor XUSD`,
+            category: 'Hackathon Afterparty',
+            description: `Factor XUSD is a stable yieldcoin (yield bearing stablecoin) on Avalanche.`,
+            url: 'https://app.xusd.fi/swap',
+            github: 'https://github.com/factor-finance/xusd-dapp',
+            video: '',
+            imgBanner: 'https://i.imgur.com/QHGQ0zP.png',
+            imgIcon: 'https://i.imgur.com/QHGQ0zP.png',
+        })
+
+        this.campaigns.push({
+            id: 'aa98fc6e-40d9-4a20-817a-afd2f8574e16',
+            title: `TubeCasts`,
+            category: 'Hackathon Afterparty',
+            description: `TubeCasts is a service that brings podcast functionality to youtube videos using Web3 technologies.`,
+            url: '',
+            github: 'https://github.com/iangriggs/TubeCasts',
+            video: '',
+            imgBanner: 'https://i.imgur.com/mabMZ7A.png',
+            imgIcon: 'https://i.imgur.com/mabMZ7A.png',
+        })
+
+        this.campaigns.push({
+            id: '50a94a9a-ac98-42c6-aa64-762378b04615',
+            title: `COCODA Finance`,
+            category: 'Hackathon Afterparty',
+            description: `Composite. Collateralised. Digital Assets. Own a single crypto asset which behavles exactly like the portfolio of tokens and funds that fit your preferences and risk appetite. Your very own CTF (Chain Traded Fund).`,
+            url: 'https://www.cocoda.finance/',
+            github: '',
+            video: '',
+            imgBanner: 'https://i.imgur.com/dG6gcRx.png',
+            imgIcon: 'https://i.imgur.com/dG6gcRx.png',
+        })
+
+        this.campaigns.push({
+            id: '0622d6b9-ae39-45c5-9444-6d8c7e3dedc2',
+            title: `EverRise: EverStats`,
+            category: 'Hackathon Afterparty',
+            description: `EverStats makes real-time insights about all aspects of EverRise easily accessible to the community and team in their preferred medium. EverChart: YouTube live chart feed, EverWatch: Twitter price bot, and on website stats.`,
+            url: 'https://data.everrise.com/stats.html',
+            github: 'https://github.com/everrise-ecosystem/EverStats',
+            video: '',
+            imgBanner: 'https://i.imgur.com/aRQ3vds.png',
+            imgIcon: 'https://i.imgur.com/aRQ3vds.png',
+        })
+
+        this.campaigns.push({
+            id: 'a9bfc823-1cdf-428d-b9eb-6ee6e2b4cecf',
+            title: `World of Hackathon Wingbirds`,
+            category: 'Hackathon Afterparty',
+            description: `Hackathon RPGTeam Building For Birds. W0HW is a platform, a game and a structure to attack the problem of team building.`,
+            url: 'https://twilight-dust-2356.on.fleek.co/',
+            github: 'https://github.com/cromewar/World-of-Hackathon-Wingbirds',
+            video: '',
+            imgBanner: 'https://i.imgur.com/9lwATlJ.png',
+            imgIcon: 'https://i.imgur.com/9lwATlJ.png',
+        })
+
+        this.campaigns.push({
+            id: 'e0a52f56-fec6-45c1-bc01-5d9d52bdf516',
+            title: `YouWho`,
+            category: 'Hackathon Afterparty',
+            description: `Crypto-based on-demand services ecosystem.`,
+            url: 'https://servedemo.youwho.io/',
+            github: 'https://github.com/youwhoyou/serve-demo-a',
+            video: '',
+            imgBanner: 'https://i.imgur.com/G2Hn7YX.png',
+            imgIcon: 'https://i.imgur.com/G2Hn7YX.png',
+        })
+
+        this.campaigns.push({
+            id: 'b0f83632-fcb7-4811-a6f5-217809c8ab7e',
+            title: `Vista Protocol`,
+            category: 'Hackathon Afterparty',
+            description: `Vista is a decentralized, fully on-chain exchange for perpetual futures (or perps for short) built on Avalanche.`,
+            url: 'https://vista-protocol.github.io/',
+            github: 'https://vista-protocol.github.io/',
+            video: '',
+            imgBanner: 'https://i.imgur.com/cV6FFgU.png',
+            imgIcon: 'https://i.imgur.com/cV6FFgU.png',
+        })
+
+        this.campaigns.push({
+            id: 'e341c06a-c72a-4900-bd47-be9eb4cfb678',
+            title: `DefiReturn`,
+            category: 'Hackathon Afterparty',
+            description: `DefiReturn is building software to help DeFi investors calculate their on-chain profit and loss. This feature unlocks two use cases: portfolio and tax returns.`,
+            url: 'https://ui.defireturn.app/',
+            github: 'https://github.com/jswift24/defireturn_ui',
+            video: '',
+            imgBanner: 'https://i.imgur.com/k4VzVJp.png',
+            imgIcon: 'https://i.imgur.com/k4VzVJp.png',
+        })
+
+        this.campaigns.push({
+            id: 'cd280174-1756-4e39-b595-3779ff5e33ba',
+            title: `NFTmall`,
+            category: 'Hackathon Afterparty',
+            description: `NFT Auction House & Physically Redeemable NFT Marketplace.`,
+            url: 'https://nftmall.io/',
+            github: '',
+            video: '',
+            imgBanner: 'https://i.imgur.com/eG0hgHg.png',
+            imgIcon: 'https://i.imgur.com/eG0hgHg.png',
         })
 
         // this.campaigns.push({

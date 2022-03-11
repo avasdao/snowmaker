@@ -63,7 +63,8 @@
 
                                 <div class="flex space-x-1 text-sm text-gray-500">
                                     <span>
-                                        <a @click.prevent="openUrl(spotlight.url)" class="text-blue-500 font-medium hover:underline">Website</a>
+                                        <a v-if="spotlight.url" @click.prevent="openUrl(spotlight.url)" class="text-blue-500 font-medium hover:underline">Website</a>
+                                        <a v-else @click.prevent class="text-gray-500 font-medium">Website</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -71,7 +72,8 @@
                                     </span>
 
                                     <span>
-                                        <a @click.prevent="openUrl(spotlight.github)" class="text-blue-500 font-medium hover:underline">Github</a>
+                                        <a v-if="spotlight.github" @click.prevent="openUrl(spotlight.github)" class="text-blue-500 font-medium hover:underline">Github</a>
+                                        <a v-else @click.prevent class="text-gray-500 font-medium">Github</a>
                                     </span>
 
                                     <span aria-hidden="true">
@@ -79,7 +81,8 @@
                                     </span>
 
                                     <span>
-                                        <a @click.prevent="openUrl(spotlight.video)" class="text-gray-500 font-medium">Video</a>
+                                        <a v-if="spotlight.video" @click.prevent="openUrl(spotlight.video)" class="text-blue-500 font-medium hover:underline">Video</a>
+                                        <a v-else @click.prevent class="text-gray-500 font-medium">Video</a>
                                     </span>
                                 </div>
                             </div>
