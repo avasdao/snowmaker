@@ -124,7 +124,7 @@ export default {
     created: function () {
         this.campaigns = []
 
-        this.spotlights.push({
+        this.campaigns.push({
             id: '8d9bf054-afe4-4f8e-8f33-85f0aaec2015',
             title: `Musing`,
             category: 'Hackathon Afterparty',
@@ -136,7 +136,7 @@ export default {
             imgIcon: 'https://i.imgur.com/KohV11V.png',
         })
 
-        this.spotlights.push({
+        this.campaigns.push({
             id: 'd81484a6-6528-473a-909c-e04b0b30040a',
             title: `Snowflakes.network`,
             category: 'Hackathon Afterparty',
@@ -148,7 +148,7 @@ export default {
             imgIcon: 'https://i.imgur.com/iKtVmQ5.png',
         })
 
-        this.spotlights.push({
+        this.campaigns.push({
             id: '41d4a8a6-baf8-4527-aec4-9b5723067775',
             title: `Astrocave Academy`,
             category: 'Hackathon Afterparty',

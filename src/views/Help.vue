@@ -106,10 +106,10 @@
 
         <section class="max-w-5xl mx-auto">
             <div class="text-center">
-                <h1 class="text-3xl font-bold">SmartBCH Resources</h1>
+                <h1 class="text-3xl font-bold">Avalanche Resources</h1>
 
                 <p class="text-medium text-gray-600">
-                    Below are some helpful tools and services to get you started with SmartBCH.
+                    Below are some helpful tools and services to get you started with Snowmaker.
                 </p>
 
                 <hr class="max-w-2xl my-10 mx-auto" />
@@ -119,28 +119,16 @@
                         Do you need help setting up your <a class="text-blue-500 font-bold hover:underline" href="https://metamask.io" target="_blank">MetaMask</a>?
                     </h1>
 
-                    <button @click="setupDevOpsMainnet" class="m-3 p-5 bg-green-300 rounded-xl border-4 border-green-500">
-                        Setup DevOps (Mainnet)
+                    <button @click="setupMainnet" class="m-3 p-5 bg-green-300 rounded-xl border-4 border-green-500">
+                        Setup (Mainnet)
                     </button>
 
-                    <button @click="setupDevOpsTestnet" class="m-3 p-5 bg-green-300 rounded-xl border-4 border-green-500">
-                        Setup DevOps (Testnet)
+                    <button @click="setupTestnet" class="m-3 p-5 bg-green-300 rounded-xl border-4 border-green-500">
+                        Setup (Testnet)
                     </button>
 
                     <p class="text-medium text-gray-600">
                         Open / unlock MetaMask, then click one of the buttons above for a one-click setup.
-                    </p>
-                </div>
-
-                <hr class="max-w-2xl my-10 mx-auto" />
-
-                <div class="mt-5 max-w-2xl mx-auto">
-                    <a class="text-2xl text-blue-500 font-bold hover:underline" href="https://smartmask.cash/" target="_blank">SMARTMASK</a>
-
-                    <p>
-                        If you have any trouble with the buttons above, please visit a new portal
-                        <a class="text-blue-500 font-medium hover:underline" href="https://twitter.com/zquestz" target="_blank">Josh Ellithorpe</a> recently deployed
-                        <a class="text-blue-500 font-medium hover:underline" href="https://smartmask.cash/" target="_blank">smartmask.cash</a> to help sort you out.
                     </p>
                 </div>
 
@@ -369,7 +357,7 @@ export default {
             }
         },
 
-        async setupDevOpsMainnet() {
+        async setupMainnet() {
             console.log('SETUP DEVOPS MAINNET')
 
             await window.ethereum
@@ -380,7 +368,7 @@ export default {
                 .catch(err => console.error(err))
         },
 
-        async setupDevOpsTestnet() {
+        async setupTestnet() {
             console.log('SETUP DEVOPS TESTNET')
 
             await window.ethereum

@@ -4,13 +4,11 @@
             Featured Sponsors
         </h3>
 
-        ...
-
-        <div class="hidden mt-4 prose prose-sm text-gray-500">
+        <div class="mt-4 prose prose-sm text-gray-500">
             <ul role="list">
                 <li v-for="sponsor of $store.state.sponsors" :key="sponsor.id">
-                    <strong class="mr-2">{{sponsor.cat}}</strong>
-                    {{sponsor.heading}}
+                    <strong class="mr-2 uppercase">{{sponsor.heading}}</strong>
+                    <a :href="sponsor.url" target="_blank">{{sponsor.url}}</a>
                 </li>
             </ul>
         </div>

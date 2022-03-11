@@ -46,7 +46,7 @@ Snowmaker introduces a brand new set of smart contract functionality; elevating 
 - __Secure, Managed Hosting:__ No need to deploy your own server. Simply point your domain's __[CNAME](https://en.wikipedia.org/wiki/CNAME_record)__ to snowmaker.io .. and DONE!
 
 Avalanche is leading the way in peer-to-peer crowdfunding.
-SmartBCH introduces an improved system for managing public, peer-to-peer fundraisers.
+Snowmaker introduces an improved system for managing public, peer-to-peer fundraisers.
 __All data is stored on-chain.__
 This guarantees 100% transparency with every satoshi earned and spent.
 
@@ -79,7 +79,7 @@ This would allow ANY peer-to-peer platform to directly access (read & write) thi
 
 ### How-to Videos
 
-As SmartBCH is an extremely nascent technology, we believe it's critical to provide adequte educational materials for new users.
+As Snowmaker is an extremely nascent technology, we believe it's critical to provide adequte educational materials for new users.
 
 We will produce 3 How-to "Smart" Pledge videos (in English, Spanish and Chinese) explaining step-by-step how to pledge AVAX.
 
@@ -118,16 +118,6 @@ Beyond this initial Mininum Viable Product (MVP) release, our team intends to ex
 3. Performing a 3rd-party audit of our __[Solidity contracts](https://github.com/modenero/snowmaker/-/tree/master/contracts)__ by a certified security firm.
 4. Add support for the __[Ledger](https://www.ledger.com/)__ hardware wallet.
 
-## Donate Directly
-
-Send BCH  → [bitcoincash:qqvl7fwc ... mlm053fy](https://blockchair.com/bitcoin-cash/address/qqvl7fwcthhhntsew056t8007pw55k258vmlm053fy)
-
-Send SLP  → [simpleledger:qqxtz0fw ... uxr25a2s](https://simpleledger.info/address/simpleledger:qqxtz0fw3gs5ndmwjm2we92k20zu3z99uuuxr25a2s)
-
-Don't trust. Verify!
-[https://snowmaker.io](https://snowmaker.io) (at our site's footer)
-
-
         `,
 
         /* Set highlights. */
@@ -152,29 +142,14 @@ Don't trust. Verify!
         /* Set sponsors. */
         sponsors: [
             {
-                id: 'ad9986b9-fe8a-48c3-808c-51fa914bea49',
-                cat: 'BUILD',
-                heading: `Avax.Network`,
-            },
-            {
                 id: '658d8cdd-ee9a-4538-90dc-46fe6addb352',
-                cat: 'BUILD',
-                heading: `Satoshi Nakamoto`,
+                heading: `Pangolin`,
+                url: 'https://pangolin.exchange/',
             },
             {
                 id: '9d57daf4-145c-4f0b-a8cc-11ee35190ac1',
-                cat: 'BUILD',
                 heading: `Ava Labs`,
-            },
-            {
-                id: '96b7e126-1b33-44ab-8fdc-04b522a820f7',
-                cat: 'RECORD',
-                heading: `Step-by-step Video Pledging Demo`,
-            },
-            {
-                id: '746f500c-5cd1-4d33-993a-136944e80374',
-                cat: 'WRITE',
-                heading: `Step-by-step pledging PDF Guide`,
+                url: 'https://www.avalabs.org/',
             },
         ],
 

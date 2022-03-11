@@ -8,7 +8,7 @@
 
         <div class="flex justify-between items-center px-10 flex-col sm:flex-row">
             <a href="https://avasdao.org" target="_blank">
-                <img src="https://i.imgur.com/lez4zfn.png" alt="" class="w-8 h-8 rounded-full" /></a>
+                <img src="https://i.imgur.com/ItpkyIL.png" alt="" class="w-8 h-8 rounded-full" /></a>
 
             <div>
                 <p class="text-sm text-gray-500 mt-2 text-center mr-16">
